@@ -234,12 +234,12 @@ else:
 
 engine = initialize_engine(
     model=args.pretrained_checkpoint,
-    tensor_parallel_size=4,
     quantization=args.quantization,
     max_lora_rank=lora_adapter_config.get("r", args.max_lora_rank),
     enable_lora=args.lora_checkpoints_folder is not None,
     enforce_eager=False,
     lora_target_modules=lora_adapter_config.get("target_modules", None),
+    tensor_parallel_size=4,
 )
 
 

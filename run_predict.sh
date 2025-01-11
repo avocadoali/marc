@@ -24,7 +24,6 @@ mkdir -p $tti_folder
 
 timestamp=$(date '+%Y-%m-%d_%H-%M-%S')
 
-
 # measure the time
 start_time=$(date +%s)
 
@@ -38,7 +37,7 @@ python predict.py \
 --solution_file=$solution_file \
 --max_lora_rank=$max_lora_rank \
 --include_n=1 \
---new_format | tee "logs/vllm_${timestamp}.log"
+--new_format 
 
 end_time=$(date +%s)
 echo "Time taken: $((end_time - start_time)) seconds"

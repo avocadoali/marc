@@ -28,6 +28,7 @@ def initialize_engine(
     enforce_eager: bool = False,
     enable_lora: bool = True,
     max_lora_rank: int = 64,
+    tensor_parallel_size: int = 4,
     quantization: Optional[str] = None,
     lora_repo: Optional[str] = None,
     lora_target_modules: Optional[List[str]] = None,
@@ -41,6 +42,7 @@ def initialize_engine(
         enforce_eager=enforce_eager,
         quantization=quantization,
         lora_target_modules=lora_target_modules,
+        tensor_parallel_size=tensor_parallel_size,
         load_format="bitsandbytes" if quantization else "auto",
         max_model_len=8192,
         gpu_memory_utilization=0.9
