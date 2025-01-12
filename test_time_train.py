@@ -23,9 +23,30 @@ from arclib.representers import (
 )
 from ttt.preprocess import get_augmenters, process_task
 
+import logging
+import time
+# Add these lines to configure the logger
+logging.basicConfig(
+    level=logging.DEBUG,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.StreamHandler(sys.stdout)  # This will output to console
+    ],
+    force=True,
+)
+
+logger = logging.getLogger(__name__)
 
 sys.path.append("third_party/torchtune/recipes/")
-import lora_finetune_single_device
+import lora_finetune_single_device, lora_finetune_distributed
+
+# print("Hello")
+# log the strart time 
+start_time = time.time()
+logger.debug(f"Starting test time training: {start_time}")
+
+# log available gpus
+logger.debug(f"Available GPUs: {torch.cuda.device_count()}")
 
 
 def save_adapter_config(
@@ -163,7 +184,9 @@ if args.num_tasks is not None:
     arc_test_tasks = arc_test_tasks[: args.num_tasks]
 arc_test_ids = [task.name.replace("-0", "") for task in arc_test_tasks]
 
-print("Number of train tasks: ", len(arc_test_tasks))
+# print("Number of train tasks: ", len(arc_test_tasks))
+logger.debug(f"Number of train tasks: {len(arc_test_tasks)}")
+
 
 if args.new_format:
     standard_formatter = TextTaskRepresenter(
@@ -202,6 +225,7 @@ conf = _merge_yaml_and_cli_args(
         formatter_class=argparse.RawDescriptionHelpFormatter,
     ).parse_known_args(["--config={}".format(args.lora_config)])
 )
+# logger.debug(f"Config: {conf.tokenizer.path}")
 
 # Update conf with argparse settings
 conf.dataset.unmask_outputs = args.unmask_outputs
@@ -219,6 +243,7 @@ conf.model.lora_dropout = args.lora_dropout
 conf.checkpointer.checkpoint_dir = args.base_checkpoint_dir
 conf.seed = args.seed
 
+
 if "llama3_2" not in conf.model._component_:
     conf.model.apply_lora_to_output = args.lora_to_output
 else:
@@ -226,8 +251,9 @@ else:
     # conf.model.lora_to_output = False
 
 # print conf
-print(conf)
+logger.debug(f"Config: {conf}")
 
+logger.debug(f"Tokenizer path: {conf.tokenizer.path}")
 tokenizer = llama3_tokenizer(conf.tokenizer.path)
 
 if args.no_transform:
@@ -275,7 +301,8 @@ def train_with_a_test_data(
     recipe.global_step = 0
     recipe.epochs_run = 0
 
-    recipe.seed = lora_finetune_single_device.training.set_seed(lconf.seed)
+    # recipe.seed = lora_finetune_single_device.training.set_seed(lconf.seed)
+    recipe.seed = lora_finetune_distributed.training.set_seed(lconf.seed)
     recipe.setup(cfg=lconf, model=model, adapter=adapter)
 
     for layer in recipe._model.layers:
@@ -329,7 +356,8 @@ for task, task_train_data in zip(arc_test_tasks, data):
 
 
 # initialize model
-recipe = lora_finetune_single_device.LoRAFinetuneRecipeSingleDevice(conf)
+# recipe = lora_finetune_single_device.LoRAFinetuneRecipeSingleDevice(conf)
+recipe = lora_finetune_distributed.LoRAFinetuneRecipeDistributed(conf)
 recipe.setup(cfg=conf)
 model = recipe._model
 device = recipe._device
@@ -337,7 +365,8 @@ device = recipe._device
 # if args.compile:
 #     model.compile(backend="inductor")
 
-adapter = copy.deepcopy(lora_finetune_single_device.get_adapter_params(model))
+# adapter = copy.deepcopy(lora_finetune_single_device.get_adapter_params(model))
+adapter = copy.deepcopy(lora_finetune_distributed.get_adapter_params(model))
 
 for task in arc_test_tasks:
     task_id = task.name.replace("-0", "")
@@ -359,7 +388,8 @@ for task in arc_test_tasks:
             adapter=adapter,
         )
         # save the adapter
-        final_adapter = lora_finetune_single_device.get_adapter_params(model)
+        # final_adapter = lora_finetune_single_device.get_adapter_params(model)
+        final_adapter = lora_finetune_distributed.get_adapter_params(model)
         # save
         replacements = {
             "_orig_mod.": "",
@@ -380,6 +410,7 @@ for task in arc_test_tasks:
                 name = name.replace(old, new)
             saved_dict[name] = param
 
+        logger.debug(f"Saving adapter for {task_id} to {adapter_path}")
         torch.save(saved_dict, adapter_path)
         saved_dict = None
         adapter_config_path = f"{args.experiment_folder}/{task_id}/adapter_config.json"
@@ -396,3 +427,5 @@ for task in arc_test_tasks:
         print(e)
         print("Error training for ", task_id)
         continue
+
+logger.debug(f"Done finished training: {time.time() - start_time}")

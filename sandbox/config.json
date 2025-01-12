@@ -1,0 +1,86 @@
+{
+    "model": {
+        "_component_": "torchtune.models.llama3.lora_llama3_8b",
+        "lora_attn_modules": [
+            "q_proj",
+            "v_proj"
+        ],
+        "apply_lora_to_mlp": true,
+        "apply_lora_to_output": true,
+        "lora_rank": 128,
+        "lora_alpha": 16.0,
+        "lora_dropout": 0.0
+    },
+    "tokenizer": {
+        "_component_": "torchtune.models.llama3.llama3_tokenizer",
+        "path": "/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a/tokenizer.model",
+        "max_seq_len": null
+    },
+    "checkpointer": {
+        "_component_": "torchtune.training.FullModelHFCheckpointer",
+        "checkpoint_dir": "/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+        "checkpoint_files": [
+            "pytorch_model-0001-of-0004.bin",
+            "pytorch_model-0002-of-0004.bin",
+            "pytorch_model-0003-of-0004.bin",
+            "pytorch_model-0004-of-0004.bin"
+        ],
+        "recipe_checkpoint": null,
+        "output_dir": "/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ali--marc-lora-adapters-8B-finetuned-llama3",
+        "model_type": "LLAMA3"
+    },
+    "resume_from_checkpoint": false,
+    "save_adapter_weights_only": true,
+    "dataset": {
+        "_component_": "torchtune.datasets.arc_dataset",
+        "source": "data/dummy/",
+        "train_on_input": false,
+        "unmask_outputs": true
+    },
+    "seed": 0,
+    "shuffle": true,
+    "batch_size": 2,
+    "optimizer": {
+        "_component_": "torch.optim.AdamW",
+        "fused": true,
+        "weight_decay": 0.01,
+        "lr": 0.0001
+    },
+    "lr_scheduler": {
+        "_component_": "torchtune.training.lr_schedulers.get_cosine_schedule_with_warmup",
+        "num_warmup_steps": 5
+    },
+    "loss": {
+        "_component_": "torch.nn.CrossEntropyLoss"
+    },
+    "epochs": 2,
+    "max_steps_per_epoch": null,
+    "gradient_accumulation_steps": 1,
+    "compile": false,
+    "output_dir": "experiments/lora",
+    "metric_logger": {
+        "_component_": "torchtune.training.metric_logging.DiskLogger",
+        "log_dir": "experiments/lora"
+    },
+    "log_every_n_steps": 1,
+    "log_peak_memory_stats": false,
+    "device": "cuda",
+    "dtype": "bf16",
+    "enable_activation_checkpointing": true,
+    "enable_activation_offloading": false,
+    "profiler": {
+        "_component_": "torchtune.training.setup_torch_profiler",
+        "enabled": false,
+        "output_dir": "experiments/lora/profiling_outputs",
+        "cpu": true,
+        "cuda": true,
+        "profile_memory": false,
+        "with_stack": false,
+        "record_shapes": true,
+        "with_flops": false,
+        "wait_steps": 5,
+        "warmup_steps": 5,
+        "active_steps": 2,
+        "num_cycles": 1
+    }
+}

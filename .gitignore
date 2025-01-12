@@ -1,5 +1,13 @@
 # Initially taken from Github's Python gitignore file
 
+
+experiments/
+ttt_adapters/
+sc_venv_arc/
+sc_venv_inference/
+
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

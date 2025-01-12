@@ -15,6 +15,14 @@
 #
 # This config works only for training on single device.
 
+# Tokenizer
+tokenizer:
+  _component_: torchtune.models.llama3.llama3_tokenizer
+  # path: checkpoints/base/Meta-Llama-3-8B-Instruct/original/tokenizer.model
+  path: /p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a/tokenizer.model  
+  max_seq_len: null
+
+
 
 # Model Arguments
 model:
@@ -26,12 +34,15 @@ model:
   lora_alpha: 16
   lora_dropout: 0.0
 
-# Tokenizer
-tokenizer:
-  _component_: torchtune.models.llama3.llama3_tokenizer
-  # path: checkpoints/base/Meta-Llama-3-8B-Instruct/original/tokenizer.model
-  path: /p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a/tokenizer.model  
-  max_seq_len: null
+
+# Dataset and Sampler
+dataset:
+   _component_: torchtune.datasets.arc_dataset
+   source: data/dummy/
+   train_on_input: False
+   unmask_outputs: True # we'll get loss from all outputs after the first demonstration, very hacky, tokenizer & formatting specific
+
+
 
 checkpointer:
   _component_: torchtune.training.FullModelHFCheckpointer
@@ -50,14 +61,6 @@ checkpointer:
 
 resume_from_checkpoint: False
 save_adapter_weights_only: True
-
-# Dataset and Sampler
-dataset:
-   _component_: torchtune.datasets.arc_dataset
-   source: data/dummy/
-   train_on_input: False
-   unmask_outputs: True # we'll get loss from all outputs after the first demonstration, very hacky, tokenizer & formatting specific
-
 seed: 57
 shuffle: True
 batch_size: 2
