@@ -1,9 +1,33 @@
 I want to run a torchtune lora finetune on multiple gpus. However I dont have internet access on the compute node. What master address and port do I need to set?
 
 
+tune run --nproc_per_node 4 lora_finetune_distributed --config configs/ttt/8B_lora_multi.yaml checkpointer.checkpoint_dir=/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a/ | tee logs_ttt/torchtune_distributed_test.log
 
 
 
+
+Dear Tech Support,
+
+I'm trying to run a torchtune lora finetune on multiple gpus. I tried to follow the instructions here from the torchtune docs:
+
+https://github.com/pytorch/torchtune/blob/main/recipes/configs/llama3/8B_lora.yaml
+  
+
+
+
+tune run --nproc_per_node 4 lora_finetune_distributed --config llama3/8B_lora
+
+
+``` bash
+  tune download meta-llama/Meta-Llama-3-8B-Instruct --output-dir /tmp/Meta-Llama-3-8B-Instruct --ignore-patterns "*.safetensors" 
+```
+
+``` bash
+   tune run --nproc_per_node 2 lora_finetune_distributed --config llama3/8B_lora
+```
+
+
+However I dont have internet access on the compute node. What master address and port do I need to set?
 
 
 

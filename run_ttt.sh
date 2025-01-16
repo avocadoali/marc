@@ -13,8 +13,8 @@ mkdir -p $ttt_folder
 # This is provided in this repo
 
 # lora_config_file=configs/ttt/8.1B_lora_single_device.yaml # for barc
-lora_config_file=configs/ttt/8B_lora_single_device.yaml
-# lora_config_file=configs/ttt/8B_lora_multi.yaml
+# lora_config_file=configs/ttt/8B_lora_single_device.yaml
+lora_config_file=configs/ttt/8B_lora_multi.yaml
 
 # But you can override some of the variables
 batch_size=1
@@ -26,9 +26,29 @@ lora_to_output=False # doesn't apply for Llama3.2 models for now.
 # You can specify how many tasks you want train for.
 num_tasks=2
 
+
+
+
+export MASTER_ADDR=localhost
+# export MASTER_ADDR=# Dump memory snapshot history to a file and stop recording
+export MASTER_PORT=12345            # Pick a free port
+export WORLD_SIZE=4                 # Total number of GPUs
+# export RANK=${SLURM_PROCID}
+# export LOCAL_RANK=${SLURM_LOCALID}
+
+echo "Master address: $MASTER_ADDR"
+echo "Master port: $MASTER_PORT"
+echo "World size: $WORLD_SIZE"
+echo "Rank: $RANK"
+
+
+
+
+
+
 # You can run the main script
-# python test_time_train_multi.py --lora_config=$lora_config_file \
-python test_time_train.py --lora_config=$lora_config_file \
+# python test_time_train.py --lora_config=$lora_config_file \
+python test_time_train_multi.py --lora_config=$lora_config_file \
 --base_checkpoint_dir=$base_checkpoint_dir \
 --experiment_folder=$ttt_folder \
 --data_file=$data_file \
