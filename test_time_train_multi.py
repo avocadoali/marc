@@ -49,12 +49,6 @@ logger.debug(f"Starting test time training: {start_time}")
 logger.debug(f"Available GPUs: {torch.cuda.device_count()}")
 
 
-# # Start recording memory snapshot history
-# torch.cuda.memory._record_memory_history(max_entries=100000)
-
-
-
-
 def save_adapter_config(
     path: str,
     base_model_path: str,
@@ -284,8 +278,6 @@ def train_with_a_test_data(
     lconf.output_dir = f"{experiment_folder}/{task_id}"
     lconf.checkpointer.output_dir = f"{experiment_folder}/{task_id}"
 
-    logger.debug(f"Processing task {task_id}")
-
     with open(
         f"{experiment_folder}/{task_id}/td_False_ttd_False_ttdwa_False_ad_True_trd_False.jsonl"
     ) as f:
@@ -309,8 +301,8 @@ def train_with_a_test_data(
     recipe.global_step = 0
     recipe.epochs_run = 0
 
-    recipe.seed = lora_finetune_single_device.training.set_seed(lconf.seed)
-    # recipe.seed = lora_finetune_distributed.training.set_seed(lconf.seed)
+    # recipe.seed = lora_finetune_single_device.training.set_seed(lconf.seed)
+    recipe.seed = lora_finetune_distributed.training.set_seed(lconf.seed)
     recipe.setup(cfg=lconf, model=model, adapter=adapter)
 
     for layer in recipe._model.layers:
@@ -323,7 +315,6 @@ def train_with_a_test_data(
     return recipe._model
 
 
-logger.debug(f"Processing tasks")
 processor = functools.partial(
     process_task,
     augmenters=augmenters_to_apply,
@@ -365,8 +356,8 @@ for task, task_train_data in zip(arc_test_tasks, data):
 
 
 # initialize model
-recipe = lora_finetune_single_device.LoRAFinetuneRecipeSingleDevice(conf)
-# recipe = lora_finetune_distributed.LoRAFinetuneRecipeDistributed(conf)
+# recipe = lora_finetune_single_device.LoRAFinetuneRecipeSingleDevice(conf)
+recipe = lora_finetune_distributed.LoRAFinetuneRecipeDistributed(conf)
 recipe.setup(cfg=conf)
 model = recipe._model
 device = recipe._device
@@ -374,8 +365,8 @@ device = recipe._device
 # if args.compile:
 #     model.compile(backend="inductor")
 
-adapter = copy.deepcopy(lora_finetune_single_device.get_adapter_params(model))
-# adapter = copy.deepcopy(lora_finetune_distributed.get_adapter_params(model))
+# adapter = copy.deepcopy(lora_finetune_single_device.get_adapter_params(model))
+adapter = copy.deepcopy(lora_finetune_distributed.get_adapter_params(model))
 
 for task in arc_test_tasks:
     task_id = task.name.replace("-0", "")
@@ -397,8 +388,8 @@ for task in arc_test_tasks:
             adapter=adapter,
         )
         # save the adapter
-        final_adapter = lora_finetune_single_device.get_adapter_params(model)
-        # final_adapter = lora_finetune_distributed.get_adapter_params(model)
+        # final_adapter = lora_finetune_single_device.get_adapter_params(model)
+        final_adapter = lora_finetune_distributed.get_adapter_params(model)
         # save
         replacements = {
             "_orig_mod.": "",
@@ -438,9 +429,3 @@ for task in arc_test_tasks:
         continue
 
 logger.debug(f"Done finished training: {time.time() - start_time}")
-
-# Dump memory snapshot history to a file and stop recording
-# torch.cuda.memory._dump_snapshot("profile.pkl")
-# torch.cuda.memory._record_memory_history(enabled=None)
-# logger.debug(f"Memory snapshot history dumped to profile.pkl")
-

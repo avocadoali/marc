@@ -105,17 +105,22 @@ profiler:
   enabled: False
 
   #Output directory of trace artifacts
-  output_dir: ${output_dir}/profiling_outputs
+  output_dir: logs_ttt/
 
   #`torch.profiler.ProfilerActivity` types to trace
-  cpu: True
+  cpu: False
   cuda: True
 
   #trace options passed to `torch.profiler.profile`
-  profile_memory: False
-  with_stack: False
+  # profile_memory: False
+  # with_stack: False
+  # record_shapes: True
+  # with_flops: False
+  profile_memory: True
+  with_stack: True
   record_shapes: True
-  with_flops: False
+  with_flops: True
+
 
   # `torch.profiler.schedule` options:
   # wait_steps -> wait, warmup_steps -> warmup, active_steps -> active, num_cycles -> repeat
