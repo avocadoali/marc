@@ -43,7 +43,7 @@ import lora_finetune_single_device, lora_finetune_distributed
 # print("Hello")
 # log the strart time 
 start_time = time.time()
-logger.debug(f"Starting test time training: {start_time}")
+logger.debug(f"Starting test time training multi: {start_time}")
 
 # log available gpus
 logger.debug(f"Available GPUs: {torch.cuda.device_count()}")
@@ -357,6 +357,8 @@ for task, task_train_data in zip(arc_test_tasks, data):
 
 # initialize model
 # recipe = lora_finetune_single_device.LoRAFinetuneRecipeSingleDevice(conf)
+# breakpoint()
+logger.debug(f"Initializing model")
 recipe = lora_finetune_distributed.LoRAFinetuneRecipeDistributed(conf)
 recipe.setup(cfg=conf)
 model = recipe._model
@@ -368,6 +370,7 @@ device = recipe._device
 # adapter = copy.deepcopy(lora_finetune_single_device.get_adapter_params(model))
 adapter = copy.deepcopy(lora_finetune_distributed.get_adapter_params(model))
 
+logger.debug(f"Starting training")
 for task in arc_test_tasks:
     task_id = task.name.replace("-0", "")
     # task_id = "all"
