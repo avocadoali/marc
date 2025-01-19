@@ -5,7 +5,15 @@ data_file=arc-prize-2024/arc-agi_evaluation_challenges.json
 # base_checkpoint_dir=/path/to/finetuned/model/folder/
 # ttt_folder=/path/to/ttt/folder
 base_checkpoint_dir=/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a
-ttt_folder=/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-lora-adapters-8B-finetuned-llama3/snapshots/0bfc91056465763e61d86bb047955364a82eaee2
+# ttt_folder=/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-lora-adapters-8B-finetuned-llama3/snapshots/0bfc91056465763e61d86bb047955364a82eaee2
+
+ttt_folder=ttt_adapters_10
+
+# ttt_folder=ttt_adapters_50
+# ttt_folder=ttt_adapters_10
+# ttt_folder=ttt_adapters_10
+# ttt_folder=ttt_adapters_10
+# ttt_folder=ttt_adapters_10
 
 # if solution file is given
 
@@ -19,7 +27,7 @@ n_sample=1
 # this should be same as your ttt
 max_lora_rank=128
 # You need to tell where predictions and submissions should be saved
-tti_folder=ttt_output
+tti_folder=ttt_output_complete/ttt_output_10
 mkdir -p $tti_folder
 
 timestamp=$(date '+%Y-%m-%d_%H-%M-%S')

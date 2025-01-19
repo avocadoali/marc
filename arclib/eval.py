@@ -11,7 +11,7 @@ from typing import Optional
 
 import numpy as np
 import pandas as pd
-from transformers.models.tapas.tokenization_tapas import pd
+# from transformers.models.tapas.tokenization_tapas import pd
 
 from .arc import make_submission, read_tasks_from_single_file, to_list, to_tuple
 from .voting import vote

@@ -372,11 +372,15 @@ adapter = copy.deepcopy(lora_finetune_single_device.get_adapter_params(model))
 
 
 num_saved_adapters = 0
+iteration = 0
 
 for task in arc_test_tasks:
     task_id = task.name.replace("-0", "")
     # task_id = "all"
-    print(f"Trying task {task_id}")
+    # print iteration number out of total tasks
+    iteration += 1
+    print(f"Trying task {task_id}, {iteration} out of {len(arc_test_tasks)}")
+
     try:
         adapter_path = f"{args.experiment_folder}/{task_id}/adapter_model.bin"
         # if exist continue
