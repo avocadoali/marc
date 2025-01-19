@@ -437,4 +437,10 @@ for task in arc_test_tasks:
 # print the number of saved adapters
 logger.debug(f"Number of saved adapters: {num_saved_adapters}")        
 logger.debug(f"Number of tasks: {len(arc_test_tasks)}")        
-logger.debug(f"Done finished training: {time.time() - start_time}")
+
+# print the time taken in hours minutes seconds
+time_taken = time.time() - start_time
+hours = int(time_taken // 3600)
+minutes = int((time_taken % 3600) // 60)
+seconds = int(time_taken % 60)
+logger.debug(f"Time taken: {hours} hours, {minutes} minutes, {seconds} seconds")
