@@ -37,7 +37,10 @@ lora_to_output=False # doesn't apply for Llama3.2 models for now.
 # echo "World size: $WORLD_SIZE"
 # echo "Rank: $RANK"
 
+
+
 ttt_folder=ttt_adapters_10
+mkdir -p $ttt_folder
 python test_time_train.py --lora_config=$lora_config_file \
 --base_checkpoint_dir=$base_checkpoint_dir \
 --experiment_folder=$ttt_folder \
@@ -52,6 +55,7 @@ python test_time_train.py --lora_config=$lora_config_file \
 
 
 ttt_folder=ttt_adapters_50
+mkdir -p $ttt_folder
 python test_time_train.py --lora_config=$lora_config_file \
 --base_checkpoint_dir=$base_checkpoint_dir \
 --experiment_folder=$ttt_folder \
@@ -65,8 +69,8 @@ python test_time_train.py --lora_config=$lora_config_file \
 --new_format 
 
 
-
 ttt_folder=ttt_adapters_100
+mkdir -p $ttt_folder
 python test_time_train.py --lora_config=$lora_config_file \
 --base_checkpoint_dir=$base_checkpoint_dir \
 --experiment_folder=$ttt_folder \
@@ -81,6 +85,7 @@ python test_time_train.py --lora_config=$lora_config_file \
 
 
 ttt_folder=ttt_adapters_250
+mkdir -p $ttt_folder
 python test_time_train.py --lora_config=$lora_config_file \
 --base_checkpoint_dir=$base_checkpoint_dir \
 --experiment_folder=$ttt_folder \
@@ -95,6 +100,7 @@ python test_time_train.py --lora_config=$lora_config_file \
 
 
 ttt_folder=ttt_adapters_500
+mkdir -p $ttt_folder
 python test_time_train.py --lora_config=$lora_config_file \
 --base_checkpoint_dir=$base_checkpoint_dir \
 --experiment_folder=$ttt_folder \
@@ -109,6 +115,7 @@ python test_time_train.py --lora_config=$lora_config_file \
 
 
 ttt_folder=ttt_adapters_1000
+mkdir -p $ttt_folder
 python test_time_train.py --lora_config=$lora_config_file \
 --base_checkpoint_dir=$base_checkpoint_dir \
 --experiment_folder=$ttt_folder \

@@ -2,7 +2,7 @@
 
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --time=00:15:00
+#SBATCH --time=8:00:00
 #SBATCH --gres=gpu:4
 #SBATCH --partition=booster
 #SBATCH --account=hai_hreplearn
@@ -18,6 +18,8 @@
 source sc_venv_arc/activate.sh
 
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+
+echo "starting ttt at time $(date +%Y-%m-%d_%H-%M-%S)"
 
 ./run_ttt.sh
 
@@ -57,7 +59,6 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 # --lora_alpha=$lora_alpha \
 # --lora_to_output=$lora_to_output \
 # --new_format # use --barc_format for barc
-
 
 # done with timestamp day and time in the format of YYYY-MM-DD_HH-MM-SS
 echo "Done at $(date +%Y-%m-%d_%H-%M-%S)"
