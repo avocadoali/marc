@@ -1,0 +1,16 @@
+[
+  {
+    "Max Training Size": 500,
+    "Actual Duration": "1:1:1:",
+    "avg time per adapter": "1:1:1:",
+    "#Created Adapters": 10,
+    "#To be created Adapters": 10
+  },
+  {
+    "Max Training Size": 500,
+    "Actual Duration": "1:1:1",
+    "avg time per adapter": "1:1:1",
+    "#Created Adapters": 10,
+    "#To be created Adapters": 10
+  }
+]

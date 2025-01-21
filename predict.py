@@ -121,10 +121,18 @@ args = parser.parse_args()
 np.random.seed(args.seed)
 torch.manual_seed(args.seed)
 
+import time
+
+start_time = time.time()
+
+
 # print args
 print("Arguments:")
 for arg in vars(args):
     print(f"{arg}: {getattr(args, arg)}")
+
+
+
 
 os.makedirs(args.experiment_folder, exist_ok=True)
 
@@ -276,7 +284,19 @@ print(f"Number of input queries to the engine: {len(inputs_to_the_engine)}")
 
 outputs_by_key = process_requests(engine, inputs_to_the_engine)
 
+## log the current interation
+iteration = 0
+iteration_two = 0
+
 for key in list(outputs_by_key.keys()):
+    
+
+
+    iteration += 1
+    print(f"Iteration: {iteration} out of {len(outputs_by_key)}")
+    
+
+
     inverter = inputs_to_remember[key]["inverter"]
     if inverter is not None:
         inverter_fn = eval("arclib.augmenters." + inverter)
@@ -290,6 +310,15 @@ for key in list(outputs_by_key.keys()):
     current_formatter = eval(current_formatter_repr)
 
     for output in outputs:
+        
+
+
+        iteration_two += 1
+        print(f"Iteration: {iteration_two} out of {len(outputs)}")
+
+
+
+
         output = output.replace("#", "")
         output = output.replace("  ", " ")
         if "```" in output:
@@ -356,4 +385,48 @@ print(f"Submission file is saved to {submission_file}")
 
 # evaluate
 if args.solution_file is not None:
-    evaluate(args.data_file, args.solution_file, submission_file)
+    corrects, total = evaluate(args.data_file, args.solution_file, submission_file)
+
+# save the stats in a json
+end_time = time.time()
+time_taken = end_time - start_time
+time_taken_hours = int(time_taken // 3600)
+time_taken_minutes = int((time_taken % 3600) // 60)
+time_taken_seconds = int(time_taken % 60)
+average_time_per_adapter = time_taken / len(outputs_by_key)
+average_time_per_adapter_hours = int(average_time_per_adapter // 3600)
+average_time_per_adapter_minutes = int((average_time_per_adapter % 3600) // 60)
+average_time_per_adapter_seconds = int(average_time_per_adapter % 60)
+
+
+stats = {
+    "Max Training Size": args.lora_checkpoints_folder,
+    "Actual Duration": f"{time_taken_hours}:{time_taken_minutes}:{time_taken_seconds}",
+    "avg time per adapter": f"{average_time_per_adapter_hours}:{average_time_per_adapter_minutes}:{average_time_per_adapter_seconds}",
+    "correct prediction": corrects,
+    "total prediction": total,
+}
+
+# Try to read existing data or create new list
+if os.path.exists(f"stats/predict_stats.json"):
+    with open(f"stats/predict_stats.json", "r") as f:
+        try:
+            existing_stats = json.load(f)
+        except json.JSONDecodeError:
+            existing_stats = []
+else:
+    existing_stats = []
+
+# Ensure existing_stats is a list
+if not isinstance(existing_stats, list):
+    existing_stats = [existing_stats]
+
+# Append new stats
+existing_stats.append(stats)
+
+# Write back the complete list
+with open(f"stats/predict_stats.json", "w") as f:
+    json.dump(existing_stats, f, indent=2)
+
+
+

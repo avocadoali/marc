@@ -2,7 +2,7 @@
 
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --time=01:00:00
+#SBATCH --time=04:30:00
 #SBATCH --gres=gpu:1
 #SBATCH --partition=booster
 #SBATCH --account=hai_hreplearn
@@ -14,7 +14,6 @@
 
 
 source sc_venv_inference/activate.sh
-export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 
 echo "starting ttt at time $(date +%Y-%m-%d_%H-%M-%S)"
 # train

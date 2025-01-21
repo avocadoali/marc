@@ -444,7 +444,43 @@ logger.debug(f"Number of tasks: {len(arc_test_tasks)}")
 
 # print the time taken in hours minutes seconds
 time_taken = time.time() - start_time
-hours = int(time_taken // 3600)
-minutes = int((time_taken % 3600) // 60)
-seconds = int(time_taken % 60)
-logger.debug(f"Time taken: {hours} hours, {minutes} minutes, {seconds} seconds")
+time_taken_hours = int(time_taken // 3600)
+time_taken_minutes = int((time_taken % 3600) // 60)
+time_taken_seconds = int(time_taken % 60)
+logger.debug(f"Time taken: {time_taken_hours} hours, {time_taken_minutes} minutes, {time_taken_seconds} seconds")
+
+average_time_per_adapter = time_taken / num_saved_adapters
+average_time_per_adapter_hours = int(average_time_per_adapter // 3600)
+average_time_per_adapter_minutes = int((average_time_per_adapter % 3600) // 60)
+average_time_per_adapter_seconds = int(average_time_per_adapter % 60)
+logger.debug(f"Average time per adapter: {average_time_per_adapter_hours} hours, {average_time_per_adapter_minutes} minutes, {average_time_per_adapter_seconds} seconds")
+
+
+stats = {
+    "Max Training Size": args.Nmax,
+    "Actual Duration": f"{time_taken_hours}:{time_taken_minutes}:{time_taken_seconds}",
+    "avg time per adapter": f"{average_time_per_adapter_hours}:{average_time_per_adapter_minutes}:{average_time_per_adapter_seconds}",
+    "#Created Adapters": num_saved_adapters,
+    "#To be created Adapters": len(arc_test_tasks),
+}
+
+# Try to read existing data or create new list
+if os.path.exists(f"stats/ttt_stats.json"):
+    with open(f"stats/ttt_stats.json", "r") as f:
+        try:
+            existing_stats = json.load(f)
+        except json.JSONDecodeError:
+            existing_stats = []
+else:
+    existing_stats = []
+
+# Ensure existing_stats is a list
+if not isinstance(existing_stats, list):
+    existing_stats = [existing_stats]
+
+# Append new stats
+existing_stats.append(stats)
+
+# Write back the complete list
+with open(f"stats/ttt_stats.json", "w") as f:
+    json.dump(existing_stats, f, indent=2)

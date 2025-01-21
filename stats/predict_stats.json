@@ -1,0 +1,23 @@
+[
+  {
+    "Max Training Size": "ttt_adapters_50",
+    "Actual Duration": "1:1:1",
+    "avg time per adapter": "1:1:1",
+    "correct prediction": 1,
+    "total prediction": 1
+  },
+  {
+    "Max Training Size": "ttt_adapters_50",
+    "Actual Duration": "1:1:1",
+    "avg time per adapter": "1:1:1",
+    "correct prediction": 1,
+    "total prediction": 1
+  },
+  {
+    "Max Training Size": "ttt_adapters_50",
+    "Actual Duration": "1:1:1",
+    "avg time per adapter": "1:1:1",
+    "correct prediction": 1,
+    "total prediction": 1
+  }
+]

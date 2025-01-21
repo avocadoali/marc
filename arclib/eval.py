@@ -144,6 +144,8 @@ def evaluate(
             os.path.join(os.path.dirname(submission_file), "task_info.csv"), index=False
         )
 
+    return corrects, total
+
 
 def compare(data_file: str, solution_file: str, submission_1_file: str, submission_2_file: str, plot_differents: bool = False, diff_folder: str = "diffs"):
     tasks = read_tasks_from_single_file(data_file, solution_file=solution_file, test=False)
