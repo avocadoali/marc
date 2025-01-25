@@ -6,16 +6,9 @@ data_file=arc-prize-2024/arc-agi_evaluation_challenges.json
 # ttt_folder=/path/to/ttt/folder
 base_checkpoint_dir=/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a
 # ttt_folder=/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-lora-adapters-8B-finetuned-llama3/snapshots/0bfc91056465763e61d86bb047955364a82eaee2
-# ttt_folder=ttt_adapters_10
-ttt_folder=ttt_adapters_50
-# ttt_folder=ttt_adapters_10
-# ttt_folder=ttt_adapters_10
-# ttt_folder=ttt_adapters_10
-# ttt_folder=ttt_adapters_10
 
 # if solution file is given predict will evaluate the model
 solution_file=arc-prize-2024/arc-agi_evaluation_solutions.json
-
 
 temperature=0
 n_sample=1
@@ -24,17 +17,39 @@ n_sample=1
 max_lora_rank=128
 # You need to tell where predictions and submissions should be saved
 
+# ttt_folder=ttt_adapters_0
+ttt_folder=ttt_adapters_5
+# ttt_folder=ttt_adapters_10
+# ttt_folder=ttt_adapters_50
+# ttt_folder=ttt_adapters_100
+# ttt_folder=ttt_adapters_10
+# ttt_folder=ttt_adapters_10
+# ttt_folder=ttt_adapters_10
+
+# tti_folder=ttt_output_complete/ttt_output_0
+tti_folder=ttt_output_complete/ttt_output_5
 # tti_folder=ttt_output_complete/ttt_output_10
 # tti_folder=ttt_output_complete/ttt_output_50
-tti_folder=ttt_output_complete/ttt_output_100
+# tti_folder=ttt_output_complete/ttt_output_100
 mkdir -p $tti_folder
-
 
 timestamp=$(date '+%Y-%m-%d_%H-%M-%S')
 
 # measure the time
 start_time=$(date +%s)
 
+# Without lora adapters
+# python predict.py \
+# --experiment_folder=$tti_folder \
+# --pretrained_checkpoint=$base_checkpoint_dir \
+# --temperature=$temperature \
+# --n_sample=$n_sample \
+# --data_file=$data_file \
+# --solution_file=$solution_file \
+# --include_n=0 \
+# --new_format 
+
+# With lora adapters
 python predict.py \
 --experiment_folder=$tti_folder \
 --pretrained_checkpoint=$base_checkpoint_dir \

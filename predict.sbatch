@@ -2,8 +2,8 @@
 
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --time=04:30:00
-#SBATCH --gres=gpu:1
+#SBATCH --time=06:00:00
+#SBATCH --gres=gpu:4
 #SBATCH --partition=booster
 #SBATCH --account=hai_hreplearn
 #SBATCH --cpus-per-task=12

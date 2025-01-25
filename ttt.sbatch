@@ -2,11 +2,12 @@
 
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --time=24:00:00
-#SBATCH --gres=gpu:4
+#SBATCH --time=1:00:00
+#SBATCH --gres=gpu:1
 #SBATCH --partition=booster
 #SBATCH --account=hai_hreplearn
-#SBATCH --cpus-per-task=24  
+#SBATCH --cpus-per-task=20
+#SBATCH --nodelist=jwb0027
 #SBATCH --output=logs_ttt/slurm_%j.log
 #SBATCH --error=logs_ttt/slurm_%j.log
 #SBATCH --mail-user=avocadoaling@gmail.com
@@ -18,6 +19,10 @@
 source sc_venv_arc/activate.sh
 
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+export CUDA_VISIBLE_DEVICES=0
+# export CUDA_VISIBLE_DEVICES=1
+# export CUDA_VISIBLE_DEVICES=2
+# export CUDA_VISIBLE_DEVICES=3
 
 echo "starting ttt at time $(date +%Y-%m-%d_%H-%M-%S)"
 

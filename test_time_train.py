@@ -100,6 +100,9 @@ parser.add_argument(
     "--num_tasks", type=int, default=None, help="Number of tasks to process for limited evaluation."
 )
 parser.add_argument(
+    "--offset", type=int, default=0, help="Starting offset for task processing"
+)
+parser.add_argument(
     "--base_checkpoint",
     type=str,
     default="checkpoints/pretrained/all_in_fix_final_checkpoints/",
@@ -183,7 +186,9 @@ arc_test_tasks = read_tasks_from_single_file(args.data_file, test=True)
 
 arc_test_tasks = [task for task in arc_test_tasks if "-0" in task.name]
 if args.num_tasks is not None:
-    arc_test_tasks = arc_test_tasks[: args.num_tasks]
+    arc_test_tasks = arc_test_tasks[args.offset:args.offset + args.num_tasks]
+else:
+    arc_test_tasks = arc_test_tasks[args.offset:]
 arc_test_ids = [task.name.replace("-0", "") for task in arc_test_tasks]
 
 # print("Number of train tasks: ", len(arc_test_tasks))

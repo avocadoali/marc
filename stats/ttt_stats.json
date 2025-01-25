@@ -12,5 +12,19 @@
     "avg time per adapter": "1:1:1",
     "#Created Adapters": 10,
     "#To be created Adapters": 10
+  },
+  {
+    "Max Training Size": 5,
+    "Actual Duration": "1:30:59",
+    "avg time per adapter": "0:0:15",
+    "#Created Adapters": 342,
+    "#To be created Adapters": 400
+  },
+  {
+    "Max Training Size": 500,
+    "Actual Duration": "23:59:12",
+    "avg time per adapter": "0:9:28",
+    "#Created Adapters": 152,
+    "#To be created Adapters": 400
   }
 ]

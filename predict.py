@@ -384,8 +384,11 @@ make_submission(tasks, predictions, submission_file, number_of_attempts=2)
 print(f"Submission file is saved to {submission_file}")
 
 # evaluate
+# return a list of task names the correctly predicted tasks
+correct_tasks = []
 if args.solution_file is not None:
     corrects, total = evaluate(args.data_file, args.solution_file, submission_file)
+
 
 # save the stats in a json
 end_time = time.time()

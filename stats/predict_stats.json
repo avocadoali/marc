@@ -1,23 +1,31 @@
 [
+
   {
     "Max Training Size": "ttt_adapters_50",
-    "Actual Duration": "1:1:1",
-    "avg time per adapter": "1:1:1",
-    "correct prediction": 1,
-    "total prediction": 1
+    "Actual Duration": "1:44:18",
+    "avg time per adapter": "0:0:1",
+    "correct prediction": 178,
+    "total prediction": 419
   },
   {
-    "Max Training Size": "ttt_adapters_50",
-    "Actual Duration": "1:1:1",
-    "avg time per adapter": "1:1:1",
-    "correct prediction": 1,
-    "total prediction": 1
+    "Max Training Size": "ttt_adapters_100",
+    "Actual Duration": "1:37:3",
+    "avg time per adapter": "0:0:1",
+    "correct prediction": 173,
+    "total prediction": 419
   },
   {
-    "Max Training Size": "ttt_adapters_50",
-    "Actual Duration": "1:1:1",
-    "avg time per adapter": "1:1:1",
-    "correct prediction": 1,
-    "total prediction": 1
+    "Max Training Size": null,
+    "Actual Duration": "0:16:47",
+    "avg time per adapter": "0:0:0",
+    "correct prediction": 82,
+    "total prediction": 419
+  },
+  {
+    "Max Training Size": "ttt_adapters_10",
+    "Actual Duration": "3:16:39",
+    "avg time per adapter": "0:0:2",
+    "correct prediction": 96,
+    "total prediction": 419
   }
 ]
