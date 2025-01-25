@@ -278,6 +278,7 @@ if __name__ == "__main__":
     if args.compare_submission_file is not None:
         compare(args.data_file, args.solution_file, submission_file, args.compare_submission_file, plot_differents=args.plot_mistakes, diff_folder=args.diff_folder)
 
+    print(f"Test name: {args.submission_file}")
 
     print(f"Correct tasks: {len(correct_tasks)}")
     print(f"No correct tasks: {len(not_correct_tasks)}")
@@ -285,6 +286,7 @@ if __name__ == "__main__":
 
 
     stats = {
+        "test_name": args.submission_file,
         "number of correct prediction": corrects,
         "number of total prediction": total,
         "correct tasks": correct_tasks,
@@ -292,8 +294,8 @@ if __name__ == "__main__":
     }
 
     # Try to read existing data or create new list
-    if os.path.exists(f"stats/predict_stats.json"):
-        with open(f"stats/predict_stats.json", "r") as f:
+    if os.path.exists(f"stats/predict_stats_lists.json"):
+        with open(f"stats/predict_stats_lists.json", "r") as f:
             try:
                 existing_stats = json.load(f)
             except json.JSONDecodeError:
@@ -309,7 +311,7 @@ if __name__ == "__main__":
     existing_stats.append(stats)
 
     # Write back the complete list
-    with open(f"stats/predict_stats.json", "w") as f:
+    with open(f"stats/predict_stats_lists.json", "w") as f:
         json.dump(existing_stats, f, indent=2)
 
 
