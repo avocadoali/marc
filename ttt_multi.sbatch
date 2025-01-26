@@ -2,7 +2,7 @@
 
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
-#SBATCH --time=24:00:00
+#SBATCH --time=40:00:00
 #SBATCH --gres=gpu:4
 #SBATCH --partition=booster
 #SBATCH --account=hai_hreplearn
@@ -43,7 +43,7 @@ lora_alpha=16.0
 lora_to_output=False # doesn't apply for Llama3.2 models for now.
 # You can specify how many tasks you want train for.
 
-ttt_folder=ttt_adapters_1000
+ttt_folder=ttt_adapters_500
 mkdir -p $ttt_folder
 
 CUDA_VISIBLE_DEVICES=0 python test_time_train.py --lora_config=$lora_config_file \
@@ -53,7 +53,7 @@ CUDA_VISIBLE_DEVICES=0 python test_time_train.py --lora_config=$lora_config_file
 --batch_size=$batch_size \
 --offset=0 \
 --num_tasks=100 \
---Nmax=1000 \
+--Nmax=500 \
 --epochs=$epochs \
 --lora_rank=$lora_rank \
 --lora_alpha=$lora_alpha \
@@ -67,7 +67,7 @@ CUDA_VISIBLE_DEVICES=1 python test_time_train.py --lora_config=$lora_config_file
 --batch_size=$batch_size \
 --offset=100 \
 --num_tasks=100 \
---Nmax=1000 \
+--Nmax=500 \
 --epochs=$epochs \
 --lora_rank=$lora_rank \
 --lora_alpha=$lora_alpha \
@@ -81,7 +81,7 @@ CUDA_VISIBLE_DEVICES=2 python test_time_train.py --lora_config=$lora_config_file
 --batch_size=$batch_size \
 --offset=200 \
 --num_tasks=100 \
---Nmax=1000 \
+--Nmax=500 \
 --epochs=$epochs \
 --lora_rank=$lora_rank \
 --lora_alpha=$lora_alpha \
@@ -96,7 +96,7 @@ CUDA_VISIBLE_DEVICES=3 python test_time_train.py --lora_config=$lora_config_file
 --batch_size=$batch_size \
 --offset=300 \
 --num_tasks=100 \
---Nmax=1000 \
+--Nmax=500 \
 --epochs=$epochs \
 --lora_rank=$lora_rank \
 --lora_alpha=$lora_alpha \

@@ -26,5 +26,40 @@
     "avg time per adapter": "0:9:28",
     "#Created Adapters": 152,
     "#To be created Adapters": 400
+  },
+  {
+    "Max Training Size": 250,
+    "Actual Duration": "10:57:11",
+    "avg time per adapter": "0:7:3",
+    "#Created Adapters": 93,
+    "#To be created Adapters": 400
+  },
+  {
+    "Max Training Size": 1000,
+    "Actual Duration": "12:18:55",
+    "avg time per adapter": "0:11:22",
+    "#Created Adapters": 65,
+    "#To be created Adapters": 100
+  },
+  {
+    "Max Training Size": 1000,
+    "Actual Duration": "13:13:46",
+    "avg time per adapter": "0:10:26",
+    "#Created Adapters": 76,
+    "#To be created Adapters": 100
+  },
+  {
+    "Max Training Size": 1000,
+    "Actual Duration": "15:3:17",
+    "avg time per adapter": "0:10:52",
+    "#Created Adapters": 83,
+    "#To be created Adapters": 100
+  },
+  {
+    "Max Training Size": 1000,
+    "Actual Duration": "16:15:4",
+    "avg time per adapter": "0:13:21",
+    "#Created Adapters": 73,
+    "#To be created Adapters": 100
   }
 ]

@@ -18,19 +18,20 @@ max_lora_rank=128
 # You need to tell where predictions and submissions should be saved
 
 # ttt_folder=ttt_adapters_0
-ttt_folder=ttt_adapters_5
+# ttt_folder=ttt_adapters_5
 # ttt_folder=ttt_adapters_10
 # ttt_folder=ttt_adapters_50
 # ttt_folder=ttt_adapters_100
-# ttt_folder=ttt_adapters_10
-# ttt_folder=ttt_adapters_10
-# ttt_folder=ttt_adapters_10
+# ttt_folder=ttt_adapters_500
+ttt_folder=ttt_adapters_1000
 
 # tti_folder=ttt_output_complete/ttt_output_0
-tti_folder=ttt_output_complete/ttt_output_5
+# tti_folder=ttt_output_complete/ttt_output_5
 # tti_folder=ttt_output_complete/ttt_output_10
 # tti_folder=ttt_output_complete/ttt_output_50
 # tti_folder=ttt_output_complete/ttt_output_100
+# tti_folder=ttt_output_complete/ttt_output_500
+tti_folder=ttt_output_complete/ttt_output_1000
 mkdir -p $tti_folder
 
 timestamp=$(date '+%Y-%m-%d_%H-%M-%S')

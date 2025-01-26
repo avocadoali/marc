@@ -105,34 +105,34 @@ lora_to_output=False # doesn't apply for Llama3.2 models for now.
 # --lora_to_output=$lora_to_output \
 # --new_format 
 
-# ttt_folder=ttt_adapters_500
-# mkdir -p $ttt_folder
-# python test_time_train.py --lora_config=$lora_config_file \
-# --base_checkpoint_dir=$base_checkpoint_dir \
-# --experiment_folder=$ttt_folder \
-# --data_file=$data_file \
-# --batch_size=$batch_size \
-# --Nmax=500 \
-# --epochs=$epochs \
-# --lora_rank=$lora_rank \
-# --lora_alpha=$lora_alpha \
-# --lora_to_output=$lora_to_output \
-# --new_format 
-
-ttt_folder=ttt_adapters_1000
+ttt_folder=ttt_adapters_500
 mkdir -p $ttt_folder
 python test_time_train.py --lora_config=$lora_config_file \
 --base_checkpoint_dir=$base_checkpoint_dir \
 --experiment_folder=$ttt_folder \
 --data_file=$data_file \
 --batch_size=$batch_size \
---offset=100 \
---num_tasks=100 \
---Nmax=1000 \
+--Nmax=500 \
 --epochs=$epochs \
 --lora_rank=$lora_rank \
 --lora_alpha=$lora_alpha \
 --lora_to_output=$lora_to_output \
 --new_format 
+
+# ttt_folder=ttt_adapters_1000
+# mkdir -p $ttt_folder
+# python test_time_train.py --lora_config=$lora_config_file \
+# --base_checkpoint_dir=$base_checkpoint_dir \
+# --experiment_folder=$ttt_folder \
+# --data_file=$data_file \
+# --batch_size=$batch_size \
+# --offset=100 \
+# --num_tasks=100 \
+# --Nmax=1000 \
+# --epochs=$epochs \
+# --lora_rank=$lora_rank \
+# --lora_alpha=$lora_alpha \
+# --lora_to_output=$lora_to_output \
+# --new_format 
 
 
