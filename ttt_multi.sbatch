@@ -2,7 +2,7 @@
 
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
-#SBATCH --time=40:00:00
+#SBATCH --time=20:00:00
 #SBATCH --gres=gpu:4
 #SBATCH --partition=booster
 #SBATCH --account=hai_hreplearn
@@ -20,7 +20,8 @@ source sc_venv_arc/activate.sh
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 echo "starting ttt at time $(date +%Y-%m-%d_%H-%M-%S)"
 
-data_file=arc-prize-2024/arc-agi_evaluation_challenges.json
+# data_file=arc-prize-2024/arc-agi_evaluation_challenges.json
+data_file=arc-prize-2024/arc-hard-tasks.json
 # Specify finetuned path
 
 base_checkpoint_dir=/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a
@@ -36,14 +37,14 @@ lora_config_file=configs/ttt/8B_lora_single_device.yaml
 
 # But you can override some of the variables
 batch_size=2
-epochs=2
+epochs=1
 learning_rate=5e-5
 lora_rank=128
 lora_alpha=16.0
 lora_to_output=False # doesn't apply for Llama3.2 models for now.
 # You can specify how many tasks you want train for.
 
-ttt_folder=ttt_adapters_500
+ttt_folder=ttt_adapters/ttt_adapters_2000_epochs_1
 mkdir -p $ttt_folder
 
 CUDA_VISIBLE_DEVICES=0 python test_time_train.py --lora_config=$lora_config_file \
@@ -53,7 +54,7 @@ CUDA_VISIBLE_DEVICES=0 python test_time_train.py --lora_config=$lora_config_file
 --batch_size=$batch_size \
 --offset=0 \
 --num_tasks=100 \
---Nmax=500 \
+--Nmax=2000 \
 --epochs=$epochs \
 --lora_rank=$lora_rank \
 --lora_alpha=$lora_alpha \
@@ -67,7 +68,7 @@ CUDA_VISIBLE_DEVICES=1 python test_time_train.py --lora_config=$lora_config_file
 --batch_size=$batch_size \
 --offset=100 \
 --num_tasks=100 \
---Nmax=500 \
+--Nmax=2000 \
 --epochs=$epochs \
 --lora_rank=$lora_rank \
 --lora_alpha=$lora_alpha \
@@ -81,7 +82,7 @@ CUDA_VISIBLE_DEVICES=2 python test_time_train.py --lora_config=$lora_config_file
 --batch_size=$batch_size \
 --offset=200 \
 --num_tasks=100 \
---Nmax=500 \
+--Nmax=2000 \
 --epochs=$epochs \
 --lora_rank=$lora_rank \
 --lora_alpha=$lora_alpha \
@@ -96,7 +97,7 @@ CUDA_VISIBLE_DEVICES=3 python test_time_train.py --lora_config=$lora_config_file
 --batch_size=$batch_size \
 --offset=300 \
 --num_tasks=100 \
---Nmax=500 \
+--Nmax=2000 \
 --epochs=$epochs \
 --lora_rank=$lora_rank \
 --lora_alpha=$lora_alpha \

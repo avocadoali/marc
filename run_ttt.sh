@@ -90,7 +90,7 @@ lora_to_output=False # doesn't apply for Llama3.2 models for now.
 # --lora_alpha=$lora_alpha \
 # --lora_to_output=$lora_to_output \
 # --new_format 
-
+plt.show()
 # ttt_folder=ttt_adapters_250
 # mkdir -p $ttt_folder
 # python test_time_train.py --lora_config=$lora_config_file \

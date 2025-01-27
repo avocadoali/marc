@@ -95,11 +95,9 @@ output_dir: experiments/lora
 metric_logger:
   _component_: torchtune.training.metric_logging.WandBLogger
   project: llama3_lora
-  entity: my_project
   job_type: lora_finetune_single_device
-  group: my_awesome_experiments
   mode: offline
-log_every_n_steps: 5
+log_every_n_steps: 1
 
 
 
