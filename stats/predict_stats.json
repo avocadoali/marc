@@ -54,5 +54,19 @@
     "avg time per adapter": "0:0:1",
     "correct prediction": 172,
     "total prediction": 419
+  },
+  {
+    "Max Training Size": "ttt_adapters/ttt_adapters_hard_tasks_2000_epochs_2",
+    "Actual Duration": "0:4:23",
+    "avg time per adapter": "0:0:1",
+    "correct prediction": 6,
+    "total prediction": 419
+  },
+  {
+    "Max Training Size": "ttt_adapters/ttt_adapters_hard_tasks_2000_epochs_2",
+    "Actual Duration": "0:5:3",
+    "avg time per adapter": "0:0:1",
+    "correct prediction": 6,
+    "total prediction": 419
   }
 ]

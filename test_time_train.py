@@ -179,7 +179,11 @@ args = parser.parse_args()
 
 os.makedirs(args.experiment_folder, exist_ok=True)
 
+
 arc_test_tasks = read_tasks_from_single_file(args.data_file, test=True)
+# log training data directory
+logger.debug(f"Training data directory: {args.data_file}")
+logger.debug(f"Training data length: {len(arc_test_tasks)}")
 
 
 # # reverse
@@ -349,9 +353,10 @@ for task, task_train_data in zip(arc_test_tasks, data):
         f"{args.experiment_folder}/{task_id}/td_False_ttd_False_ttdwa_False_ad_True_trd_False.jsonl",
         "w",
     ) as f:
+        # print num of lines in task_train_data
+        print(f"Number of lines in {task_id}: {len(task_train_data)}")
         for td in task_train_data:
             print(json.dumps(td), file=f)
-    # we need a placeholder test file for torchtune
     with open(
         f"{args.experiment_folder}/{task_id}/td_False_ttd_False_ttdwa_False_ad_True_trd_False.jsonl",
         "r",
@@ -361,6 +366,9 @@ for task, task_train_data in zip(arc_test_tasks, data):
     ) as dst:
         first_line = src.readline()
         dst.write(first_line)
+
+
+
 
 
 # initialize model
@@ -463,11 +471,20 @@ logger.debug(f"Average time per adapter: {average_time_per_adapter_hours} hours,
 
 
 stats = {
+    "output_directory": args.experiment_folder,
     "Max Training Size": args.Nmax,
     "Actual Duration": f"{time_taken_hours}:{time_taken_minutes}:{time_taken_seconds}",
     "avg time per adapter": f"{average_time_per_adapter_hours}:{average_time_per_adapter_minutes}:{average_time_per_adapter_seconds}",
     "#Created Adapters": num_saved_adapters,
     "#To be created Adapters": len(arc_test_tasks),
+    "hyperparameters": {
+        "batch_size": args.batch_size,
+        "epochs": args.epochs,
+        "learning_rate": args.learning_rate,
+        "lora_rank": args.lora_rank,
+        "lora_alpha": args.lora_alpha,
+        "lora_to_output": args.lora_to_output
+    },
 }
 
 # Try to read existing data or create new list
