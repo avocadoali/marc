@@ -45,11 +45,11 @@ lora_alpha=16.0
 lora_to_output=False # doesn't apply for Llama3.2 models for now.
 # You can specify how many tasks you want train for.
 
-ttt_folder=ttt_adapters_llama3/ttt_adapters_llama3_80_epochs_1
+nmax=100
 
+# Automatically construct folder name from variables
+ttt_folder="ttt_adapters_llama3/ttt_adapters_llama3_nmax_${nmax}_batch_${batch_size}_ep_${epochs}_lr_${learning_rate}_rank_${lora_rank}_alpha_${lora_alpha}"
 mkdir -p $ttt_folder
-
-nmax=80
 
 CUDA_VISIBLE_DEVICES=0 python test_time_train.py --lora_config=$lora_config_file \
 --base_checkpoint_dir=$base_checkpoint_dir \
@@ -92,7 +92,6 @@ CUDA_VISIBLE_DEVICES=2 python test_time_train.py --lora_config=$lora_config_file
 --lora_alpha=$lora_alpha \
 --lora_to_output=$lora_to_output \
 --new_format &
-
 
 CUDA_VISIBLE_DEVICES=3 python test_time_train.py --lora_config=$lora_config_file \
 --base_checkpoint_dir=$base_checkpoint_dir \

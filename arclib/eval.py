@@ -19,9 +19,6 @@ from .voting import vote
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap, Normalize
 
-correct_tasks = []
-not_correct_tasks = []
-
 def plot_the_mistake(task, preds, save_folder, postfix=""):
     cmap = ListedColormap([
         '#000', '#0074D9', '#FF4136', '#2ECC40', '#FFDC00',
@@ -117,11 +114,6 @@ def evaluate(
             label = accuracy(task, subtask_prediction)
             if mistakes and not label:
                 plot_the_mistake(task, subtask_prediction, save_folder)
-
-            if label:
-                correct_tasks.append(task_name)
-            else:
-                not_correct_tasks.append(task_name)
             corrects += label
             all_true = all_true and label
             subcorrect += label
@@ -151,8 +143,6 @@ def evaluate(
         task_info.to_csv(
             os.path.join(os.path.dirname(submission_file), "task_info.csv"), index=False
         )
-
-    return corrects, total
 
 
 def compare(data_file: str, solution_file: str, submission_1_file: str, submission_2_file: str, plot_differents: bool = False, diff_folder: str = "diffs"):
@@ -272,47 +262,15 @@ if __name__ == "__main__":
 
         make_submission(tasks, predictions, submission_file)
 
-    corrects, total = evaluate(args.data_file, args.solution_file, submission_file, args.task_info_file, mistakes=args.plot_mistakes)
-
+    evaluate(args.data_file, args.solution_file, submission_file, args.task_info_file, mistakes=args.plot_mistakes)
 
     if args.compare_submission_file is not None:
         compare(args.data_file, args.solution_file, submission_file, args.compare_submission_file, plot_differents=args.plot_mistakes, diff_folder=args.diff_folder)
 
-    print(f"Test name: {args.submission_file}")
-
-    print(f"Correct tasks: {len(correct_tasks)}")
-    print(f"No correct tasks: {len(not_correct_tasks)}")
 
 
 
-    stats = {
-        "test_name": args.submission_file,
-        "number of correct prediction": corrects,
-        "number of total prediction": total,
-        "correct tasks": correct_tasks,
-        "not correct tasks": not_correct_tasks,
-    }
 
-    # Try to read existing data or create new list
-    if os.path.exists(f"stats/predict_stats_lists.json"):
-        with open(f"stats/predict_stats_lists.json", "r") as f:
-            try:
-                existing_stats = json.load(f)
-            except json.JSONDecodeError:
-                existing_stats = []
-    else:
-        existing_stats = []
-
-    # Ensure existing_stats is a list
-    if not isinstance(existing_stats, list):
-        existing_stats = [existing_stats]
-
-    # Append new stats
-    existing_stats.append(stats)
-
-    # Write back the complete list
-    with open(f"stats/predict_stats_lists.json", "w") as f:
-        json.dump(existing_stats, f, indent=2)
 
 
 

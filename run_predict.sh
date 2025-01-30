@@ -47,11 +47,20 @@ max_lora_rank=128
 # tti_folder=ttt_output_llama3/ttt_output_llama3_40_epochs_1
 
 
-ttt_folder=ttt_adapters/ttt_adapters_50_epochs_1
-tti_folder=ttt_output_complete/ttt_output_50_epochs_1
+# ttt_folder=ttt_adapters/ttt_adapters_50_epochs_1
+# tti_folder=ttt_output_complete/ttt_output_50_epochs_1
 
 # ttt_folder=ttt_adapters/ttt_adapters_40
 # tti_folder=ttt_output_complete/ttt_output_40
+
+
+# ttt_folder=ttt_adapters_llama3/ttt_adapters_llama3_70_epochs_1
+# tti_folder=ttt_output_llama3/ttt_output_llama3_70_epochs_1
+
+
+
+ttt_folder=ttt_adapters_llama3/ttt_adapters_llama3_40_epochs_3
+tti_folder=ttt_output_llama3/ttt_output_llama3_40_epochs_3
 
 mkdir -p $tti_folder
 
