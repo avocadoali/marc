@@ -1,0 +1,546 @@
+[
+  {
+    "output_directory": "ttt_adapters_llama3/ttt_adapters_llama3_40_epochs_1",
+    "model_directory": "/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 40,
+    "Actual Duration": "1:5:56",
+    "avg time per adapter": "0:0:49",
+    "#Created Adapters": 80,
+    "#To be created Adapters": 100,
+    "hyperparameters": {
+      "batch_size": 2,
+      "epochs": 1,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "ttt_adapters_llama3/ttt_adapters_llama3_40_epochs_1",
+    "model_directory": "/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 40,
+    "Actual Duration": "1:7:18",
+    "avg time per adapter": "0:0:45",
+    "#Created Adapters": 89,
+    "#To be created Adapters": 100,
+    "hyperparameters": {
+      "batch_size": 2,
+      "epochs": 1,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "ttt_adapters_llama3/ttt_adapters_llama3_40_epochs_1",
+    "model_directory": "/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 40,
+    "Actual Duration": "1:14:10",
+    "avg time per adapter": "0:0:52",
+    "#Created Adapters": 85,
+    "#To be created Adapters": 100,
+    "hyperparameters": {
+      "batch_size": 2,
+      "epochs": 1,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "ttt_adapters_llama3/ttt_adapters_llama3_40_epochs_1",
+    "model_directory": "/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 40,
+    "Actual Duration": "1:15:44",
+    "avg time per adapter": "0:0:55",
+    "#Created Adapters": 82,
+    "#To be created Adapters": 100,
+    "hyperparameters": {
+      "batch_size": 2,
+      "epochs": 1,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "ttt_adapters_llama3/ttt_adapters_llama3_10_epochs_1",
+    "model_directory": "/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 10,
+    "Actual Duration": "0:22:51",
+    "avg time per adapter": "0:0:17",
+    "#Created Adapters": 80,
+    "#To be created Adapters": 100,
+    "hyperparameters": {
+      "batch_size": 2,
+      "epochs": 1,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "ttt_adapters_llama3/ttt_adapters_llama3_10_epochs_1",
+    "model_directory": "/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 10,
+    "Actual Duration": "0:23:16",
+    "avg time per adapter": "0:0:15",
+    "#Created Adapters": 89,
+    "#To be created Adapters": 100,
+    "hyperparameters": {
+      "batch_size": 2,
+      "epochs": 1,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "ttt_adapters_llama3/ttt_adapters_llama3_10_epochs_1",
+    "model_directory": "/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 10,
+    "Actual Duration": "0:27:17",
+    "avg time per adapter": "0:0:19",
+    "#Created Adapters": 85,
+    "#To be created Adapters": 100,
+    "hyperparameters": {
+      "batch_size": 2,
+      "epochs": 1,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "ttt_adapters_llama3/ttt_adapters_llama3_10_epochs_1",
+    "model_directory": "/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 10,
+    "Actual Duration": "0:27:29",
+    "avg time per adapter": "0:0:20",
+    "#Created Adapters": 82,
+    "#To be created Adapters": 100,
+    "hyperparameters": {
+      "batch_size": 2,
+      "epochs": 1,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "ttt_adapters_llama3/ttt_adapters_llama3_70_epochs_1",
+    "model_directory": "/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 70,
+    "Actual Duration": "1:48:28",
+    "avg time per adapter": "0:1:21",
+    "#Created Adapters": 80,
+    "#To be created Adapters": 100,
+    "hyperparameters": {
+      "batch_size": 2,
+      "epochs": 1,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "ttt_adapters_llama3/ttt_adapters_llama3_70_epochs_1",
+    "model_directory": "/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 70,
+    "Actual Duration": "1:52:35",
+    "avg time per adapter": "0:1:15",
+    "#Created Adapters": 89,
+    "#To be created Adapters": 100,
+    "hyperparameters": {
+      "batch_size": 2,
+      "epochs": 1,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "ttt_adapters_llama3/ttt_adapters_llama3_70_epochs_1",
+    "model_directory": "/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 70,
+    "Actual Duration": "2:1:21",
+    "avg time per adapter": "0:1:28",
+    "#Created Adapters": 82,
+    "#To be created Adapters": 100,
+    "hyperparameters": {
+      "batch_size": 2,
+      "epochs": 1,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "ttt_adapters_llama3/ttt_adapters_llama3_70_epochs_1",
+    "model_directory": "/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 70,
+    "Actual Duration": "2:3:19",
+    "avg time per adapter": "0:1:28",
+    "#Created Adapters": 84,
+    "#To be created Adapters": 100,
+    "hyperparameters": {
+      "batch_size": 2,
+      "epochs": 1,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "ttt_adapters_llama3/ttt_adapters_llama3_50_epochs_2_lora_alpha_32",
+    "model_directory": "/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 50,
+    "Actual Duration": "2:33:2",
+    "avg time per adapter": "0:1:54",
+    "#Created Adapters": 80,
+    "#To be created Adapters": 100,
+    "hyperparameters": {
+      "batch_size": 2,
+      "epochs": 2,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 32.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "ttt_adapters_llama3/ttt_adapters_llama3_40_epochs_3",
+    "model_directory": "/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 40,
+    "Actual Duration": "3:2:29",
+    "avg time per adapter": "0:2:16",
+    "#Created Adapters": 80,
+    "#To be created Adapters": 100,
+    "hyperparameters": {
+      "batch_size": 2,
+      "epochs": 3,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "ttt_adapters_llama3/ttt_adapters_llama3_50_epochs_2_lora_alpha_32",
+    "model_directory": "/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 50,
+    "Actual Duration": "2:40:33",
+    "avg time per adapter": "0:1:48",
+    "#Created Adapters": 89,
+    "#To be created Adapters": 100,
+    "hyperparameters": {
+      "batch_size": 2,
+      "epochs": 2,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 32.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "ttt_adapters_llama3/ttt_adapters_llama3_40_epochs_3",
+    "model_directory": "/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 40,
+    "Actual Duration": "3:9:11",
+    "avg time per adapter": "0:2:7",
+    "#Created Adapters": 89,
+    "#To be created Adapters": 100,
+    "hyperparameters": {
+      "batch_size": 2,
+      "epochs": 3,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "ttt_adapters_llama3/ttt_adapters_llama3_50_epochs_2_lora_alpha_32",
+    "model_directory": "/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 50,
+    "Actual Duration": "2:51:36",
+    "avg time per adapter": "0:2:7",
+    "#Created Adapters": 81,
+    "#To be created Adapters": 100,
+    "hyperparameters": {
+      "batch_size": 2,
+      "epochs": 2,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 32.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "ttt_adapters_llama3/ttt_adapters_llama3_50_epochs_2_lora_alpha_32",
+    "model_directory": "/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 50,
+    "Actual Duration": "2:54:41",
+    "avg time per adapter": "0:2:3",
+    "#Created Adapters": 85,
+    "#To be created Adapters": 100,
+    "hyperparameters": {
+      "batch_size": 2,
+      "epochs": 2,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 32.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "ttt_adapters_llama3/ttt_adapters_llama3_40_epochs_3",
+    "model_directory": "/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 40,
+    "Actual Duration": "3:28:41",
+    "avg time per adapter": "0:2:27",
+    "#Created Adapters": 85,
+    "#To be created Adapters": 100,
+    "hyperparameters": {
+      "batch_size": 2,
+      "epochs": 3,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "ttt_adapters_llama3/ttt_adapters_llama3_40_epochs_3",
+    "model_directory": "/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 40,
+    "Actual Duration": "3:29:22",
+    "avg time per adapter": "0:2:33",
+    "#Created Adapters": 82,
+    "#To be created Adapters": 100,
+    "hyperparameters": {
+      "batch_size": 2,
+      "epochs": 3,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "ttt_adapters_llama3/ttt_adapters_llama3_50_epochs_3",
+    "model_directory": "/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 50,
+    "Actual Duration": "3:45:33",
+    "avg time per adapter": "0:2:51",
+    "#Created Adapters": 79,
+    "#To be created Adapters": 100,
+    "hyperparameters": {
+      "batch_size": 2,
+      "epochs": 3,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "ttt_adapters_llama3/ttt_adapters_llama3_50_epochs_3",
+    "model_directory": "/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 50,
+    "Actual Duration": "3:46:9",
+    "avg time per adapter": "0:2:49",
+    "#Created Adapters": 80,
+    "#To be created Adapters": 100,
+    "hyperparameters": {
+      "batch_size": 2,
+      "epochs": 3,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "ttt_adapters_llama3/ttt_adapters_llama3_50_epochs_3",
+    "model_directory": "/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 50,
+    "Actual Duration": "3:54:30",
+    "avg time per adapter": "0:2:38",
+    "#Created Adapters": 89,
+    "#To be created Adapters": 100,
+    "hyperparameters": {
+      "batch_size": 2,
+      "epochs": 3,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "ttt_adapters_llama3/ttt_adapters_llama3_50_epochs_3",
+    "model_directory": "/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 50,
+    "Actual Duration": "3:55:4",
+    "avg time per adapter": "0:2:40",
+    "#Created Adapters": 88,
+    "#To be created Adapters": 100,
+    "hyperparameters": {
+      "batch_size": 2,
+      "epochs": 3,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "ttt_adapters_llama3/ttt_adapters_llama3_50_epochs_3_lora_alpha_32",
+    "model_directory": "/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 50,
+    "Actual Duration": "3:46:27",
+    "avg time per adapter": "0:2:49",
+    "#Created Adapters": 80,
+    "#To be created Adapters": 100,
+    "hyperparameters": {
+      "batch_size": 2,
+      "epochs": 3,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 32.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "ttt_adapters_llama3/ttt_adapters_llama3_50_epochs_3_lora_alpha_32",
+    "model_directory": "/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 50,
+    "Actual Duration": "3:55:59",
+    "avg time per adapter": "0:2:39",
+    "#Created Adapters": 89,
+    "#To be created Adapters": 100,
+    "hyperparameters": {
+      "batch_size": 2,
+      "epochs": 3,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 32.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "ttt_adapters_llama3/ttt_adapters_llama3_50_epochs_3",
+    "model_directory": "/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 50,
+    "Actual Duration": "4:14:1",
+    "avg time per adapter": "0:3:10",
+    "#Created Adapters": 80,
+    "#To be created Adapters": 100,
+    "hyperparameters": {
+      "batch_size": 2,
+      "epochs": 3,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "ttt_adapters_llama3/ttt_adapters_llama3_50_epochs_3",
+    "model_directory": "/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 50,
+    "Actual Duration": "4:14:19",
+    "avg time per adapter": "0:3:8",
+    "#Created Adapters": 81,
+    "#To be created Adapters": 100,
+    "hyperparameters": {
+      "batch_size": 2,
+      "epochs": 3,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "ttt_adapters_llama3/ttt_adapters_llama3_50_epochs_3",
+    "model_directory": "/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 50,
+    "Actual Duration": "4:14:43",
+    "avg time per adapter": "0:2:59",
+    "#Created Adapters": 85,
+    "#To be created Adapters": 100,
+    "hyperparameters": {
+      "batch_size": 2,
+      "epochs": 3,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "ttt_adapters_llama3/ttt_adapters_llama3_50_epochs_3",
+    "model_directory": "/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 50,
+    "Actual Duration": "4:15:44",
+    "avg time per adapter": "0:3:2",
+    "#Created Adapters": 84,
+    "#To be created Adapters": 100,
+    "hyperparameters": {
+      "batch_size": 2,
+      "epochs": 3,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "ttt_adapters_llama3/ttt_adapters_llama3_50_epochs_3_lora_alpha_32",
+    "model_directory": "/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 50,
+    "Actual Duration": "4:17:46",
+    "avg time per adapter": "0:3:8",
+    "#Created Adapters": 82,
+    "#To be created Adapters": 100,
+    "hyperparameters": {
+      "batch_size": 2,
+      "epochs": 3,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 32.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "ttt_adapters_llama3/ttt_adapters_llama3_50_epochs_3_lora_alpha_32",
+    "model_directory": "/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 50,
+    "Actual Duration": "4:18:48",
+    "avg time per adapter": "0:3:2",
+    "#Created Adapters": 85,
+    "#To be created Adapters": 100,
+    "hyperparameters": {
+      "batch_size": 2,
+      "epochs": 3,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 32.0,
+      "lora_to_output": true
+    }
+  }
+]
