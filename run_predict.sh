@@ -21,7 +21,6 @@ max_lora_rank=128
 # ttt_folder=ttt_adapters/ttt_adapters_5
 # ttt_folder=ttt_adapters/ttt_adapters_10
 # ttt_folder=ttt_adapters/ttt_adapters_50
-ttt_folder=ttt_adapters/ttt_adapters_50_epochs_1
 # ttt_folder=ttt_adapters/ttt_adapters_100
 # ttt_folder=ttt_adapters/ttt_adapters_250
 # ttt_folder=ttt_adapters/ttt_adapters_500
@@ -33,13 +32,26 @@ ttt_folder=ttt_adapters/ttt_adapters_50_epochs_1
 # tti_folder=ttt_output_complete/ttt_output_5
 # tti_folder=ttt_output_complete/ttt_output_10
 # tti_folder=ttt_output_complete/ttt_output_50
-tti_folder=ttt_output_complete/ttt_output_50_epochs_1
+
 # tti_folder=ttt_output_complete/ttt_output_100
 # tti_folder=ttt_output_complete/ttt_output_250
 # tti_folder=ttt_output_complete/ttt_output_500
 # tti_folder=ttt_output_complete/ttt_output_1000
 # tti_folder=ttt_output_complete/ttt_output_2000_epochs_1
 # tti_folder=ttt_output_complete/ttt_output_hard_tasks_2000_epochs_2
+
+# ttt_folder=ttt_adapters_llama3/ttt_adapters_llama3_10_epochs_1
+# tti_folder=ttt_output_llama3/ttt_output_llama3_10_epochs_1
+
+# ttt_folder=ttt_adapters_llama3/ttt_adapters_llama3_40_epochs_1
+# tti_folder=ttt_output_llama3/ttt_output_llama3_40_epochs_1
+
+
+ttt_folder=ttt_adapters/ttt_adapters_50_epochs_1
+tti_folder=ttt_output_complete/ttt_output_50_epochs_1
+
+# ttt_folder=ttt_adapters/ttt_adapters_40
+# tti_folder=ttt_output_complete/ttt_output_40
 
 mkdir -p $tti_folder
 
@@ -71,6 +83,7 @@ python predict.py \
 --max_lora_rank=$max_lora_rank \
 --include_n=1 \
 --new_format 
+
 
 end_time=$(date +%s)
 echo "Time taken: $((end_time - start_time)) seconds"

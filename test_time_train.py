@@ -469,9 +469,10 @@ average_time_per_adapter_minutes = int((average_time_per_adapter % 3600) // 60)
 average_time_per_adapter_seconds = int(average_time_per_adapter % 60)
 logger.debug(f"Average time per adapter: {average_time_per_adapter_hours} hours, {average_time_per_adapter_minutes} minutes, {average_time_per_adapter_seconds} seconds")
 
-
+# save the model directory in the stats
 stats = {
     "output_directory": args.experiment_folder,
+    "model_directory": args.base_checkpoint_dir,
     "Max Training Size": args.Nmax,
     "Actual Duration": f"{time_taken_hours}:{time_taken_minutes}:{time_taken_seconds}",
     "avg time per adapter": f"{average_time_per_adapter_hours}:{average_time_per_adapter_minutes}:{average_time_per_adapter_seconds}",

@@ -1,4 +1,4 @@
-# Config for single device LoRA finetuning in lora_finetune_single_device.py
+# Config for single device LoRA finetuning in lora_finetune_single_device.py/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/marc/configs
 # using a Llama3 8B Instruct model
 #
 # This config assumes that you've run the following command before launching
