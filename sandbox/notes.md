@@ -52,3 +52,7 @@ nmax=100
 
 
 
+
+
+
+ ttt_adapters_llama3/ttt_adapters_llama3_nmax_10_batch_2_ep_1_lr_5e-5_rank_128_alpha_16.0/0bb8deee/

@@ -283,6 +283,7 @@ def train_with_a_test_data(
     experiment_folder: str,
     model=None,
     adapter=None,
+    args_dict=None,
 ):
     recipe.cleanup()
     lconf = copy.deepcopy(conf)
@@ -321,7 +322,7 @@ def train_with_a_test_data(
         layer.attn.kv_cache = None
         recipe._model.causal_mask = None
 
-    recipe.train()
+    recipe.train(args_dict=args_dict)
     recipe._optimizer = None
 
     return recipe._model
@@ -402,6 +403,23 @@ for task in arc_test_tasks:
             print(f"Adapter for {task_id} already exists, skipping")
             continue
         test_file = f"{args.experiment_folder}/{task_id}/td_True_ttd_False_ttdwa_False_ad_True_trd_False.jsonl"
+        
+        args_dict = {
+            "task_id": task_id,
+            "adapter_path": adapter_path,
+            "experiment_folder": args.experiment_folder,
+            "base_checkpoint_dir": args.base_checkpoint_dir,
+            "lora_rank": args.lora_rank,
+            "lora_alpha": args.lora_alpha,
+            "lora_attn_modules": args.lora_attn_modules,
+            "lora_to_mlp": args.lora_to_mlp,
+            "lora_to_output": args.lora_to_output,
+        }
+
+
+
+
+
         train_with_a_test_data(
             task_id,
             recipe,
@@ -409,44 +427,47 @@ for task in arc_test_tasks:
             experiment_folder=args.experiment_folder,
             model=model,
             adapter=adapter,
+            args_dict=args_dict,
         )
-        # save the adapter
-        final_adapter = lora_finetune_single_device.get_adapter_params(model)
-        # final_adapter = lora_finetune_distributed.get_adapter_params(model)
-        # save
-        replacements = {
-            "_orig_mod.": "",
-            "layers.": "base_model.model.model.layers.",
-            "w1": "gate_proj",
-            "w2": "down_proj",
-            "w3": "up_proj",
-            ".attn": ".self_attn",
-            "_checkpoint_wrapped_module.": "",
-            "lora_b": "lora_B",
-            "lora_a": "lora_A",
-            "output.lora_": "base_model.model.lm_head.lora_",
-        }
 
-        saved_dict = {}
-        for name, param in final_adapter.items():
-            for old, new in replacements.items():
-                name = name.replace(old, new)
-            saved_dict[name] = param
+        # # save the adapter
+        # final_adapter = lora_finetune_single_device.get_adapter_params(model)
+        # # final_adapter = lora_finetune_distributed.get_adapter_params(model)
+        # # save
+        # replacements = {
+        #     "_orig_mod.": "",
+        #     "layers.": "base_model.model.model.layers.",
+        #     "w1": "gate_proj",
+        #     "w2": "down_proj",
+        #     "w3": "up_proj",
+        #     ".attn": ".self_attn",
+        #     "_checkpoint_wrapped_module.": "",
+        #     "lora_b": "lora_B",
+        #     "lora_a": "lora_A",
+        #     "output.lora_": "base_model.model.lm_head.lora_",
+        # }
 
-        logger.debug(f"Saving adapter for {task_id} to {adapter_path}")
-        torch.save(saved_dict, adapter_path)
-        num_saved_adapters += 1
-        saved_dict = None
-        adapter_config_path = f"{args.experiment_folder}/{task_id}/adapter_config.json"
-        save_adapter_config(
-            adapter_config_path,
-            args.base_checkpoint_dir,
-            lora_rank=args.lora_rank,
-            lora_alpha=args.lora_alpha,
-            lora_attn_modules=args.lora_attn_modules,
-            lora_to_mlp=args.lora_to_mlp,
-            lora_to_output=args.lora_to_output,
-        )
+        # saved_dict = {}
+        # for name, param in final_adapter.items():
+        #     for old, new in replacements.items():
+        #         name = name.replace(old, new)
+        #     saved_dict[name] = param
+
+        # logger.debug(f"Saving adapter for {task_id} to {adapter_path}")
+        # torch.save(saved_dict, adapter_path)
+        # num_saved_adapters += 1
+        # saved_dict = None
+        # adapter_config_path = f"{args.experiment_folder}/{task_id}/adapter_config.json"
+        # save_adapter_config(
+        #     adapter_config_path,
+        #     args.base_checkpoint_dir,
+        #     lora_rank=args.lora_rank,
+        #     lora_alpha=args.lora_alpha,
+        #     lora_attn_modules=args.lora_attn_modules,
+        #     lora_to_mlp=args.lora_to_mlp,
+        #     lora_to_output=args.lora_to_output,
+        # )
+
     except Exception as e:
         print(e)
         print("Error training for ", task_id)

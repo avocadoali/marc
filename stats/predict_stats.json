@@ -5,5 +5,13 @@
     "avg time per adapter": "0:0:1",
     "correct prediction": 173,
     "total prediction": 419
-  }
+  },
+  {
+    "Max Training Size": "ttt_adapters_llama3/ttt_adapters_llama3_40_epochs_3",
+    "Actual Duration": "1:54:14",
+    "avg time per adapter": "0:0:1",
+    "correct prediction": 176,
+    "total prediction": 419
+  },
+
 ]
