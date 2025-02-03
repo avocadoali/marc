@@ -386,7 +386,7 @@ adapter = copy.deepcopy(lora_finetune_single_device.get_adapter_params(model))
 # adapter = copy.deepcopy(lora_finetune_distributed.get_adapter_params(model))
 
 
-num_saved_adapters = 0
+num_saved_adapters = 1
 iteration = 0
 
 for task in arc_test_tasks:
@@ -418,7 +418,7 @@ for task in arc_test_tasks:
 
 
 
-
+        num_saved_adapters = 0
 
         train_with_a_test_data(
             task_id,
@@ -492,7 +492,7 @@ logger.debug(f"Average time per adapter: {average_time_per_adapter_hours} hours,
 
 # save the model directory in the stats
 stats = {
-    "output_directory": args.experiment_folder,
+    "output_directory": args.nn experiment_folder,
     "model_directory": args.base_checkpoint_dir,
     "Max Training Size": args.Nmax,
     "Actual Duration": f"{time_taken_hours}:{time_taken_minutes}:{time_taken_seconds}",

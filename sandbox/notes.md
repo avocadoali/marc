@@ -56,3 +56,115 @@ nmax=100
 
 
  ttt_adapters_llama3/ttt_adapters_llama3_nmax_10_batch_2_ep_1_lr_5e-5_rank_128_alpha_16.0/0bb8deee/
+
+Adapters:
+ ├── adapter_config_1.json
+│   ├── adapter_config_2.json
+│   ├── adapter_config_3.json
+│   ├── adapter_config_4.json
+│   ├── adapter_config_5.json
+│   ├── adapter_model.bin_1
+│   ├── adapter_model.bin_2
+│   ├── adapter_model.bin_3
+│   ├── adapter_model.bin_4
+│   ├── adapter_model.bin_5
+
+
+I want to run the prediction. Now each adapter directory has more adapter configs (e.g. adapter_config_1.json, adapter_config_2.json, etc.) and more adapter models (e.g. adapter_model.bin_1, adapter_model.bin_2, etc.). 
+Edit the code such that I can run the prediction for each adapter config and adapter model.
+
+
+
+/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a/
+
+
+
+[nguyen31@jwlogin24 ttt_adapters_llama3_nmax_1300_batch_2_ep_1_lr_5e-5_rank_128_alpha_16.0]$ tree -L 4
+.
+├── 00576224
+│   ├── adapter_config.json
+│   ├── adapter_model_10.bin
+│   ├── adapter_model_20.bin
+│   ├── adapter_model_2.bin
+│   ├── adapter_model_40.bin
+│   ├── adapter_model_4.bin
+│   ├── adapter_model_60.bin
+│   ├── adapter_model_6.bin
+│   ├── adapter_model_80.bin
+│   ├── adapter_model_8.bin
+│   ├── config.json
+│   ├── log_1738284345.txt
+│   ├── td_False_ttd_False_ttdwa_False_ad_True_trd_False.jsonl
+│   └── td_True_ttd_False_ttdwa_False_ad_True_trd_False.jsonl
+├── 03560426
+│   ├── adapter_config.json
+│   ├── adapter_model_100.bin
+│   ├── adapter_model_10.bin
+│   ├── adapter_model_200.bin
+│   ├── adapter_model_20.bin
+│   ├── adapter_model_2.bin
+│   ├── adapter_model_40.bin
+│   ├── adapter_model_4.bin
+│   ├── adapter_model_60.bin
+│   ├── adapter_model_6.bin
+│   ├── adapter_model_80.bin
+│   ├── adapter_model_8.bin
+│   ├── config.json
+│   ├── log_1738284396.txt
+│   ├── td_False_ttd_False_ttdwa_False_ad_True_trd_False.jsonl
+│   └── td_True_ttd_False_ttdwa_False_ad_True_trd_False.jsonl
+├── 0607ce86
+│   ├── adapter_config.json
+│   ├── adapter_model_10.bin
+│   ├── adapter_model_20.bin
+│   ├── adapter_model_2.bin
+│   ├── adapter_model_40.bin
+│   ├── adapter_model_4.bin
+│   ├── adapter_model_60.bin
+│   ├── adapter_model_6.bin
+│   ├── adapter_model_8.bin
+│   ├── config.json
+│   ├── log_1738284838.txt
+│   ├── td_False_ttd_False_ttdwa_False_ad_True_trd_False.jsonl
+│   └── td_True_ttd_False_ttdwa_False_ad_True_trd_False.jsonl
+
+
+
+give me a command tomove the adapters into the following directory structure:
+
+adapters_10
+- 00576224
+  - adapter_config.json
+  - adapter_model_10.bin
+- 03560426
+  - adapter_config.json
+  - adapter_model_10.bin
+- 0607ce86
+  - adapter_config.json
+  - adapter_model_10.bin
+
+adapters_20
+- 00576224
+  - adapter_config.json
+  - adapter_model_20.bin
+- 03560426
+  - adapter_config.json
+  - adapter_model_20.bin
+- 0607ce86
+  - adapter_config.json
+  - adapter_model_20.bin
+
+adapters_30
+- 00576224
+  - adapter_config.json
+  - adapter_model_30.bin
+- 03560426
+  - adapter_config.json
+  - adapter_model_30.bin
+- 0607ce86
+  - adapter_config.json
+  - adapter_model_30.bin
+
+
+
+025-01-31 21:42:54,670 - torchtune.util

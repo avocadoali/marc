@@ -8,6 +8,7 @@ import torch
 from transformers import (
     AutoTokenizer,
 )
+
 from vllm.lora.request import LoRARequest
 
 import arclib.messagers
@@ -73,7 +74,7 @@ parser.add_argument(
     "--n_sample", type=int, default=1, help="Number of samples to generate per input"
 )
 parser.add_argument(
-    "--experiment_folder", type=str, default="experiments/tti/new/", help="submission folder"
+    "--experiment_folder", type=str, default="experiments/tti/new/", help="s/ubmission folder"
 )
 parser.add_argument(
     "--formatter",
@@ -115,6 +116,12 @@ parser.add_argument(
     "--use_all_lora", action="store_true", help="single trained lora"
 )
 
+# add number for the adapters
+parser.add_argument(
+    "--adapter_number", type=int, default=1, help="Number of adapters to use"
+)
+
+
 args = parser.parse_args()
 
 # set seed
@@ -132,8 +139,6 @@ for arg in vars(args):
     print(f"{arg}: {getattr(args, arg)}")
 
 
-
-
 os.makedirs(args.experiment_folder, exist_ok=True)
 
 tasks = read_tasks_from_single_file(args.data_file, solution_file=args.solution_file, test=True)
@@ -146,6 +151,8 @@ if args.lora_checkpoints_folder is not None:
         lora_id = lora_path.split("/")[-2]
         id_to_lora_path[lora_id] = lora_path
         lora_dir = os.path.dirname(lora_path)
+
+# breakpoint()
 
 if args.num_examples is not None:
     # shuffle
@@ -233,12 +240,16 @@ lora_path_idxs = list(id_to_lora_path.keys())
 if len(lora_path_idxs) > 0:
     # load one adapter_config.json
     with open(
-        id_to_lora_path[lora_path_idxs[0]].replace("adapter_model.bin", "adapter_config.json")
+        id_to_lora_path[lora_path_idxs[0]].replace(f"adapter_model.bin", f"adapter_config.json")
     ) as f:
         lora_adapter_config = json.load(f)
 else:
     lora_adapter_config = {}
 
+
+
+
+# breakpoint()
 
 engine = initialize_engine(
     model=args.pretrained_checkpoint,
@@ -254,9 +265,14 @@ engine = initialize_engine(
 for i, info in enumerate(valid_tasks):
     name = info["task"].name
     idx, no = name.split("-")
+    
+    # breakpoint()
+
     if args.lora_checkpoints_folder is not None:
         lora_path = id_to_lora_path[idx]
         lora_path = os.path.dirname(lora_path)
+        # breakpoint()
+
         # get the parent folder
         if args.use_all_lora:
             lora_path = os.path.join(os.path.dirname(lora_path), "all/")
@@ -310,13 +326,9 @@ for key in list(outputs_by_key.keys()):
     current_formatter = eval(current_formatter_repr)
 
     for output in outputs:
-        
-
 
         iteration_two += 1
         print(f"Iteration: {iteration_two} out of {len(outputs)}")
-
-
 
 
         output = output.replace("#", "")
@@ -357,7 +369,7 @@ for key in list(outputs_by_key.keys()):
 outputs_by_key = {key: outputs for key, outputs in outputs_by_key.items() if len(outputs) > 0}
 
 # save
-all_predictions_file = os.path.join(args.experiment_folder, "all_predictions.json")
+all_predictions_file = os.path.join(args.experiment_folder, f"all_predictions.json")
 
 with open(all_predictions_file, "w") as f:
     json.dump(outputs_by_key, f)
@@ -378,7 +390,7 @@ for task in tasks:
 
 predictions = [outputs[task.name] for task in tasks]
 
-submission_file = os.path.join(args.experiment_folder, "submission.json")
+submission_file = os.path.join(args.experiment_folder, f"submission_{args.adapter_number}.json")
 make_submission(tasks, predictions, submission_file, number_of_attempts=2)
 
 print(f"Submission file is saved to {submission_file}")
@@ -404,6 +416,8 @@ average_time_per_adapter_seconds = int(average_time_per_adapter % 60)
 
 stats = {
     "Max Training Size": args.lora_checkpoints_folder,
+    "directory": args.experiment_folder,
+    "Adapter Number": args.adapter_number,
     "Actual Duration": f"{time_taken_hours}:{time_taken_minutes}:{time_taken_seconds}",
     "avg time per adapter": f"{average_time_per_adapter_hours}:{average_time_per_adapter_minutes}:{average_time_per_adapter_seconds}",
     "correct prediction": corrects,

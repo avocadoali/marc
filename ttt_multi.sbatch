@@ -2,7 +2,7 @@
 
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
-#SBATCH --time=6:00:00
+#SBATCH --time=24:00:00
 #SBATCH --gres=gpu:4
 #SBATCH --partition=booster
 #SBATCH --account=hai_hreplearn
@@ -26,6 +26,7 @@ data_file=arc-prize-2024/arc-agi_evaluation_challenges.json
 
 # base_checkpoint_dir=/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--deepseek-ai--DeepSeek-R1-Distill-Llama-8B/snapshots/24ae87a9c340aa4207dd46509414c019998e0161
 base_checkpoint_dir=/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a
+# base_checkpoint_dir= /p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--barc0--Llama-3.1-ARC-Potpourri-Transduction-8B/snapshots/f4c4f24c9428d051748af8049099132171115009
 # Specify where TTT adapters should be saved
 
 # You need show an initial config file that is compatible with torchtune configs
@@ -45,7 +46,7 @@ lora_alpha=16.0
 lora_to_output=False # doesn't apply for Llama3.2 models for now.
 # You can specify how many tasks you want train for.
 
-nmax=10
+nmax=1500
 
 # Automatically construct folder name from variables
 ttt_folder="ttt_adapters_llama3/ttt_adapters_llama3_nmax_${nmax}_batch_${batch_size}_ep_${epochs}_lr_${learning_rate}_rank_${lora_rank}_alpha_${lora_alpha}"
