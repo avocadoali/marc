@@ -45,8 +45,9 @@ start_time = time.time()
 logger.debug(f"Starting test time training: {start_time}")
 
 # log available gpus
-logger.debug(f"Available GPUs: {torch.cuda.device_count()}")
+# logger.debug(f"Available GPUs: {torch.cuda.device_count()}")
 
+logger.debug(f"Test")
 
 def save_adapter_config(
     path: str,
@@ -176,6 +177,8 @@ parser.add_argument(
 
 args = parser.parse_args()
 
+logger.debug(f"Os makedirs")
+
 os.makedirs(args.experiment_folder, exist_ok=True)
 
 
@@ -274,6 +277,10 @@ else:
         include_basic=True, include_size=True, include_chain=True, include_repeat=True
     )
 
+# only process first task
+arc_test_tasks = arc_test_tasks[0]
+
+breakpoint()
 
 processor = functools.partial(
     process_task,
@@ -288,8 +295,10 @@ processor = functools.partial(
 # with Pool(args.cpus) as p:
 #     data = p.map(processor, arc_test_tasks)
 
+breakpoint()
 
-data = [processor(task) for task in arc_test_tasks]
+# data = [processor(task) for task in arc_test_tasks]
+data = processor(arc_test_tasks[0])
 
 assert len(data) == len(arc_test_tasks)
 

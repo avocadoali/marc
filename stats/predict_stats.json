@@ -1,17 +1,65 @@
 [
   {
-    "Max Training Size": "ttt_adapters_100",
-    "Actual Duration": "1:37:3",
-    "avg time per adapter": "0:0:1",
-    "correct prediction": 173,
+    "Max Training Size": "ttt_adapters_llama3/ttt_adapters_llama3_nmax_1500_batch_2_ep_1_lr_5e-5_rank_128_alpha_16.0_20",
+    "directory": "ttt_output_llama3_stages/ttt_adapters_llama3_nmax_1500_batch_2_ep_1_lr_5e-5_rank_128_alpha_16.0_20",
+    "Adapter Number": 20,
+    "Actual Duration": "2:30:42",
+    "avg time per adapter": "0:0:2",
+    "correct prediction": 120,
     "total prediction": 419
   },
   {
-    "Max Training Size": "ttt_adapters_llama3/ttt_adapters_llama3_40_epochs_3",
-    "Actual Duration": "1:54:14",
+    "Max Training Size": "ttt_adapters_llama3/ttt_adapters_llama3_nmax_1500_batch_2_ep_1_lr_5e-5_rank_128_alpha_16.0_40",
+    "directory": "ttt_output_llama3_stages/ttt_adapters_llama3_nmax_1500_batch_2_ep_1_lr_5e-5_rank_128_alpha_16.0_40",
+    "Adapter Number": 40,
+    "Actual Duration": "1:39:52",
     "avg time per adapter": "0:0:1",
-    "correct prediction": 176,
+    "correct prediction": 148,
     "total prediction": 419
   },
-
+  {
+    "Max Training Size": "ttt_adapters_llama3/ttt_adapters_llama3_nmax_1500_batch_2_ep_1_lr_5e-5_rank_128_alpha_16.0_6",
+    "directory": "ttt_output_llama3_stages/ttt_adapters_llama3_nmax_1500_batch_2_ep_1_lr_5e-5_rank_128_alpha_16.0_6",
+    "Adapter Number": 10,
+    "Actual Duration": "3:18:42",
+    "avg time per adapter": "0:0:2",
+    "correct prediction": 78,
+    "total prediction": 419
+  },
+  {
+    "Max Training Size": "ttt_adapters_llama3/ttt_adapters_llama3_nmax_1500_batch_2_ep_1_lr_5e-5_rank_128_alpha_16.0_60",
+    "directory": "ttt_output_llama3_stages/ttt_adapters_llama3_nmax_1500_batch_2_ep_1_lr_5e-5_rank_128_alpha_16.0_60",
+    "Adapter Number": 60,
+    "Actual Duration": "1:15:7",
+    "avg time per adapter": "0:0:1",
+    "correct prediction": 149,
+    "total prediction": 419
+  },
+  {
+    "Max Training Size": "ttt_adapters_llama3/ttt_adapters_llama3_nmax_1500_batch_2_ep_1_lr_5e-5_rank_128_alpha_16.0_80",
+    "directory": "ttt_output_llama3_stages/ttt_adapters_llama3_nmax_1500_batch_2_ep_1_lr_5e-5_rank_128_alpha_16.0_80",
+    "Adapter Number": 80,
+    "Actual Duration": "0:43:34",
+    "avg time per adapter": "0:0:0",
+    "correct prediction": 132,
+    "total prediction": 419
+  },
+  {
+    "Max Training Size": "ttt_adapters_llama3/ttt_adapters_llama3_nmax_1500_batch_2_ep_1_lr_5e-5_rank_128_alpha_16.0_8",
+    "directory": "ttt_output_llama3_stages/ttt_adapters_llama3_nmax_1500_batch_2_ep_1_lr_5e-5_rank_128_alpha_16.0_8",
+    "Adapter Number": 10,
+    "Actual Duration": "3:18:11",
+    "avg time per adapter": "0:0:2",
+    "correct prediction": 75,
+    "total prediction": 419
+  },
+  {
+    "Max Training Size": "ttt_adapters_llama3/ttt_adapters_llama3_nmax_1500_batch_2_ep_1_lr_5e-5_rank_128_alpha_16.0_10",
+    "directory": "ttt_output_llama3_stages/ttt_adapters_llama3_nmax_1500_batch_2_ep_1_lr_5e-5_rank_128_alpha_16.0_10",
+    "Adapter Number": 10,
+    "Actual Duration": "3:2:5",
+    "avg time per adapter": "0:0:2",
+    "correct prediction": 84,
+    "total prediction": 419
+  }
 ]

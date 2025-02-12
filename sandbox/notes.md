@@ -168,3 +168,9 @@ adapters_30
 
 
 025-01-31 21:42:54,670 - torchtune.util
+
+$ python debug_transformations.py --lora_config=configs/ttt/8B_lora_single_device.yaml --base_checkpoint_d
+ir=/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628
+ef6e0a75fef50264c91b142a --experiment_folder=transformation_test --data_file=arc-prize-2024/arc-agi_evaluation_challenges.json --batch_size=2 --o
+ffset=0 --num_tasks=100 --Nmax=1500 --epochs=1 --lora_rank=128 --lora_alpha=16.0 --lora_to_output=False --new_format
+
