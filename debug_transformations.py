@@ -5,6 +5,7 @@ import functools
 import json
 import os
 import sys
+import random
 from multiprocessing import Pool
 
 import torch
@@ -278,9 +279,12 @@ else:
     )
 
 # only process first task
-arc_test_tasks = arc_test_tasks[0]
+# arc_test_tasks = arc_test_tasks[0]
 
-breakpoint()
+# breakpoint()
+
+print(f'args.permute_n: {args.permute_n}')
+print(f'args.Nmax: {args.Nmax}')
 
 processor = functools.partial(
     process_task,
@@ -295,12 +299,25 @@ processor = functools.partial(
 # with Pool(args.cpus) as p:
 #     data = p.map(processor, arc_test_tasks)
 
-breakpoint()
+# breakpoint()
 
-# data = [processor(task) for task in arc_test_tasks]
-data = processor(arc_test_tasks[0])
+data = []
+# fill data with the tasks
+# for idx, task in enumerate(arc_test_tasks[:3]):
+#     print(f'idx: {idx}')
+#     data.append(processor(task))
 
-assert len(data) == len(arc_test_tasks)
+data = [processor(task) for task in arc_test_tasks[:3]]
+
+# test_task = processor(arc_test_tasks[0])
+# data.append(test_task)
+
+print(f"len(data): {len(data)}")
+
+# assert len(data) == len(arc_test_tasks)
+
+stats = {}
+
 
 for task, task_train_data in zip(arc_test_tasks, data):
     task_id = task.name.replace("-0", "")
@@ -312,7 +329,16 @@ for task, task_train_data in zip(arc_test_tasks, data):
         "w",
     ) as f:
         # print num of lines in task_train_data
-        print(f"Number of lines in {task_id}: {len(task_train_data)}")
+        print("=====================================================")
+        print(f"Task: {task_id}")
+        print(f"Number of lines in  : {len(task_train_data)}")
+        print(f"Num initial examples: {len(task.train_examples)}")
+
+        stats[task_id] = {
+            "num_initial_examples": len(task.train_examples),
+            "num_transformed_examples": len(task_train_data),
+        }
+
         for td in task_train_data:
             print(json.dumps(td), file=f)
     with open(
@@ -326,4 +352,8 @@ for task, task_train_data in zip(arc_test_tasks, data):
         dst.write(first_line)
 
 
+# save stats to json 
+with open(f"stats.json", "w") as f:
+    json.dump(stats, f)
 
+print(f"Stats saved to stats.json")

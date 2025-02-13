@@ -1,8 +1,8 @@
 # load the environment
 
-source sc_venv_arc/activate.sh
+# source sc_venv_arc/activate.sh
 
-export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+# export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 echo "starting ttt at time $(date +%Y-%m-%d_%H-%M-%S)"
 
 data_file=arc-prize-2024/arc-agi_evaluation_challenges.json
@@ -32,7 +32,7 @@ lora_alpha=16.0
 lora_to_output=False # doesn't apply for Llama3.2 models for now.
 # You can specify how many tasks you want train for.
 
-nmax=1500
+nmax=5000
 
 # Automatically construct folder name from variables
 ttt_folder="transformation_test"
@@ -50,6 +50,6 @@ python debug_transformations.py --lora_config=$lora_config_file \
 --lora_rank=$lora_rank \
 --lora_alpha=$lora_alpha \
 --lora_to_output=$lora_to_output \
---new_format &
+--new_format 
 
 echo "Done at $(date +%Y-%m-%d_%H-%M-%S)"

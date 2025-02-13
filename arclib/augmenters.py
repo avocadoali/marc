@@ -65,12 +65,15 @@ class Augmenter:
 
     def apply_to_task(self, task: Task, rng: RandomState = None, share_rng=False, **kwargs) -> Task:
 
+        self.share_rng = False
         if self.share_rng:
             # make sure all examples get seperate copies of same rng
             # this is to make sure that the same random number(s) is used for all examples
             # seed = rng.randint(0, 2**32)
             train_rngs = [copy.deepcopy(rng) for i in range(len(task.train_examples))]
             test_rng = copy.deepcopy(rng)  # RandomState(seed)
+            print('in same random')
+            print('in same random')
         else:
             train_rngs = [rng for _ in range(len(task.train_examples))]
             test_rng = rng
