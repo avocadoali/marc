@@ -303,11 +303,13 @@ processor = functools.partial(
 
 data = []
 # fill data with the tasks
-# for idx, task in enumerate(arc_test_tasks[:3]):
-#     print(f'idx: {idx}')
-#     data.append(processor(task))
+for idx, task in enumerate(arc_test_tasks):
+    print(f'idx: {idx}')
+    data.append(processor(task))
 
-data = [processor(task) for task in arc_test_tasks[:3]]
+# data = [processor(task) for task in arc_test_tasks[:3]]
+
+
 
 # test_task = processor(arc_test_tasks[0])
 # data.append(test_task)
