@@ -34,9 +34,6 @@ n_sample=1
 max_lora_rank=128
 # You need to tell where predictions and submissions should be saved
 
-# Define an array of data sizes
-data_sizes=(2 4 6 8 10)
-
 # Function to process data sizes
 process_data_sizes() {
     local data_sizes=("$@")
@@ -66,7 +63,7 @@ process_data_sizes() {
         --include_n=1 \
         --adapter_number=$data_size \
         --max_tokens=15000 \
-        --new_format 
+        --new_format | tee logs_predict/slurm_${data_size}.log
 
         end_time=$(date +%s)
         echo "Time taken for data_size $data_size: $((end_time - start_time)) seconds"
@@ -74,10 +71,14 @@ process_data_sizes() {
 }
 
 # Run each loop in a separate process
-process_data_sizes 0 2 4 6 8 10 &
-process_data_sizes 1 20 40 60 80 100 &
-process_data_sizes 2 200 400 600 800 1000 &
-process_data_sizes 3 1200 1400 1600 1800 2000 &
+process_data_sizes 0  10 &
+process_data_sizes 1  20 &
+process_data_sizes 2  30 &
+process_data_sizes 3  40 &
+
+
+
+
 
 # Wait for all background processes to complete
 wait

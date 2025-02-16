@@ -3,6 +3,7 @@
 # source sc_venv_arc/activate.sh
 
 # export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+start_time=$(date +%s)
 echo "starting ttt at time $(date +%Y-%m-%d_%H-%M-%S)"
 
 data_file=arc-prize-2024/arc-agi_evaluation_challenges.json
@@ -35,7 +36,7 @@ lora_to_output=False # doesn't apply for Llama3.2 models for now.
 nmax=2500
 
 # Automatically construct folder name from variables
-ttt_folder="transformation_test"
+ttt_folder="experiments_thesis/adapters_json"
 mkdir -p $ttt_folder
 
 python debug_transformations.py --lora_config=$lora_config_file \
@@ -57,4 +58,3 @@ echo "Done at $(date +%Y-%m-%d_%H-%M-%S)"
 # time taken
 time_taken=$(($(date +%s) - start_time))
 echo "Time taken: $time_taken seconds"
-

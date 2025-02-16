@@ -1863,3 +1863,343 @@ AFTER = 5:
  [0 0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 2 8 8 0 0 0]
  [0 0 0 0 2 2 0 0 0 0 2 8 0 0 0 0 0 0 2 8 2 0 0 0 2 2 8 0 0 0]])]
 (Pdb) 
+
+
+ve_1_train_data: 672
+leave_2_train_data: 4032
+total train data:  4704
+================================================================================
+len(train): 2500, initial examples: 7
+idx: 285
+Augmenters to apply:  [Rotate(90), Rotate(270), Rotate(180), Flip(0), Flip(1), Reflect(0, reverse=True), Reflect(1, reverse=True), Reflect(0, reverse=False), Reflect(1, reverse=False), RandomTranslateXY(), Transpose()] len:  11
+Skipped, grid too large: 8 tasks
+augmenters: 11
+iterations: 44
+permute_n: 3
+Duplicates first: 0
+augmented_tasks: 40
+augmented_tasks + permute_augmented_tasks: 160
+Duplicates second: 0
+len(augmented_tasks) after set: 160
+initial examples new: 5
+
+leave_1_train_data
+Skipped, grid too large: 60 tasks
+augmenters: 23
+iterations: 115
+permute_n: 3
+Duplicates first: 0
+augmented_tasks: 60
+augmented_tasks + permute_augmented_tasks: 240
+Duplicates second: 0
+len(augmented_tasks) after set: 240
+Filtered bc too many tokens needed: 0
+Highest 5 token sizes: []
+Max token size: 2469
+
+leave_2_train_data
+Skipped, grid too large: 240 tasks
+augmenters: 23
+iterations: 460
+permute_n: 3
+Duplicates first: 0
+augmented_tasks: 240
+augmented_tasks + permute_augmented_tasks: 960
+Duplicates second: 0
+len(augmented_tasks) after set: 960
+Filtered bc too many tokens needed: 0
+Highest 5 token sizes: []
+Max token size: 2067
+leave_1_train_data: 240
+leave_2_train_data: 960
+total train data:  1200
+================================================================================
+len(train): 1200 1.1 < Nmax: 2500
+Skipped, grid too large: 60 tasks
+augmenters: 23
+iterations: 115
+permute_n: 3
+Duplicates first: 0
+augmented_tasks: 60
+augmented_tasks + permute_augmented_tasks: 240
+Duplicates second: 0
+len(augmented_tasks) after set: 240
+Filtered bc too many tokens needed: 0
+Highest 5 token sizes: []
+Max token size: 2469
+len(leave_1_1_train_data): 240
+len(train): 1440 2.1 < Nmax: 2500
+Skipped, grid too large: 240 tasks
+augmenters: 23
+iterations: 460
+permute_n: 3
+Duplicates first: 0
+augmented_tasks: 240
+augmented_tasks + permute_augmented_tasks: 960
+Duplicates second: 1
+len(augmented_tasks) after set: 959
+Filtered bc too many tokens needed: 0
+Highest 5 token sizes: []
+Max token size: 2067
+len(leave_2_1_train_data): 959
+len(train): 2399, initial examples: 5
+idx: 286
+Augmenters to apply:  [Rotate(90), Rotate(270), Rotate(180), Flip(0), Flip(1), Reflect(0, reverse=True), Reflect(1, reverse=True), Reflect(0, reverse=False), Reflect(1, reverse=False), RandomTranslateXY(), Transpose()] len:  11
+Skipped, grid too large: 12 tasks
+augmenters: 11
+iterations: 33
+permute_n: 3
+Duplicates first: 0
+augmented_tasks: 24
+augmented_tasks + permute_augmented_tasks: 96
+Duplicates second: 0
+len(augmented_tasks) after set: 96
+initial examples new: 5
+
+leave_1_train_data
+Skipped, grid too large: 80 tasks
+augmenters: 23
+iterations: 115
+permute_n: 3
+Duplicates first: 0
+augmented_tasks: 40
+augmented_tasks + permute_augmented_tasks: 160
+Duplicates second: 0
+len(augmented_tasks) after set: 160
+Filtered bc too many tokens needed: 0
+Highest 5 token sizes: []
+Max token size: 3165
+
+leave_2_train_data
+Skipped, grid too large: 256 tasks
+augmenters: 23
+iterations: 460
+permute_n: 3
+Duplicates first: 0
+augmented_tasks: 224
+augmented_tasks + permute_augmented_tasks: 896
+Duplicates second: 0
+len(augmented_tasks) after set: 896
+Filtered bc too many tokens needed: 0
+Highest 5 token sizes: []
+Max token size: 8051
+leave_1_train_data: 160
+leave_2_train_data: 896
+total train data:  1056
+================================================================================
+len(train): 1056 1.1 < Nmax: 2500
+Skipped, grid too large: 80 tasks
+augmenters: 23
+iterations: 115
+permute_n: 3
+Duplicates first: 0
+augmented_tasks: 40
+augmented_tasks + permute_augmented_tasks: 160
+Duplicates second: 0
+len(augmented_tasks) after set: 160
+Filtered bc too many tokens needed: 0
+Highest 5 token sizes: []
+Max token size: 3165
+len(leave_1_1_train_data): 160
+len(train): 1216 2.1 < Nmax: 2500
+Skipped, grid too large: 256 tasks
+augmenters: 23
+iterations: 460
+permute_n: 3
+Duplicates first: 0
+augmented_tasks: 224
+augmented_tasks + permute_augmented_tasks: 896
+Duplicates second: 0
+len(augmented_tasks) after set: 896
+Filtered bc too many tokens needed: 0
+Highest 5 token sizes: []
+Max token size: 8051
+len(leave_2_1_train_data): 896
+len(train): 2112, initial examples: 5
+idx: 287
+Augmenters to apply:  [Rotate(90), Rotate(270), Rotate(180), Flip(0), Flip(1), Reflect(0, reverse=True), Reflect(1, reverse=True), Reflect(0, reverse=False), Reflect(1, reverse=False), RandomTranslateXY(), Transpose()] len:  11
+Skipped, grid too large: 12 tasks
+augmenters: 11
+iterations: 33
+permute_n: 3
+Duplicates first: 0
+augmented_tasks: 24
+augmented_tasks + permute_augmented_tasks: 96
+Duplicates second: 1
+len(augmented_tasks) after set: 95
+initial examples new: 5
+
+leave_1_train_data
+Skipped, grid too large: 80 tasks
+augmenters: 23
+iterations: 115
+permute_n: 3
+Duplicates first: 0
+augmented_tasks: 40
+augmented_tasks + permute_augmented_tasks: 160
+Duplicates second: 0
+len(augmented_tasks) after set: 160
+Filtered bc too many tokens needed: 0
+Highest 5 token sizes: []
+Max token size: 5925
+
+leave_2_train_data
+Skipped, grid too large: 320 tasks
+augmenters: 23
+iterations: 460
+permute_n: 3
+Duplicates first: 0
+augmented_tasks: 160
+augmented_tasks + permute_augmented_tasks: 640
+Duplicates second: 1
+len(augmented_tasks) after set: 639
+Filtered bc too many tokens needed: 0
+Highest 5 token sizes: []
+Max token size: 4993
+leave_1_train_data: 160
+leave_2_train_data: 639
+total train data:  799
+================================================================================
+len(train): 799 1.1 < Nmax: 2500
+Skipped, grid too large: 80 tasks
+augmenters: 23
+iterations: 115
+permute_n: 3
+Duplicates first: 0
+augmented_tasks: 40
+augmented_tasks + permute_augmented_tasks: 160
+Duplicates second: 0
+len(augmented_tasks) after set: 160
+Filtered bc too many tokens needed: 0
+Highest 5 token sizes: []
+Max token size: 5925
+len(leave_1_1_train_data): 160
+len(train): 959 2.1 < Nmax: 2500
+Skipped, grid too large: 320 tasks
+augmenters: 23
+iterations: 460
+permute_n: 3
+Duplicates first: 0
+augmented_tasks: 160
+augmented_tasks + permute_augmented_tasks: 640
+Duplicates second: 2
+len(augmented_tasks) after set: 638
+Filtered bc too many tokens needed: 0
+Highest 5 token sizes: []
+Max token size: 4993
+len(leave_2_1_train_data): 638
+len(train): 1597, initial examples: 5
+idx: 288
+Augmenters to apply:  [Rotate(90), Rotate(270), Rotate(180), Flip(0), Flip(1), Reflect(0, reverse=True), Reflect(1, reverse=True), Reflect(0, reverse=False), Reflect(1, reverse=False), RandomTranslateXY(), Transpose()] len:  11
+augmenters: 11
+iterations: 33
+permute_n: 3
+Duplicates first: 0
+augmented_tasks: 36
+augmented_tasks + permute_augmented_tasks: 144
+Duplicates second: 0
+len(augmented_tasks) after set: 144
+initial examples new: 5
+
+leave_1_train_data
+augmenters: 23
+iterations: 115
+permute_n: 3
+Duplicates first: 0
+augmented_tasks: 120
+augmented_tasks + permute_augmented_tasks: 480
+Duplicates second: 0
+len(augmented_tasks) after set: 480
+Filtered bc too many tokens needed: 0
+Highest 5 token sizes: []
+Max token size: 1299
+
+leave_2_train_data
+augmenters: 23
+iterations: 460
+permute_n: 3
+Duplicates first: 0
+augmented_tasks: 480
+augmented_tasks + permute_augmented_tasks: 1920
+Duplicates second: 1
+len(augmented_tasks) after set: 1919
+Filtered bc too many tokens needed: 0
+Highest 5 token sizes: []
+Max token size: 1051
+leave_1_train_data: 480
+leave_2_train_data: 1919
+total train data:  2399
+================================================================================
+len(train): 2399 1.1 < Nmax: 2500
+augmenters: 23
+iterations: 115
+permute_n: 3
+Duplicates first: 0
+augmented_tasks: 120
+augmented_tasks + permute_augmented_tasks: 480
+Duplicates second: 0
+len(augmented_tasks) after set: 480
+Filtered bc too many tokens needed: 0
+Highest 5 token sizes: []
+Max token size: 1299
+len(leave_1_1_train_data): 480
+len(train): 2500, initial examples: 5
+idx: 289
+Augmenters to apply:  [Rotate(90), Rotate(270), Rotate(180), Flip(0), Flip(1), Reflect(0, reverse=True), Reflect(1, reverse=True), Reflect(0, reverse=False), Reflect(1, reverse=False), RandomTranslateXY(), Transpose()] len:  11
+augmenters: 11
+iterations: 33
+permute_n: 3
+Duplicates first: 0
+augmented_tasks: 36
+augmented_tasks + permute_augmented_tasks: 144
+Duplicates second: 1
+len(augmented_tasks) after set: 143
+initial examples new: 5
+
+leave_1_train_data
+augmenters: 23
+iterations: 115
+permute_n: 3
+Duplicates first: 0
+augmented_tasks: 120
+augmented_tasks + permute_augmented_tasks: 480
+Duplicates second: 0
+len(augmented_tasks) after set: 480
+Filtered bc too many tokens needed: 0
+Highest 5 token sizes: []
+Max token size: 4709
+
+leave_2_train_data
+augmenters: 23
+iterations: 460
+permute_n: 3
+Duplicates first: 0
+augmented_tasks: 480
+augmented_tasks + permute_augmented_tasks: 1920
+Duplicates second: 2
+len(augmented_tasks) after set: 1918
+^CTraceback (most recent call last):
+  File "/p/project1/hai_hreplearn/nguyen31/marc/debug_transformations.py", line 309, in <module>
+    t = processor(task)
+  File "/p/project1/hai_hreplearn/nguyen31/marc/ttt/preprocess.py", line 303, in process_task
+    leave_2_train_data = get_formatted_data(
+  File "/p/project1/hai_hreplearn/nguyen31/marc/ttt/preprocess.py", line 233, in get_formatted_data
+    formatted = format_and_filter(formatter, tokenizer, task, train_on_input=False)
+  File "/p/project1/hai_hreplearn/nguyen31/marc/ttt/preprocess.py", line 112, in format_and_filter
+    tokens, labels = tokenizer.tokenize_messages(messages)
+  File "/p/project1/hai_hreplearn/nguyen31/marc/third_party/torchtune/torchtune/models/llama3/_tokenizer.py", line 323, in tokenize_messages
+    tokenized_message = self.tokenize_message(
+  File "/p/project1/hai_hreplearn/nguyen31/marc/third_party/torchtune/torchtune/models/llama3/_tokenizer.py", line 269, in tokenize_message
+    tokenized_body = self._tokenize_body(message)
+  File "/p/project1/hai_hreplearn/nguyen31/marc/third_party/torchtune/torchtune/models/llama3/_tokenizer.py", line 237, in _tokenize_body
+    tokenized_body += self.encode(
+  File "/p/project1/hai_hreplearn/nguyen31/marc/third_party/torchtune/torchtune/models/llama3/_tokenizer.py", line 178, in encode
+    return self.tt_model.encode(text=text, add_bos=add_bos, add_eos=add_eos)
+  File "/p/project1/hai_hreplearn/nguyen31/marc/third_party/torchtune/torchtune/modules/tokenizers/_tiktoken.py", line 125, in encode
+    self.tt_model.encode(
+  File "/p/project1/hai_hreplearn/nguyen31/marc/sc_venv_arc/venv/lib/python3.10/site-packages/tiktoken/core.py", line 124, in encode
+    return self._core_bpe.encode(text, allowed_special)
+KeyboardInterrupt
+^CDone at 2025-02-16_16-46-51
+Time taken: 1739720811 seconds
+(sc_venv_arc) [nguyen31@jwlogin22 marc]$ 

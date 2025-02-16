@@ -60,38 +60,83 @@ max_lora_rank=128
 # ttt_folder=ttt_adapters_llama3/ttt_adapters_llama3_40_epochs_3
 # tti_folder=ttt_output_llama3/ttt_output_llama3_40_epochs_3
 
-# Define an array of data sizes
-data_sizes=(20 40 60 80)
-# data_sizes=(100)
+# # Define an array of data sizes
+# data_sizes=(20 40 60 80)
+# # data_sizes=(100)
 
-# Loop over each data size
-for data_size in "${data_sizes[@]}"; do
-    echo "Processing data size $data_size"
-    ttt_folder=ttt_adapters_llama3/ttt_adapters_llama3_nmax_1500_batch_2_ep_1_lr_5e-5_rank_128_alpha_16.0_${data_size}
-    tti_folder=ttt_output_llama3_stages/ttt_adapters_llama3_nmax_1500_batch_2_ep_1_lr_5e-5_rank_128_alpha_16.0_${data_size}
-    mkdir -p $tti_folder
+# # Loop over each data size
+# for data_size in "${data_sizes[@]}"; do
+#     echo "Processing data size $data_size"
+#     ttt_folder=ttt_adapters_llama3/ttt_adapters_llama3_nmax_1500_batch_2_ep_1_lr_5e-5_rank_128_alpha_16.0_${data_size}
+#     tti_folder=ttt_output_llama3_stages/ttt_adapters_llama3_nmax_1500_batch_2_ep_1_lr_5e-5_rank_128_alpha_16.0_${data_size}
+#     mkdir -p $tti_folder
 
-    timestamp=$(date '+%Y-%m-%d_%H-%M-%S')
+#     timestamp=$(date '+%Y-%m-%d_%H-%M-%S')
 
-    # measure the time
-    start_time=$(date +%s)
+#     # measure the time
+#     start_time=$(date +%s)
 
-    # With lora adapters
-    CUDA_VISIBLE_DEVICES=0 python predict.py \
-    --experiment_folder=$tti_folder \
-    --pretrained_checkpoint=$base_checkpoint_dir \
-    --lora_checkpoints_folder=$ttt_folder \
-    --temperature=$temperature \
-    --n_sample=$n_sample \
-    --data_file=$data_file \
-    --solution_file=$solution_file \
-    --max_lora_rank=$max_lora_rank \
-    --include_n=1 \
-    --adapter_number=$data_size \
-    --max_tokens=15000 \
-    --new_format 
+#     # With lora adapters
+#     CUDA_VISIBLE_DEVICES=0 python predict.py \
+#     --experiment_folder=$tti_folder \
+#     --pretrained_checkpoint=$base_checkpoint_dir \
+#     --lora_checkpoints_folder=$ttt_folder \
+#     --temperature=$temperature \
+#     --n_sample=$n_sample \
+#     --data_file=$data_file \
+#     --solution_file=$solution_file \
+#     --max_lora_rank=$max_lora_rank \
+#     --include_n=1 \
+#     --adapter_number=$data_size \
+#     --max_tokens=15000 \
+#     --new_format 
 
-    end_time=$(date +%s)
-    echo "Time taken for data_size $data_size: $((end_time - start_time)) seconds"
-done
+#     end_time=$(date +%s)
+#     echo "Time taken for data_size $data_size: $((end_time - start_time)) seconds"
+# done
+
+
+
+# Function to process data sizes
+process_data_sizes() {
+    local data_sizes=("$@")
+    local cuda_device=$1
+    shift
+    for data_size in "${data_sizes[@]}"; do
+        echo "Processing data size $data_size"
+        ttt_folder=ttt_adapters_llama3/ttt_adapters_llama3_nmax_1500_batch_2_ep_1_lr_5e-5_rank_128_alpha_16.0_${data_size}
+        tti_folder=ttt_output_llama3_stages/ttt_adapters_llama3_nmax_1500_batch_2_ep_1_lr_5e-5_rank_128_alpha_16.0_${data_size}
+        mkdir -p $tti_folder
+
+        timestamp=$(date '+%Y-%m-%d_%H-%M-%S')
+
+        # measure the time
+        start_time=$(date +%s)
+
+        # With lora adapters
+        CUDA_VISIBLE_DEVICES=$cuda_device python predict.py \
+        --experiment_folder=$tti_folder \
+        --pretrained_checkpoint=$base_checkpoint_dir \
+        --lora_checkpoints_folder=$ttt_folder \
+        --temperature=$temperature \
+        --n_sample=$n_sample \
+        --data_file=$data_file \
+        --solution_file=$solution_file \
+        --max_lora_rank=$max_lora_rank \
+        --include_n=1 \
+        --adapter_number=$data_size \
+        --max_tokens=15000 \
+        --new_format | tee logs_predict/slurm_${data_size}.log
+
+        end_time=$(date +%s)
+        echo "Time taken for data_size $data_size: $((end_time - start_time)) seconds"
+    done
+}
+
+# Run each loop in a separate process
+process_data_sizes 0  10 &
+process_data_sizes 1  20 &
+process_data_sizes 2  30 &
+process_data_sizes 3  40 &
+
 

@@ -328,49 +328,53 @@ def train_with_a_test_data(
     return recipe._model
 
 
-processor = functools.partial(
-    process_task,
-    augmenters=augmenters_to_apply,
-    formatter=formatter,
-    tokenizer=tokenizer,
-    permute_n=args.permute_n,
-    Nmax=args.Nmax,
-    seed=args.seed,
-)
+###
+# CREATING TRAINING DATA
+###
 
-with Pool(args.cpus) as p:
-    data = p.map(processor, arc_test_tasks)
+# processor = functools.partial(
+#     process_task,
+#     augmenters=augmenters_to_apply,
+#     formatter=formatter,
+#     tokenizer=tokenizer,
+#     permute_n=args.permute_n,
+#     Nmax=args.Nmax,
+#     seed=args.seed,
+# )
 
-# data = [processor(task) for task in arc_test_tasks]
+# with Pool(args.cpus) as p:
+#     data = p.map(processor, arc_test_tasks)
 
-assert len(data) == len(arc_test_tasks)
+# # data = [processor(task) for task in arc_test_tasks]
 
-for task, task_train_data in zip(arc_test_tasks, data):
-    task_id = task.name.replace("-0", "")
+# assert len(data) == len(arc_test_tasks)
 
-    os.makedirs(f"{args.experiment_folder}/{task_id}", exist_ok=True)
+# for task, task_train_data in zip(arc_test_tasks, data):
+#     task_id = task.name.replace("-0", "")
 
-    with open(
-        f"{args.experiment_folder}/{task_id}/td_False_ttd_False_ttdwa_False_ad_True_trd_False.jsonl",
-        "w",
-    ) as f:
-        # print num of lines in task_train_data
-        print(f"Number of lines in {task_id}: {len(task_train_data)}")
-        for td in task_train_data:
-            print(json.dumps(td), file=f)
-    with open(
-        f"{args.experiment_folder}/{task_id}/td_False_ttd_False_ttdwa_False_ad_True_trd_False.jsonl",
-        "r",
-    ) as src, open(
-        f"{args.experiment_folder}/{task_id}/td_True_ttd_False_ttdwa_False_ad_True_trd_False.jsonl",
-        "w",
-    ) as dst:
-        first_line = src.readline()
-        dst.write(first_line)
+#     os.makedirs(f"{args.experiment_folder}/{task_id}", exist_ok=True)
+
+#     with open(
+#         f"{args.experiment_folder}/{task_id}/td_False_ttd_False_ttdwa_False_ad_True_trd_False.jsonl",
+#         "w",
+#     ) as f:
+#         # print num of lines in task_train_data
+#         print(f"Number of lines in {task_id}: {len(task_train_data)}")
+#         for td in task_train_data:
+#             print(json.dumps(td), file=f)
+#     with open(
+#         f"{args.experiment_folder}/{task_id}/td_False_ttd_False_ttdwa_False_ad_True_trd_False.jsonl",
+#         "r",
+#     ) as src, open(
+#         f"{args.experiment_folder}/{task_id}/td_True_ttd_False_ttdwa_False_ad_True_trd_False.jsonl",
+#         "w",
+#     ) as dst:
+#         first_line = src.readline()
+#         dst.write(first_line)
 
 
 
-
+logger.debug(f"Initializing model")
 
 # initialize model
 recipe = lora_finetune_single_device.LoRAFinetuneRecipeSingleDevice(conf)
@@ -389,6 +393,8 @@ adapter = copy.deepcopy(lora_finetune_single_device.get_adapter_params(model))
 num_saved_adapters = 1
 iteration = 0
 
+
+logger.debug(f"Starting training loop")
 for task in arc_test_tasks:
     task_id = task.name.replace("-0", "")
     # task_id = "all"

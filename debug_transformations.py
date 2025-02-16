@@ -7,6 +7,7 @@ import os
 import sys
 import random
 from multiprocessing import Pool
+from tqdm import tqdm
 
 import torch
 from arclib import arc
@@ -296,18 +297,26 @@ processor = functools.partial(
     seed=args.seed,
 )
 
+print('cpus: ', args.cpus)
+
+
+with Pool(args.cpus) as p:
+    data = p.map(processor, arc_test_tasks)
+
+
 # with Pool(args.cpus) as p:
-#     data = p.map(processor, arc_test_tasks)
+#     # Wrap the arc_test_tasks with tqdm to show a progress bar
+#     data = list(tqdm(p.imap(processor, arc_test_tasks), total=len(arc_test_tasks)))
 
 # breakpoint()
 
-data = []
-# fill data with the tasks
-for idx, task in enumerate(arc_test_tasks):
-# for idx, task in enumerate(arc_test_tasks[:5]):
-    print(f'idx: {idx}')
-    t = processor(task)
-    data.append(t)
+# data = []
+# # fill data with the tasks
+# for idx, task in enumerate(arc_test_tasks):
+# # for idx, task in enumerate(arc_test_tasks[:5]):
+#     print(f'idx: {idx}')
+#     t = processor(task)
+#     data.append(t)
 
 # idx = 4
 # data.append(processor(arc_test_tasks[idx]))
@@ -326,7 +335,7 @@ for idx, task in enumerate(arc_test_tasks):
 
 print(f"len(data): {len(data)}")
 
-# assert len(data) == len(arc_test_tasks)
+assert len(data) == len(arc_test_tasks)
 
 stats = {}
 

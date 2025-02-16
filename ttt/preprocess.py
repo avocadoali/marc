@@ -101,7 +101,7 @@ def get_augmenters(
         + repeat_augmenters_to_apply
     )
 
-    print("Augmenters to apply: ", augmenters_to_apply, "len: ", len(augmenters_to_apply))
+    # print("Augmenters to apply: ", augmenters_to_apply, "len: ", len(augmenters_to_apply))
     return augmenters_to_apply
 
 
@@ -159,15 +159,15 @@ def get_test_time_train_data(
                 skipped += 1
                 continue
             augmented_tasks.append(task)
-    if skipped > 0:
-        print(f"Skipped, grid too large: {skipped} tasks")
+    # if skipped > 0:
+        # print(f"Skipped, grid too large: {skipped} tasks")
 
-    print(f'augmenters: {len(augmenters)}')
-    print(f"iterations: {iterations}")
-    print(f"permute_n: {permute_n}")
-    print(f"Duplicates first: {len(augmented_tasks) - len(set(augmented_tasks))}")
+    # print(f'augmenters: {len(augmenters)}')
+    # print(f"iterations: {iterations}")
+    # print(f"permute_n: {permute_n}")
+    # print(f"Duplicates first: {len(augmented_tasks) - len(set(augmented_tasks))}")
     augmented_tasks = list(set(augmented_tasks + initial_tasks))
-    print(f"augmented_tasks: {len(augmented_tasks)}")
+    # print(f"augmented_tasks: {len(augmented_tasks)}")
 
     color_and_permute_augmented_tasks = []
 
@@ -187,10 +187,10 @@ def get_test_time_train_data(
 
     # breakpoint()
     augmented_tasks = color_and_permute_augmented_tasks + augmented_tasks
-    print(f"augmented_tasks + permute_augmented_tasks: {len(augmented_tasks)}")
-    print(f"Duplicates second: {len(augmented_tasks) - len(set(augmented_tasks))}")
+    # print(f"augmented_tasks + permute_augmented_tasks: {len(augmented_tasks)}")
+    # print(f"Duplicates second: {len(augmented_tasks) - len(set(augmented_tasks))}")
     augmented_tasks = list(set(augmented_tasks))
-    print(f'len(augmented_tasks) after set: {len(augmented_tasks)}')
+    # print(f'len(augmented_tasks) after set: {len(augmented_tasks)}')
 
     return augmented_tasks
 
@@ -240,10 +240,10 @@ def get_formatted_data(
             token_sizes.append(formatted["total_tokens"])
     # breakpoint()
 
-    print(f"Filtered bc too many tokens needed: {n_filtered}")
+    # print(f"Filtered bc too many tokens needed: {n_filtered}")
     # print highest 5 token sizes
-    print(f"Highest 5 token sizes: {sorted(token_sizes, reverse=True)[:5]}")
-    print(f"Max token size: {max_token_size}")
+    # print(f"Highest 5 token sizes: {sorted(token_sizes, reverse=True)[:5]}")
+    # print(f"Max token size: {max_token_size}")
     return formatted_data
 
 
@@ -284,13 +284,13 @@ def process_task(
             task.train_examples.append(x.train_examples[0])
 
 
-    print(f'initial examples new: {len(task.train_examples)}')
+    # print(f'initial examples new: {len(task.train_examples)}')
 
     # breakpoint()
     # print('len(augmenters) in get_formatted_data: ', len(augmenters))
     # breakpoint()
-    print('')
-    print('leave_1_train_data')
+    # print('')
+    # print('leave_1_train_data')
     leave_1_train_data = get_formatted_data(
         task, augmenters, formatter, tokenizer, leave_n=1, permute_n=permute_n, seed=seed
     )
@@ -298,8 +298,8 @@ def process_task(
     # breakpoint()
 
     # breakpoint()
-    print('')
-    print('leave_2_train_data')
+    # print('')
+    # print('leave_2_train_data')
     leave_2_train_data = get_formatted_data(
         task, augmenters, formatter, tokenizer, leave_n=2, permute_n=permute_n, seed=seed
     )
@@ -335,13 +335,13 @@ def process_task(
 
     # train = leave_1_train_data
 
-    print(f"leave_1_train_data: {len(leave_1_train_data)}")
+    # print(f"leave_1_train_data: {len(leave_1_train_data)}")
     # print(f"leave_1_1_train_data: {len(leave_1_1_train_data)}")
-    print(f"leave_2_train_data: {len(leave_2_train_data)}")
+    # print(f"leave_2_train_data: {len(leave_2_train_data)}")
     # print(f"leave_2_1_train_data: {len(leave_2_1_train_data)}")
     # print(f"leave_3_train_data: {len(leave_3_train_data)}")
-    print('total train data: ', len(leave_1_train_data) + len(leave_2_train_data))
-    print('================================================================================')
+    # print('total train data: ', len(leave_1_train_data) + len(leave_2_train_data))
+    # print('================================================================================')
     # print('================================================================================')
     # print('================================================================================')
     # # if len(train) == 0:
@@ -356,20 +356,20 @@ def process_task(
     train = leave_1_train_data +  leave_2_train_data 
     
     if len(train) < Nmax:
-        print(f'len(train): {len(train)} 1.1 < Nmax: {Nmax}')
+        # print(f'len(train): {len(train)} 1.1 < Nmax: {Nmax}')
 
         leave_1_1_train_data = get_formatted_data(
             task, augmenters, formatter, tokenizer, leave_n=1, permute_n=permute_n, seed=rng.randint(0, 2**32)
         )
-        print(f'len(leave_1_1_train_data): {len(leave_1_1_train_data)}')
+        # print(f'len(leave_1_1_train_data): {len(leave_1_1_train_data)}')
         train += leave_1_1_train_data
     
     if len(train) < Nmax:
-        print(f'len(train): {len(train)} 2.1 < Nmax: {Nmax}')
+        # print(f'len(train): {len(train)} 2.1 < Nmax: {Nmax}')
         leave_2_1_train_data = get_formatted_data(
             task, augmenters, formatter, tokenizer, leave_n=2, permute_n=permute_n, seed=rng.randint(0, 2**32)
         )
-        print(f'len(leave_2_1_train_data): {len(leave_2_1_train_data)}')
+        # print(f'len(leave_2_1_train_data): {len(leave_2_1_train_data)}')
         train += leave_2_1_train_data
 
     #     print(f'len(leave_1_1_train_data): {len(leave_1_1_train_data)}')
@@ -377,9 +377,10 @@ def process_task(
     #     train = train + leave_1_1_train_data + leave_2_1_train_data
 
     
-    print(f'len(train): {len(train)}, initial examples: {len(task.train_examples)}')
+    # print('')
+    print(f'len(train): {len(train)}')
     if len(train) > Nmax:
         train = train[:Nmax]
 
-    print(f'len(train): {len(train)}, initial examples: {len(task.train_examples)}')
+    # print(f'len(train): {len(train)}, initial examples: {len(task.train_examples)}')
     return train
