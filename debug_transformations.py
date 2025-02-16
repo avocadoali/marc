@@ -304,8 +304,18 @@ processor = functools.partial(
 data = []
 # fill data with the tasks
 for idx, task in enumerate(arc_test_tasks):
+# for idx, task in enumerate(arc_test_tasks[:5]):
     print(f'idx: {idx}')
-    data.append(processor(task))
+    t = processor(task)
+    data.append(t)
+
+# idx = 4
+# data.append(processor(arc_test_tasks[idx]))
+
+# idxs = [4 , 7 , 10 , 31 , 34 , 48 , 52 , 60 , 62 , 84 , 85 , 94 , 97]
+# for idx in idxs:
+    # data.append(processor(arc_test_tasks[idx]))
+
 
 # data = [processor(task) for task in arc_test_tasks[:3]]
 
@@ -355,7 +365,7 @@ for task, task_train_data in zip(arc_test_tasks, data):
 
 
 # save stats to json 
-with open(f"stats.json", "w") as f:
+with open(f"stats_debug_transformations/stats.json", "w") as f:
     json.dump(stats, f)
 
 print(f"Stats saved to stats.json")

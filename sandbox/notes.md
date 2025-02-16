@@ -756,3 +756,1110 @@ Example(
  [7 8]], output=[[3 2]
  [7 8]]))
 (Pdb) 
+
+
+
+
+
+
+
+
+
+
+
+
+025-02-16 14:07:48,116 - __main__ - DEBUG - Training data length: 419
+Augmenters to apply:  [Rotate(90), Rotate(270), Rotate(180), Flip(0), Flip(1), Reflect(0, reverse=True), Reflect(1, reverse=True), Reflect(0, reverse=False), Reflect(1, reverse=False), RandomTranslateXY(), Transpose(), IncreaseResolution(2), IncreaseHeight(2), IncreaseWidth(2), Chain([Rotate(90), IncreaseResolution(2)]), Chain([Rotate(270), IncreaseResolution(2)]), Chain([Rotate(180), IncreaseResolution(2)]), Chain([Flip(0), IncreaseResolution(2)]), Chain([Flip(1), IncreaseResolution(2)]), Chain([Transpose(), IncreaseResolution(2)]), Repeat(0, 2), Repeat(1, 2), Repeat(2, 2)] len:  23
+args.permute_n: 1
+args.Nmax: 5000
+Augmenters to apply:  [Rotate(90), Rotate(270), Rotate(180), Flip(0), Flip(1), Reflect(0, reverse=True), Reflect(1, reverse=True), Reflect(0, reverse=False), Reflect(1, reverse=False), RandomTranslateXY(), Transpose()] len:  11
+
+Skipped, grid too large: 12 tasks
+augmenters: 11
+iterations: 33
+permute_n: 1
+Duplicates first: 0
+augmented_tasks: 24
+augmented_tasks + permute_augmented_tasks: 48
+Duplicates second: 0
+len(augmented_tasks) after set: 48
+initial examples new: 5
+
+Skipped, grid too large: 80 tasks
+augmenters: 23
+iterations: 115
+permute_n: 1
+Duplicates first: 0
+augmented_tasks: 40
+augmented_tasks + permute_augmented_tasks: 80
+Duplicates second: 0
+len(augmented_tasks) after set: 80
+Filtered bc too many tokens needed: 80
+Highest 5 token sizes: [18369, 18369, 18369, 18369, 18369]
+Max token size: 18369
+
+Skipped, grid too large: 320 tasks
+augmenters: 23
+iterations: 460
+permute_n: 1
+Duplicates first: 0
+augmented_tasks: 160
+augmented_tasks + permute_augmented_tasks: 320
+Duplicates second: 0
+len(augmented_tasks) after set: 320
+Filtered bc too many tokens needed: 320
+Highest 5 token sizes: [14707, 14707, 14707, 14707, 14707]
+Max token size: 14707
+leave_1_train_data: 0
+leave_2_train_data: 0
+================================================================================
+len(train): 0, initial examples: 5
+Augmenters to apply:  [Rotate(90), Rotate(270), Rotate(180), Flip(0), Flip(1), Reflect(0, reverse=True), Reflect(1, reverse=True), Reflect(0, reverse=False), Reflect(1, reverse=False), RandomTranslateXY(), Transpose()] len:  11
+
+Skipped, grid too large: 8 tasks
+augmenters: 11
+iterations: 22
+permute_n: 1
+Duplicates first: 0
+augmented_tasks: 16
+augmented_tasks + permute_augmented_tasks: 32
+Duplicates second: 0
+len(augmented_tasks) after set: 32
+initial examples new: 5
+
+Skipped, grid too large: 80 tasks
+augmenters: 23
+iterations: 115
+permute_n: 1
+Duplicates first: 0
+augmented_tasks: 40
+augmented_tasks + permute_augmented_tasks: 80
+Duplicates second: 0
+len(augmented_tasks) after set: 80
+Filtered bc too many tokens needed: 0
+Highest 5 token sizes: []
+Max token size: 7489
+
+Skipped, grid too large: 320 tasks
+augmenters: 23
+iterations: 460
+permute_n: 1
+Duplicates first: 0
+augmented_tasks: 160
+augmented_tasks + permute_augmented_tasks: 320
+Duplicates second: 0
+len(augmented_tasks) after set: 320
+Filtered bc too many tokens needed: 0
+Highest 5 token sizes: []
+Max token size: 6667
+leave_1_train_data: 80
+leave_2_train_data: 320
+================================================================================
+len(train): 400, initial examples: 5
+Augmenters to apply:  [Rotate(90), Rotate(270), Rotate(180), Flip(0), Flip(1), Reflect(0, reverse=True), Reflect(1, reverse=True), Reflect(0, reverse=False), Reflect(1, reverse=False), RandomTranslateXY(), Transpose()] len:  11
+
+Skipped, grid too large: 12 tasks
+augmenters: 11
+iterations: 33
+permute_n: 1
+Duplicates first: 0
+augmented_tasks: 24
+augmented_tasks + permute_augmented_tasks: 48
+Duplicates second: 0
+len(augmented_tasks) after set: 48
+initial examples new: 5
+
+Skipped, grid too large: 80 tasks
+augmenters: 23
+iterations: 115
+permute_n: 1
+Duplicates first: 0
+augmented_tasks: 40
+augmented_tasks + permute_augmented_tasks: 80
+Duplicates second: 0
+len(augmented_tasks) after set: 80
+Filtered bc too many tokens needed: 80
+Highest 5 token sizes: [12001, 12001, 12001, 12001, 12001]
+Max token size: 12001
+
+Skipped, grid too large: 320 tasks
+augmenters: 23
+iterations: 460
+permute_n: 1
+Duplicates first: 0
+augmented_tasks: 160
+augmented_tasks + permute_augmented_tasks: 320
+Duplicates second: 0
+len(augmented_tasks) after set: 320
+Filtered bc too many tokens needed: 320
+Highest 5 token sizes: [10667, 10667, 10667, 10667, 10667]
+Max token size: 10667
+leave_1_train_data: 0
+leave_2_train_data: 0
+================================================================================
+len(train): 0, initial examples: 5
+Augmenters to apply:  [Rotate(90), Rotate(270), Rotate(180), Flip(0), Flip(1), Reflect(0, reverse=True), Reflect(1, reverse=True), Reflect(0, reverse=False), Reflect(1, reverse=False), RandomTranslateXY(), Transpose()] len:  11
+
+Skipped, grid too large: 12 tasks
+augmenters: 11
+iterations: 33
+permute_n: 1
+Duplicates first: 0
+augmented_tasks: 24
+augmented_tasks + permute_augmented_tasks: 48
+Duplicates second: 0
+len(augmented_tasks) after set: 48
+initial examples new: 5
+
+Skipped, grid too large: 80 tasks
+augmenters: 23
+iterations: 115
+permute_n: 1
+Duplicates first: 0
+augmented_tasks: 40
+augmented_tasks + permute_augmented_tasks: 80
+Duplicates second: 0
+len(augmented_tasks) after set: 80
+Filtered bc too many tokens needed: 80
+Highest 5 token sizes: [10879, 10879, 10879, 10879, 10879]
+Max token size: 10879
+
+Skipped, grid too large: 320 tasks
+augmenters: 23
+iterations: 460
+permute_n: 1
+Duplicates first: 0
+augmented_tasks: 160
+augmented_tasks + permute_augmented_tasks: 320
+Duplicates second: 0
+len(augmented_tasks) after set: 320
+Filtered bc too many tokens needed: 320
+Highest 5 token sizes: [8715, 8715, 8715, 8715, 8715]
+Max token size: 8715
+leave_1_train_data: 0
+leave_2_train_data: 0
+================================================================================
+len(train): 0, initial examples: 5
+Augmenters to apply:  [Rotate(90), Rotate(270), Rotate(180), Flip(0), Flip(1), Reflect(0, reverse=True), Reflect(1, reverse=True), Reflect(0, reverse=False), Reflect(1, reverse=False), RandomTranslateXY(), Transpose()] len:  11
+
+Skipped, grid too large: 8 tasks
+augmenters: 11
+iterations: 22
+permute_n: 1
+Duplicates first: 0
+augmented_tasks: 16
+augmented_tasks + permute_augmented_tasks: 32
+Duplicates second: 0
+len(augmented_tasks) after set: 32
+initial examples new: 5
+
+Skipped, grid too large: 80 tasks
+augmenters: 23
+iterations: 115
+permute_n: 1
+Duplicates first: 0
+augmented_tasks: 40
+augmented_tasks + permute_augmented_tasks: 80
+Duplicates second: 0
+len(augmented_tasks) after set: 80
+Filtered bc too many tokens needed: 80
+Highest 5 token sizes: [18369, 18369, 18369, 18369, 18369]
+Max token size: 18369
+
+Skipped, grid too large: 320 tasks
+augmenters: 23
+iterations: 460
+permute_n: 1
+Duplicates first: 0
+augmented_tasks: 160
+augmented_tasks + permute_augmented_tasks: 320
+Duplicates second: 0
+len(augmented_tasks) after set: 320
+Filtered bc too many tokens needed: 320
+Highest 5 token sizes: [14707, 14707, 14707, 14707, 14707]
+Max token size: 14707
+leave_1_train_data: 0
+leave_2_train_data: 0
+================================================================================
+len(train): 0, initial examples: 5
+Augmenters to apply:  [Rotate(90), Rotate(270), Rotate(180), Flip(0), Flip(1), Reflect(0, reverse=True), Reflect(1, reverse=True), Reflect(0, reverse=False), Reflect(1, reverse=False), RandomTranslateXY(), Transpose()] len:  11
+
+Skipped, grid too large: 12 tasks
+augmenters: 11
+iterations: 33
+permute_n: 1
+Duplicates first: 0
+augmented_tasks: 24
+augmented_tasks + permute_augmented_tasks: 48
+Duplicates second: 0
+len(augmented_tasks) after set: 48
+initial examples new: 5
+
+Skipped, grid too large: 80 tasks
+augmenters: 23
+iterations: 115
+permute_n: 1
+Duplicates first: 0
+augmented_tasks: 40
+augmented_tasks + permute_augmented_tasks: 80
+Duplicates second: 0
+len(augmented_tasks) after set: 80
+Filtered bc too many tokens needed: 80
+Highest 5 token sizes: [12819, 12819, 12819, 12819, 12819]
+Max token size: 12819
+
+Skipped, grid too large: 320 tasks
+augmenters: 23
+iterations: 460
+permute_n: 1
+Duplicates first: 6
+augmented_tasks: 153
+augmented_tasks + permute_augmented_tasks: 306
+Duplicates second: 0
+len(augmented_tasks) after set: 306
+Filtered bc too many tokens needed: 306
+Highest 5 token sizes: [10267, 10267, 10267, 10267, 10267]
+Max token size: 10267
+leave_1_train_data: 0
+leave_2_train_data: 0
+================================================================================
+len(train): 0, initial examples: 5
+Augmenters to apply:  [Rotate(90), Rotate(270), Rotate(180), Flip(0), Flip(1), Reflect(0, reverse=True), Reflect(1, reverse=True), Reflect(0, reverse=False), Reflect(1, reverse=False), RandomTranslateXY(), Transpose()] len:  11
+
+Skipped, grid too large: 12 tasks
+augmenters: 11
+iterations: 33
+permute_n: 1
+Duplicates first: 0
+augmented_tasks: 24
+augmented_tasks + permute_augmented_tasks: 48
+Duplicates second: 0
+len(augmented_tasks) after set: 48
+initial examples new: 5
+
+Skipped, grid too large: 80 tasks
+augmenters: 23
+iterations: 115
+permute_n: 1
+Duplicates first: 0
+augmented_tasks: 40
+augmented_tasks + permute_augmented_tasks: 80
+Duplicates second: 0
+len(augmented_tasks) after set: 80
+Filtered bc too many tokens needed: 80
+Highest 5 token sizes: [10879, 10879, 10879, 10879, 10879]
+Max token size: 10879
+
+Skipped, grid too large: 320 tasks
+augmenters: 23
+iterations: 460
+permute_n: 1
+Duplicates first: 6
+augmented_tasks: 153
+augmented_tasks + permute_augmented_tasks: 306
+Duplicates second: 0
+len(augmented_tasks) after set: 306
+Filtered bc too many tokens needed: 306
+Highest 5 token sizes: [8715, 8715, 8715, 8715, 8715]
+Max token size: 8715
+leave_1_train_data: 0
+leave_2_train_data: 0
+================================================================================
+len(train): 0, initial examples: 5
+Augmenters to apply:  [Rotate(90), Rotate(270), Rotate(180), Flip(0), Flip(1), Reflect(0, reverse=True), Reflect(1, reverse=True), Reflect(0, reverse=False), Reflect(1, reverse=False), RandomTranslateXY(), Transpose()] len:  11
+
+Skipped, grid too large: 8 tasks
+augmenters: 11
+iterations: 22
+permute_n: 1
+Duplicates first: 0
+augmented_tasks: 16
+augmented_tasks + permute_augmented_tasks: 32
+Duplicates second: 0
+len(augmented_tasks) after set: 32
+initial examples new: 5
+
+Skipped, grid too large: 80 tasks
+augmenters: 23
+iterations: 115
+permute_n: 1
+Duplicates first: 0
+augmented_tasks: 40
+augmented_tasks + permute_augmented_tasks: 80
+Duplicates second: 0
+len(augmented_tasks) after set: 80
+Filtered bc too many tokens needed: 80
+Highest 5 token sizes: [18369, 18369, 18369, 18369, 18369]
+Max token size: 18369
+
+Skipped, grid too large: 320 tasks
+augmenters: 23
+iterations: 460
+permute_n: 1
+Duplicates first: 0
+augmented_tasks: 160
+augmented_tasks + permute_augmented_tasks: 320
+Duplicates second: 0
+len(augmented_tasks) after set: 320
+Filtered bc too many tokens needed: 320
+Highest 5 token sizes: [14707, 14707, 14707, 14707, 14707]
+Max token size: 14707
+leave_1_train_data: 0
+leave_2_train_data: 0
+================================================================================
+len(train): 0, initial examples: 5
+Augmenters to apply:  [Rotate(90), Rotate(270), Rotate(180), Flip(0), Flip(1), Reflect(0, reverse=True), Reflect(1, reverse=True), Reflect(0, reverse=False), Reflect(1, reverse=False), RandomTranslateXY(), Transpose()] len:  11
+
+Skipped, grid too large: 12 tasks
+augmenters: 11
+iterations: 33
+permute_n: 1
+Duplicates first: 0
+augmented_tasks: 24
+augmented_tasks + permute_augmented_tasks: 48
+Duplicates second: 0
+len(augmented_tasks) after set: 48
+initial examples new: 5
+
+Skipped, grid too large: 80 tasks
+augmenters: 23
+iterations: 115
+permute_n: 1
+Duplicates first: 0
+augmented_tasks: 40
+augmented_tasks + permute_augmented_tasks: 80
+Duplicates second: 0
+len(augmented_tasks) after set: 80
+Filtered bc too many tokens needed: 80
+Highest 5 token sizes: [10503, 10503, 10503, 10503, 10503]
+Max token size: 10503
+
+Skipped, grid too large: 320 tasks
+augmenters: 23
+iterations: 460
+permute_n: 1
+Duplicates first: 0
+augmented_tasks: 160
+augmented_tasks + permute_augmented_tasks: 320
+Duplicates second: 0
+len(augmented_tasks) after set: 320
+Filtered bc too many tokens needed: 320
+Highest 5 token sizes: [8527, 8527, 8527, 8527, 8527]
+Max token size: 8527
+leave_1_train_data: 0
+leave_2_train_data: 0
+================================================================================
+len(train): 0, initial examples: 5
+Augmenters to apply:  [Rotate(90), Rotate(270), Rotate(180), Flip(0), Flip(1), Reflect(0, reverse=True), Reflect(1, reverse=True), Reflect(0, reverse=False), Reflect(1, reverse=False), RandomTranslateXY(), Transpose()] len:  11
+
+Skipped, grid too large: 8 tasks
+augmenters: 11
+iterations: 22
+permute_n: 1
+Duplicates first: 0
+augmented_tasks: 16
+augmented_tasks + permute_augmented_tasks: 32
+Duplicates second: 0
+len(augmented_tasks) after set: 32
+initial examples new: 5
+
+Skipped, grid too large: 80 tasks
+augmenters: 23
+iterations: 115
+permute_n: 1
+Duplicates first: 0
+augmented_tasks: 40
+augmented_tasks + permute_augmented_tasks: 80
+Duplicates second: 0
+len(augmented_tasks) after set: 80
+Filtered bc too many tokens needed: 80
+Highest 5 token sizes: [10879, 10879, 10879, 10879, 10879]
+Max token size: 10879
+
+Skipped, grid too large: 320 tasks
+augmenters: 23
+iterations: 460
+permute_n: 1
+Duplicates first: 0
+augmented_tasks: 160
+augmented_tasks + permute_augmented_tasks: 320
+Duplicates second: 0
+len(augmented_tasks) after set: 320
+Filtered bc too many tokens needed: 320
+Highest 5 token sizes: [8715, 8715, 8715, 8715, 8715]
+Max token size: 8715
+leave_1_train_data: 0
+leave_2_train_data: 0
+================================================================================
+len(train): 0, initial examples: 5
+Augmenters to apply:  [Rotate(90), Rotate(270), Rotate(180), Flip(0), Flip(1), Reflect(0, reverse=True), Reflect(1, reverse=True), Reflect(0, reverse=False), Reflect(1, reverse=False), RandomTranslateXY(), Transpose()] len:  11
+
+Skipped, grid too large: 16 tasks
+augmenters: 11
+iterations: 44
+permute_n: 1
+Duplicates first: 0
+augmented_tasks: 32
+augmented_tasks + permute_augmented_tasks: 64
+Duplicates second: 0
+len(augmented_tasks) after set: 64
+initial examples new: 5
+
+Skipped, grid too large: 80 tasks
+augmenters: 23
+iterations: 115
+permute_n: 1
+Duplicates first: 0
+augmented_tasks: 40
+augmented_tasks + permute_augmented_tasks: 80
+Duplicates second: 0
+len(augmented_tasks) after set: 80
+Filtered bc too many tokens needed: 80
+Highest 5 token sizes: [10707, 10707, 10707, 10707, 10707]
+Max token size: 10707
+
+Skipped, grid too large: 320 tasks
+augmenters: 23
+iterations: 460
+permute_n: 1
+Duplicates first: 0
+augmented_tasks: 160
+augmented_tasks + permute_augmented_tasks: 320
+Duplicates second: 0
+len(augmented_tasks) after set: 320
+Filtered bc too many tokens needed: 192
+Highest 5 token sizes: [9517, 9517, 9517, 9517, 9517]
+Max token size: 9517
+leave_1_train_data: 0
+leave_2_train_data: 128
+================================================================================
+len(train): 128, initial examples: 5
+Augmenters to apply:  [Rotate(90), Rotate(270), Rotate(180), Flip(0), Flip(1), Reflect(0, reverse=True), Reflect(1, reverse=True), Reflect(0, reverse=False), Reflect(1, reverse=False), RandomTranslateXY(), Transpose()] len:  11
+
+Skipped, grid too large: 12 tasks
+augmenters: 11
+iterations: 33
+permute_n: 1
+Duplicates first: 0
+augmented_tasks: 24
+augmented_tasks + permute_augmented_tasks: 48
+Duplicates second: 0
+len(augmented_tasks) after set: 48
+initial examples new: 5
+
+Skipped, grid too large: 80 tasks
+augmenters: 23
+iterations: 115
+permute_n: 1
+Duplicates first: 0
+augmented_tasks: 40
+augmented_tasks + permute_augmented_tasks: 80
+Duplicates second: 0
+len(augmented_tasks) after set: 80
+Filtered bc too many tokens needed: 80
+Highest 5 token sizes: [18369, 18369, 18369, 18369, 18369]
+Max token size: 18369
+
+Skipped, grid too large: 320 tasks
+augmenters: 23
+iterations: 460
+permute_n: 1
+Duplicates first: 6
+augmented_tasks: 153
+augmented_tasks + permute_augmented_tasks: 306
+Duplicates second: 0
+len(augmented_tasks) after set: 306
+Filtered bc too many tokens needed: 306
+Highest 5 token sizes: [14707, 14707, 14707, 14707, 14707]
+Max token size: 14707
+leave_1_train_data: 0
+leave_2_train_data: 0
+================================================================================
+len(train): 0, initial examples: 5
+Augmenters to apply:  [Rotate(90), Rotate(270), Rotate(180), Flip(0), Flip(1), Reflect(0, reverse=True), Reflect(1, reverse=True), Reflect(0, reverse=False), Reflect(1, reverse=False), RandomTranslateXY(), Transpose()] len:  11
+
+Skipped, grid too large: 12 tasks
+augmenters: 11
+iterations: 33
+permute_n: 1
+Duplicates first: 0
+augmented_tasks: 24
+augmented_tasks + permute_augmented_tasks: 48
+Duplicates second: 0
+len(augmented_tasks) after set: 48
+initial examples new: 5
+
+Skipped, grid too large: 80 tasks
+augmenters: 23
+iterations: 115
+permute_n: 1
+Duplicates first: 0
+augmented_tasks: 40
+augmented_tasks + permute_augmented_tasks: 80
+Duplicates second: 0
+len(augmented_tasks) after set: 80
+Filtered bc too many tokens needed: 80
+Highest 5 token sizes: [17649, 17649, 17649, 17649, 17649]
+Max token size: 17649
+
+Skipped, grid too large: 320 tasks
+augmenters: 23
+iterations: 460
+permute_n: 1
+Duplicates first: 6
+augmented_tasks: 153
+augmented_tasks + permute_augmented_tasks: 306
+Duplicates second: 0
+len(augmented_tasks) after set: 306
+Filtered bc too many tokens needed: 306
+Highest 5 token sizes: [14347, 14347, 14347, 14347, 14347]
+Max token size: 14347
+leave_1_train_data: 0
+leave_2_train_data: 0
+================================================================================
+len(train): 0, initial examples: 5
+len(data): 13
+=====================================================
+Task: 00576224
+Number of lines in  : 0
+Num initial examples: 2
+=====================================================
+Task: 009d5c81
+Number of lines in  : 400
+Num initial examples: 5
+=====================================================
+Task: 00dbd492
+Number of lines in  : 0
+Num initial examples: 4
+=====================================================
+Task: 03560426
+Number of lines in  : 0
+Num initial examples: 3
+=====================================================
+Task: 05a7bcf2
+Number of lines in  : 0
+Num initial examples: 5
+=====================================================
+Task: 0607ce86
+Number of lines in  : 0
+Num initial examples: 3
+=====================================================
+Task: 0692e18c
+Number of lines in  : 0
+Num initial examples: 3
+=====================================================
+Task: 070dd51e
+Number of lines in  : 0
+Num initial examples: 5
+=====================================================
+Task: 08573cc6
+Number of lines in  : 0
+Num initial examples: 3
+=====================================================
+Task: 0934a4d8
+Number of lines in  : 0
+Num initial examples: 4
+=====================================================
+Task: 09c534e7
+Number of lines in  : 128
+Num initial examples: 5
+=====================================================
+Task: 0a1d4ef5
+Number of lines in  : 0
+Num initial examples: 3
+=====================================================
+Task: 0a2355a6
+Number of lines in  : 0
+Num initial examples: 4
+Stats saved to stats.json
+Done at 2025-02-16_14-09-44
+(sc_venv_arc) [nguyen31@jwlogin22 marc]$  
+
+
+
+BEFORE:
+
+Pdb) task.train_examples
+[Example(input=[[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 4 4 4 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 4 4 0 0 0 0 0 0 4 4 4 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 4 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 4 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 4 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 4 4 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0]
+ [2 0 0 2 2 0 0 2 0 2 0 0 2 2 0 0 0 2 0 2 0 0 2 2 2 0 0 2 0 0]
+ [2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]], output=[[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 3 0 0 0 0 0 0 3 3 3 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 3 3 0 0 0 0 0 0 3 3 3 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 3 3 0 0 0 0 4 4 0 0 0 0 0 0 4 4 4 0 0 0 0 3 3 0 0 0 0]
+ [0 0 0 4 4 0 0 0 0 4 4 0 0 0 0 0 0 4 4 4 0 0 0 0 3 3 0 0 0 0]
+ [0 0 0 4 4 0 0 0 0 4 4 0 0 0 0 0 0 4 4 4 0 0 0 3 3 3 0 0 0 0]
+ [0 0 0 4 4 0 0 0 0 4 4 0 0 0 0 0 0 4 4 4 0 0 0 4 4 4 0 0 0 0]
+ [0 0 0 4 4 0 0 0 0 4 4 0 0 0 0 0 0 4 4 4 0 0 0 4 4 4 0 0 0 0]
+ [8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8]
+ [0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 8 8 8 0 0 0 0]
+ [0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 8 8 8 0 0 0 0]
+ [0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 8 8 8 0 0 0 0]
+ [0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 8 8 8 0 0 0 0]
+ [0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 8 8 8 0 0 0 0]
+ [0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 8 8 8 0 0 0 0]
+ [0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 8 8 8 0 0 0 0]
+ [0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 8 8 8 0 0 0 0]
+ [0 0 0 8 8 0 0 0 0 8 8 0 0 2 0 0 0 8 8 8 0 0 2 8 8 8 0 0 0 0]
+ [2 0 0 8 8 0 0 2 0 8 8 0 2 2 0 0 0 8 8 8 0 0 2 8 8 8 0 2 0 0]
+ [2 2 2 8 8 2 2 2 2 8 8 2 2 2 2 2 2 8 8 8 2 2 2 8 8 8 2 2 2 2]
+ [0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 8 8 8 0 0 0 0]
+ [0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 8 8 8 0 0 0 0]
+ [0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 8 8 8 0 0 0 0]
+ [0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 8 8 8 0 0 0 0]
+ [0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 8 8 8 0 0 0 0]
+ [0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 2 8 8 0 0 0 0]
+ [0 0 0 2 2 0 0 0 0 2 8 0 0 0 0 0 0 2 8 2 0 0 0 2 2 8 0 0 0 0]
+ [0 0 0 2 2 0 0 0 0 2 2 0 0 0 0 0 0 2 2 2 0 0 0 2 2 2 0 0 0 0]]), Example(input=[[0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 2 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 4 4 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]
+ [0 0 4 4 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 2 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 2 2 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 2 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]
+ [0 0 4 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 4 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 2 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 4 4 0 0 0 8 0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 4 4 0 0 0 8 0 0 0 0 0 0 0 0 2 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 4 0 0 0 8 0 0 0 0 0 0 0 0 2 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 4 4 0 0 0 0 8 0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]], output=[[0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 2 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 3 3 4 4 4 4 4 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 2]
+ [0 0 3 3 4 4 4 4 4 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 2]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 2 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 2 2 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 2 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]
+ [0 0 3 4 4 4 4 4 4 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 2 2]
+ [0 0 3 4 4 4 4 4 4 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 2 2 2]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 3 3 4 4 4 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 2 2]
+ [0 0 0 0 3 3 4 4 4 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 2 2 2]
+ [0 0 0 0 0 3 4 4 4 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 2 2 2]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 3 3 4 4 4 4 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 2 2]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]]), Example(input=[[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 4 4 4 4 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 4 4 4 0 0 0 0 0 4 4 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 4 4 4 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 2 2 2 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 2 2 0 2 2 2 2 2 2 0 2 0 2 2 2 0 2 0 2 2 0 2 0 2 2 0 0 0]
+ [2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]], output=[[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 3 3 3 3 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 4 4 4 4 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 4 4 4 4 4 0 0 0 0 0 3 3 3 3 0 0 0 0 0 3 3 0 0 0]
+ [0 0 0 0 0 0 4 4 4 4 4 0 0 0 0 0 3 3 3 3 0 0 0 0 0 4 4 0 0 0]
+ [0 0 0 0 0 0 4 4 4 4 4 0 0 0 0 0 4 4 4 4 0 0 0 0 0 4 4 0 0 0]
+ [0 0 0 0 0 0 4 4 4 4 4 0 0 0 0 0 4 4 4 4 0 0 0 0 0 4 4 0 0 0]
+ [0 0 0 0 0 0 4 4 4 4 4 0 0 0 0 0 4 4 4 4 0 0 0 0 0 4 4 0 0 0]
+ [8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8]
+ [0 0 0 0 0 0 8 8 8 8 8 0 0 0 0 0 8 8 8 8 0 0 0 0 0 8 8 0 0 0]
+ [0 0 0 0 0 0 8 8 8 8 8 0 0 0 0 0 8 8 8 8 0 0 0 0 0 8 8 0 0 0]
+ [0 0 0 0 0 0 8 8 8 8 8 0 0 0 0 0 8 8 8 8 0 0 0 0 0 8 8 0 0 0]
+ [0 0 0 0 0 0 8 8 8 8 8 0 0 0 0 0 8 8 8 8 0 0 0 0 0 8 8 0 0 0]
+ [0 0 0 0 0 0 8 8 8 8 8 0 0 0 0 0 8 8 8 8 0 0 0 0 0 8 8 0 0 0]
+ [0 0 0 0 0 0 8 8 8 8 8 0 0 0 0 0 8 8 8 8 0 0 0 0 0 8 8 0 0 0]
+ [0 0 0 0 0 0 8 8 8 8 8 0 0 0 0 0 8 8 8 8 0 0 0 0 0 8 8 0 0 0]
+ [0 0 0 0 0 0 8 8 8 8 8 0 0 0 0 0 8 8 8 8 0 0 0 0 0 8 8 0 0 0]
+ [0 0 0 0 0 0 8 8 8 8 8 0 0 0 0 0 8 8 8 8 0 0 0 0 0 8 8 0 0 0]
+ [0 0 0 0 0 0 8 8 8 8 8 0 0 0 0 2 8 8 8 8 0 0 0 0 0 8 8 0 0 0]
+ [0 0 0 0 0 0 8 8 8 8 8 0 0 0 0 2 8 8 8 8 0 0 0 0 0 8 8 0 0 0]
+ [0 0 2 2 0 2 8 8 8 8 8 0 2 0 2 2 8 8 8 8 2 2 0 2 0 8 8 0 0 0]
+ [2 2 2 2 2 2 8 8 8 8 8 2 2 2 2 2 8 8 8 8 2 2 2 2 2 8 8 2 2 2]
+ [0 0 0 0 0 0 8 8 8 8 8 0 0 0 0 0 8 8 8 8 0 0 0 0 0 8 8 0 0 0]
+ [0 0 0 0 0 0 8 8 8 8 8 0 0 0 0 0 8 8 8 8 0 0 0 0 0 8 8 0 0 0]
+ [0 0 0 0 0 0 8 8 8 8 8 0 0 0 0 0 8 8 8 8 0 0 0 0 0 8 8 0 0 0]
+ [0 0 0 0 0 0 8 8 2 2 8 0 0 0 0 0 8 8 8 8 0 0 0 0 0 8 8 0 0 0]
+ [0 0 0 0 0 0 8 2 2 2 8 0 0 0 0 0 2 8 8 8 0 0 0 0 0 8 8 0 0 0]
+ [0 0 0 0 0 0 2 2 2 2 2 0 0 0 0 0 2 8 2 8 0 0 0 0 0 2 2 0 0 0]
+ [0 0 0 0 0 0 2 2 2 2 2 0 0 0 0 0 2 2 2 2 0 0 0 0 0 2 2 0 0 0]])]
+(Pdb) 
+
+
+
+
+
+
+
+AFTER = 5:
+
+
+(Pdb) task.train_examples
+[Example(input=[[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 4 4 4 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 4 4 0 0 0 0 0 0 4 4 4 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 4 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 4 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 4 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 4 4 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0]
+ [2 0 0 2 2 0 0 2 0 2 0 0 2 2 0 0 0 2 0 2 0 0 2 2 2 0 0 2 0 0]
+ [2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]], output=[[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 3 0 0 0 0 0 0 3 3 3 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 3 3 0 0 0 0 0 0 3 3 3 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 3 3 0 0 0 0 4 4 0 0 0 0 0 0 4 4 4 0 0 0 0 3 3 0 0 0 0]
+ [0 0 0 4 4 0 0 0 0 4 4 0 0 0 0 0 0 4 4 4 0 0 0 0 3 3 0 0 0 0]
+ [0 0 0 4 4 0 0 0 0 4 4 0 0 0 0 0 0 4 4 4 0 0 0 3 3 3 0 0 0 0]
+ [0 0 0 4 4 0 0 0 0 4 4 0 0 0 0 0 0 4 4 4 0 0 0 4 4 4 0 0 0 0]
+ [0 0 0 4 4 0 0 0 0 4 4 0 0 0 0 0 0 4 4 4 0 0 0 4 4 4 0 0 0 0]
+ [8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8]
+ [0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 8 8 8 0 0 0 0]
+ [0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 8 8 8 0 0 0 0]
+ [0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 8 8 8 0 0 0 0]
+ [0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 8 8 8 0 0 0 0]
+ [0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 8 8 8 0 0 0 0]
+ [0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 8 8 8 0 0 0 0]
+ [0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 8 8 8 0 0 0 0]
+ [0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 8 8 8 0 0 0 0]
+ [0 0 0 8 8 0 0 0 0 8 8 0 0 2 0 0 0 8 8 8 0 0 2 8 8 8 0 0 0 0]
+ [2 0 0 8 8 0 0 2 0 8 8 0 2 2 0 0 0 8 8 8 0 0 2 8 8 8 0 2 0 0]
+ [2 2 2 8 8 2 2 2 2 8 8 2 2 2 2 2 2 8 8 8 2 2 2 8 8 8 2 2 2 2]
+ [0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 8 8 8 0 0 0 0]
+ [0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 8 8 8 0 0 0 0]
+ [0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 8 8 8 0 0 0 0]
+ [0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 8 8 8 0 0 0 0]
+ [0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 8 8 8 0 0 0 0]
+ [0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 2 8 8 0 0 0 0]
+ [0 0 0 2 2 0 0 0 0 2 8 0 0 0 0 0 0 2 8 2 0 0 0 2 2 8 0 0 0 0]
+ [0 0 0 2 2 0 0 0 0 2 2 0 0 0 0 0 0 2 2 2 0 0 0 2 2 2 0 0 0 0]]), Example(input=[[0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 2 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 4 4 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]
+ [0 0 4 4 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 2 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 2 2 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 2 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]
+ [0 0 4 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 4 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 2 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 4 4 0 0 0 8 0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 4 4 0 0 0 8 0 0 0 0 0 0 0 0 2 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 4 0 0 0 8 0 0 0 0 0 0 0 0 2 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 4 4 0 0 0 0 8 0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]], output=[[0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 2 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 3 3 4 4 4 4 4 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 2]
+ [0 0 3 3 4 4 4 4 4 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 2]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 2 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 2 2 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 2 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]
+ [0 0 3 4 4 4 4 4 4 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 2 2]
+ [0 0 3 4 4 4 4 4 4 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 2 2 2]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 3 3 4 4 4 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 2 2]
+ [0 0 0 0 3 3 4 4 4 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 2 2 2]
+ [0 0 0 0 0 3 4 4 4 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 2 2 2]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 3 3 4 4 4 4 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 2 2]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0]]), Example(input=[[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 4 4 4 4 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 4 4 4 0 0 0 0 0 4 4 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 4 4 4 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 2 2 2 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 2 2 0 2 2 2 2 2 2 0 2 0 2 2 2 0 2 0 2 2 0 2 0 2 2 0 0 0]
+ [2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]], output=[[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 3 3 3 3 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 4 4 4 4 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 4 4 4 4 4 0 0 0 0 0 3 3 3 3 0 0 0 0 0 3 3 0 0 0]
+ [0 0 0 0 0 0 4 4 4 4 4 0 0 0 0 0 3 3 3 3 0 0 0 0 0 4 4 0 0 0]
+ [0 0 0 0 0 0 4 4 4 4 4 0 0 0 0 0 4 4 4 4 0 0 0 0 0 4 4 0 0 0]
+ [0 0 0 0 0 0 4 4 4 4 4 0 0 0 0 0 4 4 4 4 0 0 0 0 0 4 4 0 0 0]
+ [0 0 0 0 0 0 4 4 4 4 4 0 0 0 0 0 4 4 4 4 0 0 0 0 0 4 4 0 0 0]
+ [8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8]
+ [0 0 0 0 0 0 8 8 8 8 8 0 0 0 0 0 8 8 8 8 0 0 0 0 0 8 8 0 0 0]
+ [0 0 0 0 0 0 8 8 8 8 8 0 0 0 0 0 8 8 8 8 0 0 0 0 0 8 8 0 0 0]
+ [0 0 0 0 0 0 8 8 8 8 8 0 0 0 0 0 8 8 8 8 0 0 0 0 0 8 8 0 0 0]
+ [0 0 0 0 0 0 8 8 8 8 8 0 0 0 0 0 8 8 8 8 0 0 0 0 0 8 8 0 0 0]
+ [0 0 0 0 0 0 8 8 8 8 8 0 0 0 0 0 8 8 8 8 0 0 0 0 0 8 8 0 0 0]
+ [0 0 0 0 0 0 8 8 8 8 8 0 0 0 0 0 8 8 8 8 0 0 0 0 0 8 8 0 0 0]
+ [0 0 0 0 0 0 8 8 8 8 8 0 0 0 0 0 8 8 8 8 0 0 0 0 0 8 8 0 0 0]
+ [0 0 0 0 0 0 8 8 8 8 8 0 0 0 0 0 8 8 8 8 0 0 0 0 0 8 8 0 0 0]
+ [0 0 0 0 0 0 8 8 8 8 8 0 0 0 0 0 8 8 8 8 0 0 0 0 0 8 8 0 0 0]
+ [0 0 0 0 0 0 8 8 8 8 8 0 0 0 0 2 8 8 8 8 0 0 0 0 0 8 8 0 0 0]
+ [0 0 0 0 0 0 8 8 8 8 8 0 0 0 0 2 8 8 8 8 0 0 0 0 0 8 8 0 0 0]
+ [0 0 2 2 0 2 8 8 8 8 8 0 2 0 2 2 8 8 8 8 2 2 0 2 0 8 8 0 0 0]
+ [2 2 2 2 2 2 8 8 8 8 8 2 2 2 2 2 8 8 8 8 2 2 2 2 2 8 8 2 2 2]
+ [0 0 0 0 0 0 8 8 8 8 8 0 0 0 0 0 8 8 8 8 0 0 0 0 0 8 8 0 0 0]
+ [0 0 0 0 0 0 8 8 8 8 8 0 0 0 0 0 8 8 8 8 0 0 0 0 0 8 8 0 0 0]
+ [0 0 0 0 0 0 8 8 8 8 8 0 0 0 0 0 8 8 8 8 0 0 0 0 0 8 8 0 0 0]
+ [0 0 0 0 0 0 8 8 2 2 8 0 0 0 0 0 8 8 8 8 0 0 0 0 0 8 8 0 0 0]
+ [0 0 0 0 0 0 8 2 2 2 8 0 0 0 0 0 2 8 8 8 0 0 0 0 0 8 8 0 0 0]
+ [0 0 0 0 0 0 2 2 2 2 2 0 0 0 0 0 2 8 2 8 0 0 0 0 0 2 2 0 0 0]
+ [0 0 0 0 0 0 2 2 2 2 2 0 0 0 0 0 2 2 2 2 0 0 0 0 0 2 2 0 0 0]]), 
+ 
+ Example(input=[[0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 2 2 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 4 4 0 0]
+ [0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 4 4 0 0]
+ [0 0 0 0 0 0 0 0 0 2 2 2 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 2 2 2 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 2 2 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 4 0 0]
+ [0 0 0 0 0 0 0 0 0 2 2 2 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 4 0 0]
+ [0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0 8 0 0 0 4 4 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 2 2 0 0 0 0 0 0 0 0 8 0 0 0 4 4 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 2 2 0 0 0 0 0 0 0 0 8 0 0 0 4 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0 8 0 0 0 0 4 4 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]], output=[[0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 2 2 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [2 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 4 4 4 4 4 3 3 0 0]
+ [2 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 4 4 4 4 4 3 3 0 0]
+ [0 0 0 0 0 0 0 0 0 2 2 2 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 2 2 2 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 2 2 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [2 2 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 4 4 4 4 4 4 3 0 0]
+ [2 2 2 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 4 4 4 4 4 4 3 0 0]
+ [0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [2 2 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 4 4 4 3 3 0 0 0 0]
+ [2 2 2 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 4 4 4 3 3 0 0 0 0]
+ [2 2 2 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 4 4 4 3 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [2 2 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 4 4 4 4 3 3 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 2 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 8 0 0 0 0 0 0 0 0 0]]), 
+ 
+ Example(input=[[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 4 4 4 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 4 4 0 0 0 0 0 0 4 4 4 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 4 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 4 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 4 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 4 4 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 2 2 0 0 0]
+ [2 0 0 2 0 0 2 2 0 0 2 0 2 0 0 2 2 0 0 0 2 0 2 0 0 2 2 2 0 0]
+ [2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]], output=[[0 0 0 0 2 2 0 0 0 0 2 2 0 0 0 0 0 0 2 2 2 0 0 0 2 2 2 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 0 3 0 0 0 0 0 0 3 3 3 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0 3 3 0 0 0 0 0 0 3 3 3 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 3 3 0 0 0 0 4 4 0 0 0 0 0 0 4 4 4 0 0 0 0 3 3 0 0 0]
+ [0 0 0 0 4 4 0 0 0 0 4 4 0 0 0 0 0 0 4 4 4 0 0 0 0 3 3 0 0 0]
+ [0 0 0 0 4 4 0 0 0 0 4 4 0 0 0 0 0 0 4 4 4 0 0 0 3 3 3 0 0 0]
+ [0 0 0 0 4 4 0 0 0 0 4 4 0 0 0 0 0 0 4 4 4 0 0 0 4 4 4 0 0 0]
+ [0 0 0 0 4 4 0 0 0 0 4 4 0 0 0 0 0 0 4 4 4 0 0 0 4 4 4 0 0 0]
+ [8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8]
+ [0 0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 8 8 8 0 0 0]
+ [0 0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 8 8 8 0 0 0]
+ [0 0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 8 8 8 0 0 0]
+ [0 0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 8 8 8 0 0 0]
+ [0 0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 8 8 8 0 0 0]
+ [0 0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 8 8 8 0 0 0]
+ [0 0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 8 8 8 0 0 0]
+ [0 0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 8 8 8 0 0 0]
+ [0 0 0 0 8 8 0 0 0 0 8 8 0 0 2 0 0 0 8 8 8 0 0 2 8 8 8 0 0 0]
+ [0 2 0 0 8 8 0 0 2 0 8 8 0 2 2 0 0 0 8 8 8 0 0 2 8 8 8 0 2 0]
+ [2 2 2 2 8 8 2 2 2 2 8 8 2 2 2 2 2 2 8 8 8 2 2 2 8 8 8 2 2 2]
+ [0 0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 8 8 8 0 0 0]
+ [0 0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 8 8 8 0 0 0]
+ [0 0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 8 8 8 0 0 0]
+ [0 0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 8 8 8 0 0 0]
+ [0 0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 8 8 8 0 0 0]
+ [0 0 0 0 8 8 0 0 0 0 8 8 0 0 0 0 0 0 8 8 8 0 0 0 2 8 8 0 0 0]
+ [0 0 0 0 2 2 0 0 0 0 2 8 0 0 0 0 0 0 2 8 2 0 0 0 2 2 8 0 0 0]])]
+(Pdb) 

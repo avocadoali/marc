@@ -32,7 +32,7 @@ lora_alpha=16.0
 lora_to_output=False # doesn't apply for Llama3.2 models for now.
 # You can specify how many tasks you want train for.
 
-nmax=5000
+nmax=2500
 
 # Automatically construct folder name from variables
 ttt_folder="transformation_test"
@@ -44,8 +44,9 @@ python debug_transformations.py --lora_config=$lora_config_file \
 --data_file=$data_file \
 --batch_size=$batch_size \
 --offset=0 \
---num_tasks=100 \
+--num_tasks=400 \
 --Nmax=$nmax \
+--permute_n=3 \
 --epochs=$epochs \
 --lora_rank=$lora_rank \
 --lora_alpha=$lora_alpha \
@@ -53,3 +54,7 @@ python debug_transformations.py --lora_config=$lora_config_file \
 --new_format 
 
 echo "Done at $(date +%Y-%m-%d_%H-%M-%S)"
+# time taken
+time_taken=$(($(date +%s) - start_time))
+echo "Time taken: $time_taken seconds"
+

@@ -88,6 +88,7 @@ for data_size in "${data_sizes[@]}"; do
     --max_lora_rank=$max_lora_rank \
     --include_n=1 \
     --adapter_number=$data_size \
+    --max_tokens=15000 \
     --new_format 
 
     end_time=$(date +%s)
