@@ -77,7 +77,7 @@ for data_size in "${data_sizes[@]}"; do
     start_time=$(date +%s)
 
     # With lora adapters
-    python predict.py \
+    CUDA_VISIBLE_DEVICES=0 python predict.py \
     --experiment_folder=$tti_folder \
     --pretrained_checkpoint=$base_checkpoint_dir \
     --lora_checkpoints_folder=$ttt_folder \
