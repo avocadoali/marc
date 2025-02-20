@@ -51,73 +51,74 @@ nmax=2000
 # Automatically construct folder name from variables
 # ttt_folder="experiments/ttt_adapters_nmax_${nmax}_batch_${batch_size}_ep_${epochs}_lr_${learning_rate}_rank_${lora_rank}_alpha_${lora_alpha}"
 
-ttt_experiment_name="2k_test_run"
+## dont forget to copy the adapters_json folder to the new experiment folder
+ttt_experiment_name="2k_test_run_20k_context"
 
 #####################
 # 0-139
 #####################   
 
 
-# ttt_log_folder="experiments_thesis/${ttt_experiment_name}/logs_0-139"
-# ttt_folder="experiments_thesis/${ttt_experiment_name}/adapters_json"
-# mkdir -p $ttt_folder
-# mkdir -p $ttt_log_folder
+ttt_log_folder="experiments_thesis/${ttt_experiment_name}/logs_0-139"
+ttt_folder="experiments_thesis/${ttt_experiment_name}/adapters_json"
+mkdir -p $ttt_folder
+mkdir -p $ttt_log_folder
 
-# CUDA_VISIBLE_DEVICES=0 python test_time_train.py --lora_config=$lora_config_file \
-# --base_checkpoint_dir=$base_checkpoint_dir \
-# --experiment_folder=$ttt_folder \
-# --data_file=$data_file \
-# --batch_size=$batch_size \
-# --offset=0 \
-# --num_tasks=35 \
-# --Nmax=$nmax \
-# --epochs=$epochs \
-# --lora_rank=$lora_rank \
-# --lora_alpha=$lora_alpha \
-# --lora_to_output=$lora_to_output \
-# --new_format | tee $ttt_log_folder/log_0.txt &
+CUDA_VISIBLE_DEVICES=0 python test_time_train.py --lora_config=$lora_config_file \
+--base_checkpoint_dir=$base_checkpoint_dir \
+--experiment_folder=$ttt_folder \
+--data_file=$data_file \
+--batch_size=$batch_size \
+--offset=0 \
+--num_tasks=35 \
+--Nmax=$nmax \
+--epochs=$epochs \
+--lora_rank=$lora_rank \
+--lora_alpha=$lora_alpha \
+--lora_to_output=$lora_to_output \
+--new_format | tee $ttt_log_folder/log_0.txt &
 
-# CUDA_VISIBLE_DEVICES=1 python test_time_train.py --lora_config=$lora_config_file \
-# --base_checkpoint_dir=$base_checkpoint_dir \
-# --experiment_folder=$ttt_folder \
-# --data_file=$data_file \
-# --batch_size=$batch_size \
-# --offset=35 \
-# --num_tasks=35 \
-# --Nmax=$nmax \
-# --epochs=$epochs \
-# --lora_rank=$lora_rank \
-# --lora_alpha=$lora_alpha \
-# --lora_to_output=$lora_to_output \
-# --new_format | tee $ttt_log_folder/log_1.txt &
+CUDA_VISIBLE_DEVICES=1 python test_time_train.py --lora_config=$lora_config_file \
+--base_checkpoint_dir=$base_checkpoint_dir \
+--experiment_folder=$ttt_folder \
+--data_file=$data_file \
+--batch_size=$batch_size \
+--offset=35 \
+--num_tasks=35 \
+--Nmax=$nmax \
+--epochs=$epochs \
+--lora_rank=$lora_rank \
+--lora_alpha=$lora_alpha \
+--lora_to_output=$lora_to_output \
+--new_format | tee $ttt_log_folder/log_1.txt &
 
-# CUDA_VISIBLE_DEVICES=2 python test_time_train.py --lora_config=$lora_config_file \
-# --base_checkpoint_dir=$base_checkpoint_dir \
-# --experiment_folder=$ttt_folder \
-# --data_file=$data_file \
-# --batch_size=$batch_size \
-# --offset=70 \
-# --num_tasks=35 \
-# --Nmax=$nmax \
-# --epochs=$epochs \
-# --lora_rank=$lora_rank \
-# --lora_alpha=$lora_alpha \
-# --lora_to_output=$lora_to_output \
-# --new_format | tee $ttt_log_folder/log_2.txt &
+CUDA_VISIBLE_DEVICES=2 python test_time_train.py --lora_config=$lora_config_file \
+--base_checkpoint_dir=$base_checkpoint_dir \
+--experiment_folder=$ttt_folder \
+--data_file=$data_file \
+--batch_size=$batch_size \
+--offset=70 \
+--num_tasks=35 \
+--Nmax=$nmax \
+--epochs=$epochs \
+--lora_rank=$lora_rank \
+--lora_alpha=$lora_alpha \
+--lora_to_output=$lora_to_output \
+--new_format | tee $ttt_log_folder/log_2.txt &
 
-# CUDA_VISIBLE_DEVICES=3 python test_time_train.py --lora_config=$lora_config_file \
-# --base_checkpoint_dir=$base_checkpoint_dir \
-# --experiment_folder=$ttt_folder \
-# --data_file=$data_file \
-# --batch_size=$batch_size \
-# --offset=105 \
-# --num_tasks=35 \
-# --Nmax=$nmax \
-# --epochs=$epochs \
-# --lora_rank=$lora_rank \
-# --lora_alpha=$lora_alpha \
-# --lora_to_output=$lora_to_output \
-# --new_format | tee $ttt_log_folder/log_3.txt &
+CUDA_VISIBLE_DEVICES=3 python test_time_train.py --lora_config=$lora_config_file \
+--base_checkpoint_dir=$base_checkpoint_dir \
+--experiment_folder=$ttt_folder \
+--data_file=$data_file \
+--batch_size=$batch_size \
+--offset=105 \
+--num_tasks=35 \
+--Nmax=$nmax \
+--epochs=$epochs \
+--lora_rank=$lora_rank \
+--lora_alpha=$lora_alpha \
+--lora_to_output=$lora_to_output \
+--new_format | tee $ttt_log_folder/log_3.txt &
 
 
 #####################
@@ -191,66 +192,66 @@ ttt_experiment_name="2k_test_run"
 # 280-419
 #####################      
 
-ttt_log_folder="experiments_thesis/${ttt_experiment_name}/logs_280-419"
-ttt_folder="experiments_thesis/${ttt_experiment_name}/adapters_json"
-mkdir -p $ttt_folder
-mkdir -p $ttt_log_folder
+# ttt_log_folder="experiments_thesis/${ttt_experiment_name}/logs_280-419"
+# ttt_folder="experiments_thesis/${ttt_experiment_name}/adapters_json"
+# mkdir -p $ttt_folder
+# mkdir -p $ttt_log_folder
 
-CUDA_VISIBLE_DEVICES=0 python test_time_train.py --lora_config=$lora_config_file \
---base_checkpoint_dir=$base_checkpoint_dir \
---experiment_folder=$ttt_folder \
---data_file=$data_file \
---batch_size=$batch_size \
---offset=280 \
---num_tasks=35 \
---Nmax=$nmax \
---epochs=$epochs \
---lora_rank=$lora_rank \
---lora_alpha=$lora_alpha \
---lora_to_output=$lora_to_output \
---new_format | tee $ttt_log_folder/log_0.txt &
+# CUDA_VISIBLE_DEVICES=0 python test_time_train.py --lora_config=$lora_config_file \
+# --base_checkpoint_dir=$base_checkpoint_dir \
+# --experiment_folder=$ttt_folder \
+# --data_file=$data_file \
+# --batch_size=$batch_size \
+# --offset=280 \
+# --num_tasks=35 \
+# --Nmax=$nmax \
+# --epochs=$epochs \
+# --lora_rank=$lora_rank \
+# --lora_alpha=$lora_alpha \
+# --lora_to_output=$lora_to_output \
+# --new_format | tee $ttt_log_folder/log_0.txt &
 
-CUDA_VISIBLE_DEVICES=1 python test_time_train.py --lora_config=$lora_config_file \
---base_checkpoint_dir=$base_checkpoint_dir \
---experiment_folder=$ttt_folder \
---data_file=$data_file \
---batch_size=$batch_size \
---offset=315 \
---num_tasks=35 \
---Nmax=$nmax \
---epochs=$epochs \
---lora_rank=$lora_rank \
---lora_alpha=$lora_alpha \
---lora_to_output=$lora_to_output \
---new_format | tee $ttt_log_folder/log_1.txt &
+# CUDA_VISIBLE_DEVICES=1 python test_time_train.py --lora_config=$lora_config_file \
+# --base_checkpoint_dir=$base_checkpoint_dir \
+# --experiment_folder=$ttt_folder \
+# --data_file=$data_file \
+# --batch_size=$batch_size \
+# --offset=315 \
+# --num_tasks=35 \
+# --Nmax=$nmax \
+# --epochs=$epochs \
+# --lora_rank=$lora_rank \
+# --lora_alpha=$lora_alpha \
+# --lora_to_output=$lora_to_output \
+# --new_format | tee $ttt_log_folder/log_1.txt &
 
-CUDA_VISIBLE_DEVICES=2 python test_time_train.py --lora_config=$lora_config_file \
---base_checkpoint_dir=$base_checkpoint_dir \
---experiment_folder=$ttt_folder \
---data_file=$data_file \
---batch_size=$batch_size \
---offset=350 \
---num_tasks=35 \
---Nmax=$nmax \
---epochs=$epochs \
---lora_rank=$lora_rank \
---lora_alpha=$lora_alpha \
---lora_to_output=$lora_to_output \
---new_format | tee $ttt_log_folder/log_2.txt &
+# CUDA_VISIBLE_DEVICES=2 python test_time_train.py --lora_config=$lora_config_file \
+# --base_checkpoint_dir=$base_checkpoint_dir \
+# --experiment_folder=$ttt_folder \
+# --data_file=$data_file \
+# --batch_size=$batch_size \
+# --offset=350 \
+# --num_tasks=35 \
+# --Nmax=$nmax \
+# --epochs=$epochs \
+# --lora_rank=$lora_rank \
+# --lora_alpha=$lora_alpha \
+# --lora_to_output=$lora_to_output \
+# --new_format | tee $ttt_log_folder/log_2.txt &
 
-CUDA_VISIBLE_DEVICES=3 python test_time_train.py --lora_config=$lora_config_file \
---base_checkpoint_dir=$base_checkpoint_dir \
---experiment_folder=$ttt_folder \
---data_file=$data_file \
---batch_size=$batch_size \
---offset=385 \
---num_tasks=35 \
---Nmax=$nmax \
---epochs=$epochs \
---lora_rank=$lora_rank \
---lora_alpha=$lora_alpha \
---lora_to_output=$lora_to_output \
---new_format | tee $ttt_log_folder/log_3.txt &
+# CUDA_VISIBLE_DEVICES=3 python test_time_train.py --lora_config=$lora_config_file \
+# --base_checkpoint_dir=$base_checkpoint_dir \
+# --experiment_folder=$ttt_folder \
+# --data_file=$data_file \
+# --batch_size=$batch_size \
+# --offset=385 \
+# --num_tasks=35 \
+# --Nmax=$nmax \
+# --epochs=$epochs \
+# --lora_rank=$lora_rank \
+# --lora_alpha=$lora_alpha \
+# --lora_to_output=$lora_to_output \
+# --new_format | tee $ttt_log_folder/log_3.txt &
 
 
 

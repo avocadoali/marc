@@ -2,7 +2,7 @@
 
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
-#SBATCH --time=20:00:00
+#SBATCH --time=0:10:00
 #SBATCH --gres=gpu:4
 #SBATCH --partition=booster
 #SBATCH --account=hai_hreplearn
@@ -10,7 +10,10 @@
 #SBATCH --output=logs_predict/slurm_%j.log
 #SBATCH --error=logs_predict/slurm_%j.log
 #SBATCH --mail-user=avocadoaling@gmail.com
+#SBATCH --job-name=predict_multi_1-1200
 #SBATCH --mail-type=ALL
+
+source sc_venv_inference/activate.sh
 
 echo "starting ttt at time $(date +%Y-%m-%d_%H-%M-%S)"
 # train
@@ -34,6 +37,9 @@ n_sample=1
 max_lora_rank=128
 # You need to tell where predictions and submissions should be saved
 
+logs_predict_folder=logs_predict/multi_batch
+mkdir -p $logs_predict_folder
+
 # Function to process data sizes
 process_data_sizes() {
     local data_sizes=("$@")
@@ -41,8 +47,8 @@ process_data_sizes() {
     shift
     for data_size in "${data_sizes[@]}"; do
         echo "Processing data size $data_size"
-        ttt_folder=ttt_adapters_llama3/ttt_adapters_llama3_nmax_1500_batch_2_ep_1_lr_5e-5_rank_128_alpha_16.0_${data_size}
-        tti_folder=ttt_output_llama3_stages/ttt_adapters_llama3_nmax_1500_batch_2_ep_1_lr_5e-5_rank_128_alpha_16.0_${data_size}
+        ttt_folder=experiments_thesis/2k_test_run/adapters_json_${data_size}
+        tti_folder=experiments_thesis/output_2k_test_run/adapters_json_${data_size}
         mkdir -p $tti_folder
 
         timestamp=$(date '+%Y-%m-%d_%H-%M-%S')
@@ -63,22 +69,21 @@ process_data_sizes() {
         --include_n=1 \
         --adapter_number=$data_size \
         --max_tokens=15000 \
-        --new_format | tee logs_predict/slurm_${data_size}.log
+        --new_format | tee $logs_predict_folder/slurm_${data_size}.log
 
         end_time=$(date +%s)
         echo "Time taken for data_size $data_size: $((end_time - start_time)) seconds"
+        # echo current  time date
+        echo "End time: $(date +%Y-%m-%d_%H-%M-%S)"
+
     done
 }
 
 # Run each loop in a separate process
-process_data_sizes 0  10 &
-process_data_sizes 1  20 &
-process_data_sizes 2  30 &
-process_data_sizes 3  40 &
-
-
-
-
+process_data_sizes 0  2 20 200 1200 &
+process_data_sizes 1  4 40 400 10   &
+process_data_sizes 2  6 60 600 100  &
+process_data_sizes 3  8 80 800 1000 &
 
 # Wait for all background processes to complete
 wait
