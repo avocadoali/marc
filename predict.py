@@ -245,7 +245,7 @@ if len(lora_path_idxs) > 0:
         
         print(f"Loading adapter_config.json from {id_to_lora_path[lora_path_idxs[0]].replace(f'adapter_model.bin', f'adapter_config.json')}")
         print(f"Path: {id_to_lora_path[lora_path_idxs[0]]}")
-        breakpoint()
+        #  breakpoint()
         lora_adapter_config = json.load(f)
 else:
     lora_adapter_config = {}
@@ -253,7 +253,7 @@ else:
 
 
 
-breakpoint()
+# breakpoint()
 
 engine = initialize_engine(
     model=args.pretrained_checkpoint,

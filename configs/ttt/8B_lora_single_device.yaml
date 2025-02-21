@@ -58,6 +58,7 @@ dataset:
    source: data/dummy/
    train_on_input: False
    unmask_outputs: True # we'll get loss from all outputs after the first demonstration, very hacky, tokenizer & formatting specific
+   max_seq_len: 20000
 
 seed: 57
 shuffle: True

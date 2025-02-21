@@ -355,22 +355,22 @@ def process_task(
     # train = leave_1_train_data + leave_1_1_train_data + leave_2_train_data + leave_2_1_train_data + leave_3_train_data
     train = leave_1_train_data +  leave_2_train_data 
     
-    if len(train) < Nmax:
-        # print(f'len(train): {len(train)} 1.1 < Nmax: {Nmax}')
+    # if len(train) < Nmax:
+    #     print(f'len(train): {len(train)} 1.1 < Nmax: {Nmax}')
 
-        leave_1_1_train_data = get_formatted_data(
-            task, augmenters, formatter, tokenizer, leave_n=1, permute_n=permute_n, seed=rng.randint(0, 2**32)
-        )
-        # print(f'len(leave_1_1_train_data): {len(leave_1_1_train_data)}')
-        train += leave_1_1_train_data
+    #     leave_1_1_train_data = get_formatted_data(
+    #         task, augmenters, formatter, tokenizer, leave_n=1, permute_n=permute_n, seed=rng.randint(0, 2**32)
+    #     )
+    #     print(f'len(leave_1_1_train_data): {len(leave_1_1_train_data)}')
+    #     train += leave_1_1_train_data
     
-    if len(train) < Nmax:
-        # print(f'len(train): {len(train)} 2.1 < Nmax: {Nmax}')
-        leave_2_1_train_data = get_formatted_data(
-            task, augmenters, formatter, tokenizer, leave_n=2, permute_n=permute_n, seed=rng.randint(0, 2**32)
-        )
-        # print(f'len(leave_2_1_train_data): {len(leave_2_1_train_data)}')
-        train += leave_2_1_train_data
+    # if len(train) < Nmax:
+    #     print(f'len(train): {len(train)} 2.1 < Nmax: {Nmax}')
+    #     leave_2_1_train_data = get_formatted_data(
+    #         task, augmenters, formatter, tokenizer, leave_n=2, permute_n=permute_n, seed=rng.randint(0, 2**32)
+    #     )
+    #     print(f'len(leave_2_1_train_data): {len(leave_2_1_train_data)}')
+    #     train += leave_2_1_train_data
 
     #     print(f'len(leave_1_1_train_data): {len(leave_1_1_train_data)}')
     #     print(f'len(leave_2_1_train_data): {len(leave_2_1_train_data)}')
@@ -378,9 +378,9 @@ def process_task(
 
     
     # print('')
-    print(f'len(train): {len(train)}')
+    print(f'len(train) before : {len(train)}')
     if len(train) > Nmax:
         train = train[:Nmax]
 
-    # print(f'len(train): {len(train)}, initial examples: {len(task.train_examples)}')
+    print(f'len(train): {len(train)}, initial examples: {len(task.train_examples)}')
     return train

@@ -33,10 +33,11 @@ lora_alpha=16.0
 lora_to_output=False # doesn't apply for Llama3.2 models for now.
 # You can specify how many tasks you want train for.
 
-nmax=2500
+nmax=70
+
 
 # Automatically construct folder name from variables
-ttt_folder="experiments_thesis/adapters_json"
+ttt_folder="experiments_thesis/1000_test_run_permute_2/adapters_json"
 mkdir -p $ttt_folder
 
 python debug_transformations.py --lora_config=$lora_config_file \
@@ -47,7 +48,7 @@ python debug_transformations.py --lora_config=$lora_config_file \
 --offset=0 \
 --num_tasks=400 \
 --Nmax=$nmax \
---permute_n=3 \
+--permute_n=2 \
 --epochs=$epochs \
 --lora_rank=$lora_rank \
 --lora_alpha=$lora_alpha \

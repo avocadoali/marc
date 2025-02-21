@@ -2,7 +2,7 @@
 
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
-#SBATCH --time=0:10:00
+#SBATCH --time=4:00:00
 #SBATCH --gres=gpu:4
 #SBATCH --partition=booster
 #SBATCH --account=hai_hreplearn
@@ -45,7 +45,11 @@ process_data_sizes() {
     local data_sizes=("$@")
     local cuda_device=$1
     shift
-    for data_size in "${data_sizes[@]}"; do
+
+    echo "cuda_device: $cuda_device"
+    echo "data_sizes: ${data_sizes[@]:1}"
+    
+    for data_size in "${data_sizes[@]:1}"; do
         echo "Processing data size $data_size"
         ttt_folder=experiments_thesis/2k_test_run/adapters_json_${data_size}
         tti_folder=experiments_thesis/output_2k_test_run/adapters_json_${data_size}
@@ -80,10 +84,22 @@ process_data_sizes() {
 }
 
 # Run each loop in a separate process
-process_data_sizes 0  2 20 200 1200 &
-process_data_sizes 1  4 40 400 10   &
-process_data_sizes 2  6 60 600 100  &
-process_data_sizes 3  8 80 800 1000 &
+# process_data_sizes 0  10 20 
+
+# process_data_sizes 0  2 20 200 1200 &
+# process_data_sizes 1  4 40 400 10   &
+# process_data_sizes 2  6 60 600 100  &
+# process_data_sizes 3  8 80 800 1000 &
+
+
+
+process_data_sizes 0  2  10 &
+process_data_sizes 1  4  20 &
+process_data_sizes 2  6  34 &
+process_data_sizes 3  8  &
+
+
+
 
 # Wait for all background processes to complete
 wait

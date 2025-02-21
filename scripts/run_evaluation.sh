@@ -2,8 +2,11 @@
 python -m arclib.eval \
     --data_file ./arc-prize-2024/arc-agi_evaluation_challenges.json \
     --solution_file ./arc-prize-2024/arc-agi_evaluation_solutions.json \
-    --submission_file "ttt_output_llama3_stages/ttt_adapters_llama3_nmax_1500_batch_2_ep_1_lr_5e-5_rank_128_alpha_16.0_100/submission_100.json"
+    --submission_file "experiments_thesis/output_2k_test_run/adapters_json_20/submission_20.json"
+    # --submission_file "experiments_thesis/output_2k_test_run/adapters_json_80/submission_80.json"
     # --submission_file "ttt_output_llama3/ttt_output_llama3_70_epochs_1/submission.json"
+    # --submission_file "experiments_thesis/output_2k_test_run/adapters_json_80/submission_80.json"
+    # --submission_file "ttt_output_llama3_stages/ttt_adapters_llama3_nmax_1500_batch_2_ep_1_lr_5e-5_rank_128_alpha_16.0_100/submission_100.json"
     # --submission_file "ttt_output_complete/ttt_output_50_epochs_1/submission.json"
     # --submission_file "ttt_output_complete/ttt_output_250/submission.json"
     # --plot_mistakes \

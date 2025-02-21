@@ -2,7 +2,7 @@
 
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
-#SBATCH --time=24:00:00
+#SBATCH --time=6:00:00
 #SBATCH --gres=gpu:4
 #SBATCH --partition=booster
 #SBATCH --account=hai_hreplearn
@@ -11,7 +11,7 @@
 #SBATCH --error=logs_ttt/slurm_%j.log
 #SBATCH --mail-user=avocadoaling@gmail.com
 #SBATCH --mail-type=ALL
-#SBATCH --job-name=ttt-280-419
+#SBATCH --job-name=ttt-size-1000-permute-3-nmax-100
 
 # load the environment
 
@@ -47,19 +47,14 @@ lora_alpha=16.0
 lora_to_output=False # doesn't apply for Llama3.2 models for now.
 # You can specify how many tasks you want train for.
 
-nmax=2000
+nmax=100
 # Automatically construct folder name from variables
 # ttt_folder="experiments/ttt_adapters_nmax_${nmax}_batch_${batch_size}_ep_${epochs}_lr_${learning_rate}_rank_${lora_rank}_alpha_${lora_alpha}"
 
 ## dont forget to copy the adapters_json folder to the new experiment folder
-ttt_experiment_name="2k_test_run_20k_context"
+ttt_experiment_name="1000_run_permute_2"
 
-#####################
-# 0-139
-#####################   
-
-
-ttt_log_folder="experiments_thesis/${ttt_experiment_name}/logs_0-139"
+ttt_log_folder="experiments_thesis/${ttt_experiment_name}/logs"
 ttt_folder="experiments_thesis/${ttt_experiment_name}/adapters_json"
 mkdir -p $ttt_folder
 mkdir -p $ttt_log_folder
@@ -70,7 +65,7 @@ CUDA_VISIBLE_DEVICES=0 python test_time_train.py --lora_config=$lora_config_file
 --data_file=$data_file \
 --batch_size=$batch_size \
 --offset=0 \
---num_tasks=35 \
+--num_tasks=100 \
 --Nmax=$nmax \
 --epochs=$epochs \
 --lora_rank=$lora_rank \
@@ -83,8 +78,8 @@ CUDA_VISIBLE_DEVICES=1 python test_time_train.py --lora_config=$lora_config_file
 --experiment_folder=$ttt_folder \
 --data_file=$data_file \
 --batch_size=$batch_size \
---offset=35 \
---num_tasks=35 \
+--offset=100 \
+--num_tasks=100 \
 --Nmax=$nmax \
 --epochs=$epochs \
 --lora_rank=$lora_rank \
@@ -97,8 +92,8 @@ CUDA_VISIBLE_DEVICES=2 python test_time_train.py --lora_config=$lora_config_file
 --experiment_folder=$ttt_folder \
 --data_file=$data_file \
 --batch_size=$batch_size \
---offset=70 \
---num_tasks=35 \
+--offset=200 \
+--num_tasks=100 \
 --Nmax=$nmax \
 --epochs=$epochs \
 --lora_rank=$lora_rank \
@@ -111,14 +106,89 @@ CUDA_VISIBLE_DEVICES=3 python test_time_train.py --lora_config=$lora_config_file
 --experiment_folder=$ttt_folder \
 --data_file=$data_file \
 --batch_size=$batch_size \
---offset=105 \
---num_tasks=35 \
+--offset=300 \
+--num_tasks=100 \
 --Nmax=$nmax \
 --epochs=$epochs \
 --lora_rank=$lora_rank \
 --lora_alpha=$lora_alpha \
 --lora_to_output=$lora_to_output \
 --new_format | tee $ttt_log_folder/log_3.txt &
+
+
+
+
+
+
+
+
+
+
+#####################
+# 0-139
+#####################   
+
+
+# ttt_log_folder="experiments_thesis/${ttt_experiment_name}/logs_0-139"
+# ttt_folder="experiments_thesis/${ttt_experiment_name}/adapters_json"
+# mkdir -p $ttt_folder
+# mkdir -p $ttt_log_folder
+
+# CUDA_VISIBLE_DEVICES=0 python test_time_train.py --lora_config=$lora_config_file \
+# --base_checkpoint_dir=$base_checkpoint_dir \
+# --experiment_folder=$ttt_folder \
+# --data_file=$data_file \
+# --batch_size=$batch_size \
+# --offset=0 \
+# --num_tasks=35 \
+# --Nmax=$nmax \
+# --epochs=$epochs \
+# --lora_rank=$lora_rank \
+# --lora_alpha=$lora_alpha \
+# --lora_to_output=$lora_to_output \
+# --new_format | tee $ttt_log_folder/log_0.txt &
+
+# CUDA_VISIBLE_DEVICES=1 python test_time_train.py --lora_config=$lora_config_file \
+# --base_checkpoint_dir=$base_checkpoint_dir \
+# --experiment_folder=$ttt_folder \
+# --data_file=$data_file \
+# --batch_size=$batch_size \
+# --offset=35 \
+# --num_tasks=35 \
+# --Nmax=$nmax \
+# --epochs=$epochs \
+# --lora_rank=$lora_rank \
+# --lora_alpha=$lora_alpha \
+# --lora_to_output=$lora_to_output \
+# --new_format | tee $ttt_log_folder/log_1.txt &
+
+# CUDA_VISIBLE_DEVICES=2 python test_time_train.py --lora_config=$lora_config_file \
+# --base_checkpoint_dir=$base_checkpoint_dir \
+# --experiment_folder=$ttt_folder \
+# --data_file=$data_file \
+# --batch_size=$batch_size \
+# --offset=70 \
+# --num_tasks=35 \
+# --Nmax=$nmax \
+# --epochs=$epochs \
+# --lora_rank=$lora_rank \
+# --lora_alpha=$lora_alpha \
+# --lora_to_output=$lora_to_output \
+# --new_format | tee $ttt_log_folder/log_2.txt &
+
+# CUDA_VISIBLE_DEVICES=3 python test_time_train.py --lora_config=$lora_config_file \
+# --base_checkpoint_dir=$base_checkpoint_dir \
+# --experiment_folder=$ttt_folder \
+# --data_file=$data_file \
+# --batch_size=$batch_size \
+# --offset=105 \
+# --num_tasks=35 \
+# --Nmax=$nmax \
+# --epochs=$epochs \
+# --lora_rank=$lora_rank \
+# --lora_alpha=$lora_alpha \
+# --lora_to_output=$lora_to_output \
+# --new_format | tee $ttt_log_folder/log_3.txt &
 
 
 #####################
