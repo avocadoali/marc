@@ -205,5 +205,41 @@
     "avg time per adapter": "0:0:3",
     "correct prediction": 58,
     "total prediction": 419
+  },
+  {
+    "Max Training Size": "experiments_thesis/2k_test_run/adapters_json_8",
+    "directory": "experiments_thesis/output_2k_test_run/adapters_json_8",
+    "Adapter Number": 8,
+    "Actual Duration": "2:42:38",
+    "avg time per adapter": "0:0:3",
+    "correct prediction": 57,
+    "total prediction": 419
+  },
+  {
+    "Max Training Size": "experiments_thesis/2k_test_run/adapters_json_6",
+    "directory": "experiments_thesis/output_2k_test_run/adapters_json_6",
+    "Adapter Number": 6,
+    "Actual Duration": "2:48:29",
+    "avg time per adapter": "0:0:3",
+    "correct prediction": 60,
+    "total prediction": 419
+  },
+  {
+    "Max Training Size": "experiments_thesis/2k_test_run/adapters_json_4",
+    "directory": "experiments_thesis/output_2k_test_run/adapters_json_4",
+    "Adapter Number": 4,
+    "Actual Duration": "2:53:49",
+    "avg time per adapter": "0:0:3",
+    "correct prediction": 58,
+    "total prediction": 419
+  },
+  {
+    "Max Training Size": "experiments_thesis/2k_test_run/adapters_json_2",
+    "directory": "experiments_thesis/output_2k_test_run/adapters_json_2",
+    "Adapter Number": 2,
+    "Actual Duration": "3:4:46",
+    "avg time per adapter": "0:0:3",
+    "correct prediction": 65,
+    "total prediction": 419
   }
 ]

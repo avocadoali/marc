@@ -203,9 +203,9 @@ def get_formatted_data(
     leave_n: int = 1,
     permute_n: int = 1,
     seed: int = 0,
-    # max_tokens: int = 8192,
+    max_tokens: int = 8192,
     # max_tokens: int = 15000,
-    max_tokens: int = 20_000,
+    # max_tokens: int = 20_000,
 ):
 
     train_data = get_test_time_train_data(
@@ -248,139 +248,113 @@ def get_formatted_data(
 
 
 def process_task(
-    task: Task,
+    task_id, 
     augmenters: List[Augmenter],
     formatter: MessageRepresenter,
     tokenizer,
     permute_n: int = 1,
     Nmax: int = 250,
     seed: int = 0,
+    idx: int = 0,
 ):
-    rng = np.random.RandomState(seed)
+    # breakpoint()
+    idx, task = task_id
 
-    # # duplicate task if it has less than 2 examples
-    examples_to_add = 5 - len(task.train_examples)
+    # # # duplicate task if it has less than 2 examples
+    # examples_to_add = 3 - len(task.train_examples)
     
-    # leave_1_train_data_before = get_formatted_data(
-    #     task, augmenters, formatter, tokenizer, leave_n=1, permute_n=permute_n, seed=seed
-    # )
 
-    # leave_2_train_data_before = get_formatted_data(
-    #     task, augmenters, formatter, tokenizer, leave_n=2, permute_n=permute_n, seed=seed
-    # )
+    # if examples_to_add > 0:
 
+    #     basic_augmenters = get_augmenters(include_basic=True, include_size=False, include_chain=False, include_repeat=False, include_concat=False, )
+    #     tasks_add = get_test_time_train_data(
+    #         task, basic_augmenters, n=1, permute_n=permute_n, seed=seed
+    #     )
+    #     # randomly add 3 examples from tasks_add to task.train_examples
+    #     sub = random.sample(tasks_add, examples_to_add)
+    #     # breakpoint()
+    #     for x in sub:
+    #         task.train_examples.append(x.train_examples[0])
 
-
-    if examples_to_add > 0:
-
-        basic_augmenters = get_augmenters(include_basic=True, include_size=False, include_chain=False, include_repeat=False, include_concat=False, )
-        tasks_add = get_test_time_train_data(
-            task, basic_augmenters, n=1, permute_n=permute_n, seed=seed
-        )
-        # randomly add 3 examples from tasks_add to task.train_examples
-        sub = random.sample(tasks_add, examples_to_add)
-        # breakpoint()
-        for x in sub:
-            task.train_examples.append(x.train_examples[0])
-
-
-    # print(f'initial examples new: {len(task.train_examples)}')
-
-    # breakpoint()
-    # print('len(augmenters) in get_formatted_data: ', len(augmenters))
-    # breakpoint()
-    # print('')
-    # print('leave_1_train_data')
     leave_1_train_data = get_formatted_data(
         task, augmenters, formatter, tokenizer, leave_n=1, permute_n=permute_n, seed=seed
     )
 
-    # breakpoint()
-
-    # breakpoint()
-    # print('')
-    # print('leave_2_train_data')
+ 
     leave_2_train_data = get_formatted_data(
         task, augmenters, formatter, tokenizer, leave_n=2, permute_n=permute_n, seed=seed
     )
 
-    # breakpoint()
-    # print('task: ', task)
-    # print('leave_1_train_data: ', leave_1_train_data)
-    # leave_1_1_train_data = get_formatted_data(
-    #     task, augmenters, formatter, tokenizer, leave_n=1, permute_n=permute_n, seed=rng.randint(0, 2**32)
-    # )
-
-    # leave_2_1_train_data = get_formatted_data(
-    #     task, augmenters, formatter, tokenizer, leave_n=2, permute_n=permute_n, seed=rng.randint(0, 2**32)
-    # )
-
-    # same_count = 0
-    # for idx, x in enumerate(leave_1_1_train_data):
-    #     if leave_1_1_train_data[idx] == leave_1_train_data[idx]:
-    #         same_count += 1
-    # # print(f'same_count_leave_1_1_train_data: {same_count}')
-
-
-    # same_count = 0
-    # for idx, x in enumerate(leave_2_1_train_data):
-    #     if leave_2_1_train_data[idx] == leave_2_train_data[idx]:
-    #         same_count += 1
-
-    # print(f'same_count_leave_2_1_train_data: {same_count}')
-
-    # leave_3_train_data = get_formatted_data(
-    #     task, augmenters, formatter, tokenizer, leave_n=3, permute_n=permute_n, seed=seed
-    # )
-
-    # train = leave_1_train_data
-
-    # print(f"leave_1_train_data: {len(leave_1_train_data)}")
-    # print(f"leave_1_1_train_data: {len(leave_1_1_train_data)}")
-    # print(f"leave_2_train_data: {len(leave_2_train_data)}")
-    # print(f"leave_2_1_train_data: {len(leave_2_1_train_data)}")
-    # print(f"leave_3_train_data: {len(leave_3_train_data)}")
-    # print('total train data: ', len(leave_1_train_data) + len(leave_2_train_data))
-    # print('================================================================================')
-    # print('================================================================================')
-    # print('================================================================================')
-    # # if len(train) == 0:
-    #     train = leave_2_train_data
-    # elif len(train) < Nmax:
-    #     train += leave_2_train_data[: Nmax - len(train)]
-    # elif len(train) > Nmax:
-    #     rng.shuffle(train)
-    #     train = train[:Nmax]
-
-    # train = leave_1_train_data + leave_1_1_train_data + leave_2_train_data + leave_2_1_train_data + leave_3_train_data
     train = leave_1_train_data +  leave_2_train_data 
     
-    # if len(train) < Nmax:
-    #     print(f'len(train): {len(train)} 1.1 < Nmax: {Nmax}')
+    train_redo = train
+   
+    # if len(train) < 500:
+    #     print(f'idx: {idx}, have to redo')
+    #     examples_to_add = 3 - len(task.train_examples)
 
-    #     leave_1_1_train_data = get_formatted_data(
-    #         task, augmenters, formatter, tokenizer, leave_n=1, permute_n=permute_n, seed=rng.randint(0, 2**32)
-    #     )
-    #     print(f'len(leave_1_1_train_data): {len(leave_1_1_train_data)}')
-    #     train += leave_1_1_train_data
+    #     if examples_to_add > 0:
+    #         basic_augmenters = get_augmenters(include_basic=True, include_size=False, include_chain=False, include_repeat=False, include_concat=False, )
+    #         tasks_add = get_test_time_train_data(
+    #             task, basic_augmenters, n=1, permute_n=permute_n, seed=seed
+    #         )
+    #         # randomly add 3 examples from tasks_add to task.train_examples
+    #         sub = random.sample(tasks_add, examples_to_add)
+    #         # breakpoint()
+    #         for x in sub:
+    #             task.train_examples.append(x.train_examples[0])
+
+    #         leave_1_train_data = get_formatted_data(
+    #             task, augmenters, formatter, tokenizer, leave_n=1, permute_n=permute_n, seed=seed
+    #         )
+
+ 
+    #         leave_2_train_data = get_formatted_data(
+    #             task, augmenters, formatter, tokenizer, leave_n=2, permute_n=permute_n, seed=seed
+    #         )
+
+    #         train_redo = leave_1_train_data + leave_2_train_data
+       
+    # if len(train_redo) > len(train):
+    #     train = train_redo
     
-    # if len(train) < Nmax:
-    #     print(f'len(train): {len(train)} 2.1 < Nmax: {Nmax}')
-    #     leave_2_1_train_data = get_formatted_data(
-    #         task, augmenters, formatter, tokenizer, leave_n=2, permute_n=permute_n, seed=rng.randint(0, 2**32)
-    #     )
-    #     print(f'len(leave_2_1_train_data): {len(leave_2_1_train_data)}')
-    #     train += leave_2_1_train_data
+    # train_redo_redo = train
 
-    #     print(f'len(leave_1_1_train_data): {len(leave_1_1_train_data)}')
-    #     print(f'len(leave_2_1_train_data): {len(leave_2_1_train_data)}')
-    #     train = train + leave_1_1_train_data + leave_2_1_train_data
+    # if len(train) < 500:
+    #     print(f'idx: {idx}, have to redo again')
+    #     examples_to_add = 4 - len(task.train_examples)
 
+    #     if examples_to_add > 0:
+    #         basic_augmenters = get_augmenters(include_basic=True, include_size=False, include_chain=False, include_repeat=False, include_concat=False, )
+    #         tasks_add = get_test_time_train_data(
+    #             task, basic_augmenters, n=1, permute_n=permute_n, seed=seed
+    #         )
+    #         # randomly add 3 examples from tasks_add to task.train_examples
+    #         sub = random.sample(tasks_add, examples_to_add)
+    #         # breakpoint()
+    #         for x in sub:
+    #             task.train_examples.append(x.train_examples[0])
+
+    #         leave_1_train_data = get_formatted_data(
+    #             task, augmenters, formatter, tokenizer, leave_n=1, permute_n=permute_n, seed=seed
+    #         )
+
+ 
+    #         leave_2_train_data = get_formatted_data(
+    #             task, augmenters, formatter, tokenizer, leave_n=2, permute_n=permute_n, seed=seed
+    #         )
+
+    #         train_redo_redo = leave_1_train_data + leave_2_train_data
     
+    # pic the one that is larger
+    # if len(train_redo_redo) > len(train):
+    #     train = train_redo_redo
+   
     # print('')
     print(f'len(train) before : {len(train)}')
     if len(train) > Nmax:
         train = train[:Nmax]
 
     print(f'len(train): {len(train)}, initial examples: {len(task.train_examples)}')
+
     return train

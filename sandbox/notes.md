@@ -1,4 +1,4 @@
-
+ValueError: BuilderConfig JsonConfig(name='default', version=0.0.0, data_dir=None, data_files={'train': ['/p/project1/hai_hreplearn/nguyen31/marc/data/dummy/td_False_ttd_False_ttdwa_False_ad_True_trd_False.jsonl'], 'test': ['/p/project1/hai_hreplearn/nguyen31/marc/data/dummy/td_True_ttd_False_ttdwa_False_ad_True_trd_False.jsonl']}, description=None, features=None, encoding='utf-8', encoding_errors=None, field=None, use_threads=True, block_size=None, chunksize=10485760, newlines_in_values=None) doesn't have a 'max_seq_len' key.
 
 
 intial_tasks = n

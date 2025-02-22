@@ -176,6 +176,9 @@ parser.add_argument(
 parser.add_argument(
     "--Nmax", type=int, default=250, help="Maximum number of examples to generate"
 )
+parser.add_argument(
+    "--experiment_name", type=str, default="baseline_250_permute_1", help="Experiment name"
+)
 
 args = parser.parse_args()
 
@@ -299,10 +302,16 @@ processor = functools.partial(
 
 print('cpus: ', args.cpus)
 
+# enumerate arc_test_tasks and save to dict
+# task_dict = {}
+# for idx, task in enumerate(arc_test_tasks):
+#     task_dict[idx] = task
+
+# print(task_dict)
+
 
 with Pool(args.cpus) as p:
-    data = p.map(processor, arc_test_tasks)
-
+    data = p.map(processor, enumerate(arc_test_tasks))
 
 # with Pool(args.cpus) as p:
 #     # Wrap the arc_test_tasks with tqdm to show a progress bar
@@ -374,7 +383,9 @@ for task, task_train_data in zip(arc_test_tasks, data):
 
 
 # save stats to json 
-with open(f"stats_debug_transformations/stats.json", "w") as f:
+filename = f"stats/stats_debug_transformations/{args.experiment_name}.json"
+
+with open(filename, "w") as f:
     json.dump(stats, f)
 
-print(f"Stats saved to stats.json")
+print(f"Stats saved to {filename}")

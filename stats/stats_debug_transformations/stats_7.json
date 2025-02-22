@@ -1,0 +1,402 @@
+{
+    "00576224": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 2352
+    },
+    "009d5c81": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 784
+    },
+    "00dbd492": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 976
+    },
+    "03560426": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 832
+    },
+    "05a7bcf2": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 0
+    },
+    "0607ce86": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 0
+    },
+    "0692e18c": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 770
+    },
+    "070dd51e": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 0
+    },
+    "08573cc6": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 784
+    },
+    "0934a4d8": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 0
+    },
+    "09c534e7": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 0
+    },
+    "0a1d4ef5": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 0
+    },
+    "0a2355a6": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 880
+    },
+    "0b17323b": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 0
+    },
+    "0bb8deee": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 784
+    },
+    "0becf7df": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 784
+    },
+    "0c786b71": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 880
+    },
+    "0c9aba6e": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 1176
+    },
+    "0d87d2a6": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 784
+    },
+    "0e671a1a": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 784
+    },
+    "0f63c0b9": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 0
+    },
+    "103eff5b": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 0
+    },
+    "11e1fe23": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 784
+    },
+    "12422b43": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 2352
+    },
+    "12997ef3": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 784
+    },
+    "12eac192": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 976
+    },
+    "136b0064": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 832
+    },
+    "13713586": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 784
+    },
+    "137f0df0": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 784
+    },
+    "140c817e": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 672
+    },
+    "14754a24": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 784
+    },
+    "15113be4": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 0
+    },
+    "15663ba9": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 784
+    },
+    "15696249": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 832
+    },
+    "16b78196": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 0
+    },
+    "17b80ad2": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 770
+    },
+    "17cae0c1": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 880
+    },
+    "18419cfa": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 0
+    },
+    "184a9768": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 0
+    },
+    "195ba7dc": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 1176
+    },
+    "1990f7a8": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 784
+    },
+    "19bb5feb": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 832
+    },
+    "1a2e2828": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 1320
+    },
+    "1a6449f1": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 770
+    },
+    "1acc24af": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 784
+    },
+    "1c02dbbe": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 0
+    },
+    "1c0d0a4b": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 962
+    },
+    "1c56ad9f": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 784
+    },
+    "1d0a4b61": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 0
+    },
+    "1d398264": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 838
+    },
+    "1da012fc": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 288
+    },
+    "1e81d6f9": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 0
+    },
+    "1e97544e": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 0
+    },
+    "2037f2c7": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 672
+    },
+    "2072aba6": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 2352
+    },
+    "20818e16": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 770
+    },
+    "20981f0e": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 784
+    },
+    "212895b5": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 0
+    },
+    "21f83797": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 192
+    },
+    "22a4bbc2": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 1154
+    },
+    "25094a63": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 0
+    },
+    "2546ccf6": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 180
+    },
+    "256b0a75": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 0
+    },
+    "2685904e": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 1224
+    },
+    "2697da3f": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 784
+    },
+    "2753e76c": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 784
+    },
+    "27a77e38": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 2352
+    },
+    "27f8ce4f": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 784
+    },
+    "281123b4": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 1176
+    },
+    "292dd178": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 1120
+    },
+    "29700607": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 672
+    },
+    "2a5f8217": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 1224
+    },
+    "2b01abd0": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 832
+    },
+    "2c0b0aff": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 672
+    },
+    "2c737e39": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 832
+    },
+    "2f0c5170": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 784
+    },
+    "310f3251": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 1320
+    },
+    "3194b014": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 770
+    },
+    "319f2597": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 0
+    },
+    "31adaf00": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 784
+    },
+    "31d5ba1a": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 2352
+    },
+    "32e9702f": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 1320
+    },
+    "332efdb3": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 542
+    },
+    "3391f8c0": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 1224
+    },
+    "33b52de3": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 0
+    },
+    "3490cc26": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 0
+    },
+    "34b99a2b": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 1320
+    },
+    "351d6448": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 880
+    },
+    "358ba94e": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 784
+    },
+    "37d3e8b2": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 658
+    },
+    "3979b1a8": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 770
+    },
+    "3a301edc": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 784
+    },
+    "3b4c2228": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 2352
+    },
+    "3d31c5b3": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 1320
+    },
+    "3ed85e70": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 0
+    },
+    "3ee1011a": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 672
+    },
+    "3f23242b": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 784
+    },
+    "40f6cd08": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 0
+    },
+    "414297c0": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 770
+    },
+    "423a55dc": {
+        "num_initial_examples": 7,
+        "num_transformed_examples": 880
+    }
+}

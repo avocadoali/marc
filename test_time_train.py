@@ -434,43 +434,43 @@ for task in arc_test_tasks:
             args_dict=args_dict,
         )
 
-        # # save the adapter
-        # final_adapter = lora_finetune_single_device.get_adapter_params(model)
-        # # final_adapter = lora_finetune_distributed.get_adapter_params(model)
-        # # save
-        # replacements = {
-        #     "_orig_mod.": "",
-        #     "layers.": "base_model.model.model.layers.",
-        #     "w1": "gate_proj",
-        #     "w2": "down_proj",
-        #     "w3": "up_proj",
-        #     ".attn": ".self_attn",
-        #     "_checkpoint_wrapped_module.": "",
-        #     "lora_b": "lora_B",
-        #     "lora_a": "lora_A",
-        #     "output.lora_": "base_model.model.lm_head.lora_",
-        # }
+        # save the adapter
+        final_adapter = lora_finetune_single_device.get_adapter_params(model)
+        # final_adapter = lora_finetune_distributed.get_adapter_params(model)
+        # save
+        replacements = {
+            "_orig_mod.": "",
+            "layers.": "base_model.model.model.layers.",
+            "w1": "gate_proj",
+            "w2": "down_proj",
+            "w3": "up_proj",
+            ".attn": ".self_attn",
+            "_checkpoint_wrapped_module.": "",
+            "lora_b": "lora_B",
+            "lora_a": "lora_A",
+            "output.lora_": "base_model.model.lm_head.lora_",
+        }
 
-        # saved_dict = {}
-        # for name, param in final_adapter.items():
-        #     for old, new in replacements.items():
-        #         name = name.replace(old, new)
-        #     saved_dict[name] = param
+        saved_dict = {}
+        for name, param in final_adapter.items():
+            for old, new in replacements.items():
+                name = name.replace(old, new)
+            saved_dict[name] = param
 
-        # logger.debug(f"Saving adapter for {task_id} to {adapter_path}")
-        # torch.save(saved_dict, adapter_path)
-        # num_saved_adapters += 1
-        # saved_dict = None
-        # adapter_config_path = f"{args.experiment_folder}/{task_id}/adapter_config.json"
-        # save_adapter_config(
-        #     adapter_config_path,
-        #     args.base_checkpoint_dir,
-        #     lora_rank=args.lora_rank,
-        #     lora_alpha=args.lora_alpha,
-        #     lora_attn_modules=args.lora_attn_modules,
-        #     lora_to_mlp=args.lora_to_mlp,
-        #     lora_to_output=args.lora_to_output,
-        # )
+        logger.debug(f"Saving final adapter for {task_id} to {adapter_path}")
+        torch.save(saved_dict, adapter_path)
+        num_saved_adapters += 1
+        saved_dict = None
+        adapter_config_path = f"{args.experiment_folder}/{task_id}/adapter_config.json"
+        save_adapter_config(
+            adapter_config_path,
+            args.base_checkpoint_dir,
+            lora_rank=args.lora_rank,
+            lora_alpha=args.lora_alpha,
+            lora_attn_modules=args.lora_attn_modules,
+            lora_to_mlp=args.lora_to_mlp,
+            lora_to_output=args.lora_to_output,
+        )
 
     except Exception as e:
         print(e)

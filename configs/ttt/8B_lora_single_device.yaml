@@ -25,6 +25,7 @@ model:
   lora_rank: 64
   lora_alpha: 16
   lora_dropout: 0.0
+  # max_seq_len: 20000
 
 # Tokenizer
 tokenizer:
@@ -54,11 +55,10 @@ save_adapter_weights_only: True
 
 # Dataset and Sampler
 dataset:
-   _component_: torchtune.datasets.arc_dataset
-   source: data/dummy/
-   train_on_input: False
-   unmask_outputs: True # we'll get loss from all outputs after the first demonstration, very hacky, tokenizer & formatting specific
-   max_seq_len: 20000
+  _component_: torchtune.datasets.arc_dataset
+  source: data/dummy/
+  train_on_input: False
+  unmask_outputs: True # we'll get loss from all outputs after the first demonstration, very hacky, tokenizer & formatting specific
 
 seed: 57
 shuffle: True
