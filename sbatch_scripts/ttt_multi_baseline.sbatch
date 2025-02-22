@@ -2,7 +2,7 @@
 
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
-#SBATCH --time=0:10:00
+#SBATCH --time=3:00:00
 #SBATCH --gres=gpu:4
 #SBATCH --partition=booster
 #SBATCH --account=hai_hreplearn
@@ -11,7 +11,7 @@
 #SBATCH --error=logs_ttt/slurm_%j.log
 #SBATCH --mail-user=avocadoaling@gmail.com
 #SBATCH --mail-type=ALL
-#SBATCH --job-name=ttt-baseline-100-permute-1-ep-1
+#SBATCH --job-name=ttt-baseline-ep-1
 
 # load the environment
 
@@ -40,7 +40,7 @@ lora_config_file=configs/ttt/8B_lora_single_device.yaml
 # lora_config_file=configs/ttt/8B_lora_multi.yaml
 
 # But you can override some of the variables
-batch_size=2
+batch_size=1
 epochs=1
 learning_rate=5e-5
 lora_rank=128
@@ -53,7 +53,7 @@ nmax=250
 # ttt_folder="experiments/ttt_adapters_nmax_${nmax}_batch_${batch_size}_ep_${epochs}_lr_${learning_rate}_rank_${lora_rank}_alpha_${lora_alpha}"
 
 ## dont forget to copy the adapters_json folder to the new experiment folder
-ttt_experiment_name="baseline_250_permute_1_ep_1"
+ttt_experiment_name="baseline_250_permute_1_8k_batch_1_ep_1"
 
 ttt_log_folder="experiments_thesis/${ttt_experiment_name}/logs"
 ttt_folder="experiments_thesis/${ttt_experiment_name}/adapters_json"
@@ -107,7 +107,7 @@ CUDA_VISIBLE_DEVICES=2 python test_time_train.py --lora_config=$lora_config_file
 --lora_to_output=$lora_to_output \
 --new_format | tee $ttt_log_folder/log_2.txt &
 
-CUDA_VISIBLE_DEVICES=3 python test_time_train.py --lora_config=$lora_config_file \
+CUDA_VISIBLE_DEVICES=2 python test_time_train.py --lora_config=$lora_config_file \
 --base_checkpoint_dir=$base_checkpoint_dir \
 --experiment_folder=$ttt_folder \
 --data_file=$data_file \

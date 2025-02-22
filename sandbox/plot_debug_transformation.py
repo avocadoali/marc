@@ -10,7 +10,7 @@ file_data = {}
 
 
 # filename_list = ['stats_baseline.json',  'stats_perm_2_redo_init_3.json', 'stats_perm_2_redo_init_3_init_4.json']
-filename_list = ['baseline_250_permute_1_ep_1.json']
+filename_list = ['baseline_250_permute_1_ep_1.json', 'baseline_1000_permute_1_20k.json', 'baseline_1000_permute_2_20k.json']
 # filename_list = ['stats_baseline.json', 'stats_perm_2.json', 'stats_perm_2_redo_init_3.json']
 
 # Iterate over each file in the directory

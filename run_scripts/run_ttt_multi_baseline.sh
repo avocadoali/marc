@@ -25,7 +25,7 @@ lora_config_file=configs/ttt/8B_lora_single_device.yaml
 
 # But you can override some of the variables
 batch_size=2
-epochs=2
+epochs=1
 learning_rate=5e-5
 lora_rank=128
 lora_alpha=16.0
@@ -37,7 +37,7 @@ nmax=100
 # ttt_folder="experiments/ttt_adapters_nmax_${nmax}_batch_${batch_size}_ep_${epochs}_lr_${learning_rate}_rank_${lora_rank}_alpha_${lora_alpha}"
 
 ## dont forget to copy the adapters_json folder to the new experiment folder
-ttt_experiment_name="2k_test_run_20k_context"
+ttt_experiment_name="baseline_250_permute_1_batch_2_ep_1"
 
 ttt_log_folder="experiments_thesis/${ttt_experiment_name}/logs"
 ttt_folder="experiments_thesis/${ttt_experiment_name}/adapters_json"

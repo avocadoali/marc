@@ -542,5 +542,56 @@
       "lora_alpha": 32.0,
       "lora_to_output": true
     }
+  },
+  {
+    "output_directory": "experiments_thesis/baseline_250_permute_1_8k_batch_2_ep_2/adapters_json",
+    "model_directory": "/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 250,
+    "Actual Duration": "0:27:51",
+    "avg time per adapter": "0:27:51",
+    "#Created Adapters": 1,
+    "#To be created Adapters": 100,
+    "hyperparameters": {
+      "batch_size": 2,
+      "epochs": 2,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "experiments_thesis/baseline_250_permute_1_8k_batch_2_ep_2/adapters_json",
+    "model_directory": "/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 250,
+    "Actual Duration": "0:54:41",
+    "avg time per adapter": "0:54:41",
+    "#Created Adapters": 1,
+    "#To be created Adapters": 100,
+    "hyperparameters": {
+      "batch_size": 2,
+      "epochs": 2,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "experiments_thesis/baseline_250_permute_1_8k_batch_2_ep_1/adapters_json",
+    "model_directory": "/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 250,
+    "Actual Duration": "5:38:50",
+    "avg time per adapter": "5:38:50",
+    "#Created Adapters": 1,
+    "#To be created Adapters": 100,
+    "hyperparameters": {
+      "batch_size": 2,
+      "epochs": 1,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
   }
 ]
