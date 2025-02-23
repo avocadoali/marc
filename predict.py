@@ -118,9 +118,8 @@ parser.add_argument(
 
 # add number for the adapters
 parser.add_argument(
-    "--adapter_number", type=int, default=1, help="Number of adapters to use"
+    "--adapter_number", type=str, default='default', help="Number of adapters to use"
 )
-
 
 args = parser.parse_args()
 

@@ -241,5 +241,32 @@
     "avg time per adapter": "0:0:3",
     "correct prediction": 65,
     "total prediction": 419
+  },
+  {
+    "Max Training Size": "experiments_thesis/baseline_250_permute_1_8k_batch_2_ep_2/adapters_json",
+    "directory": "experiments_thesis/baseline_250_permute_1_8k_batch_2_ep_2_output/",
+    "Adapter Number": "default",
+    "Actual Duration": "0:48:34",
+    "avg time per adapter": "0:0:1",
+    "correct prediction": 100,
+    "total prediction": 419
+  },
+  {
+    "Max Training Size": "experiments_thesis/baseline_250_permute_1_8k_batch_1_ep_2/adapters_json",
+    "directory": "experiments_thesis/baseline_250_permute_1_8k_batch_1_ep_2_output/",
+    "Adapter Number": "default",
+    "Actual Duration": "1:56:24",
+    "avg time per adapter": "0:0:1",
+    "correct prediction": 158,
+    "total prediction": 419
+  },
+  {
+    "Max Training Size": "experiments_thesis/baseline_250_permute_1_8k_batch_1_ep_1/adapters_json",
+    "directory": "experiments_thesis/baseline_250_permute_1_8k_batch_1_ep_1_output/",
+    "Adapter Number": "default",
+    "Actual Duration": "2:44:16",
+    "avg time per adapter": "0:0:2",
+    "correct prediction": 189,
+    "total prediction": 419
   }
 ]
