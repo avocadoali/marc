@@ -268,5 +268,14 @@
     "avg time per adapter": "0:0:2",
     "correct prediction": 189,
     "total prediction": 419
+  },
+  {
+    "Max Training Size": "/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-lora-adapters-8B-finetuned-llama3/snapshots/0bfc91056465763e61d86bb047955364a82eaee2",
+    "directory": "experiments_thesis/baseline_ekin_output/",
+    "Adapter Number": "default",
+    "Actual Duration": "2:12:50",
+    "avg time per adapter": "0:0:1",
+    "correct prediction": 203,
+    "total prediction": 419
   }
 ]

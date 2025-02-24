@@ -275,6 +275,7 @@ def process_task(
     #     # breakpoint()
     #     for x in sub:
     #         task.train_examples.append(x.train_examples[0])
+    permute_n = 3
 
     leave_1_train_data = get_formatted_data(
         task, augmenters, formatter, tokenizer, leave_n=1, permute_n=permute_n, seed=seed
@@ -292,6 +293,8 @@ def process_task(
     if len(train) < 500:
         print(f'idx: {idx}, have to redo')
         examples_to_add = 3 - len(task.train_examples)
+
+        permute_n = 4
 
         if examples_to_add > 0:
             basic_augmenters = get_augmenters(include_basic=True, include_size=False, include_chain=False, include_repeat=False, include_concat=False, )
@@ -324,6 +327,8 @@ def process_task(
         print(f'idx: {idx}, have to redo again')
         examples_to_add = 4 - len(task.train_examples)
 
+        permute_n = 4
+
         if examples_to_add > 0:
             basic_augmenters = get_augmenters(include_basic=True, include_size=False, include_chain=False, include_repeat=False, include_concat=False, )
             tasks_add = get_test_time_train_data(
@@ -344,16 +349,20 @@ def process_task(
                 task, augmenters, formatter, tokenizer, leave_n=2, permute_n=permute_n, seed=seed
             )
 
-            train_redo_redo = leave_1_train_data + leave_2_train_data
+            train_redo_redo = leave_1_train_data + leave_2_train_data 
     
     # pic the one that is larger
     if len(train_redo_redo) > len(train):
         train = train_redo_redo
    
+    if len(train) < Nmax:
+        train = train + train
+   
     # print('')
     print(f'len(train) before : {len(train)}')
     if len(train) > Nmax:
         train = train[:Nmax]
+
 
     print(f'len(train): {len(train)}, initial examples: {len(task.train_examples)}')
 

@@ -25,7 +25,7 @@ lora_config_file=configs/ttt/8B_lora_single_device.yaml
 # lora_config_file=configs/ttt/8B_lora_multi.yaml
 
 # But you can override some of the variables
-batch_size=2
+batch_size=1
 epochs=1
 learning_rate=5e-5
 lora_rank=128
@@ -37,8 +37,12 @@ nmax=1000
 
 
 # Automatically construct folder name from variables
-experiment_name="baseline_1000_permute_2_20k"
-ttt_folder="experiments_thesis/${experiment_name}/adapters_json"
+
+# scratch dir
+scratch_dir=/p/scratch/hai_hreplearn/nguyen31/adapters
+ttt_experiment_folder="${scratch_dir}/experiments_thesis_dataset_scaling"
+experiment_name="1000_permute_3-4_20k_double"
+ttt_folder="${ttt_experiment_folder}/${experiment_name}/adapters_json"
 mkdir -p $ttt_folder
 
 python debug_transformations.py --lora_config=$lora_config_file \
@@ -49,7 +53,7 @@ python debug_transformations.py --lora_config=$lora_config_file \
 --offset=0 \
 --num_tasks=400 \
 --Nmax=$nmax \
---permute_n=2 \
+--permute_n=4 \
 --epochs=$epochs \
 --lora_rank=$lora_rank \
 --lora_alpha=$lora_alpha \

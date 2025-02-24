@@ -22,13 +22,12 @@ tokenizer:
   _component_: torchtune.models.llama3.llama3_tokenizer
   # path: /tmp/Meta-Llama-3-8B-Instruct/original/tokenizer.model
   path: /p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a/tokenizer.model  
-  max_seq_len: null
+  max_seq_len: 20000
 
 # Model Arguments
 model:
   _component_: torchtune.models.llama3.lora_llama3_8b
   lora_attn_modules: ['q_proj', 'v_proj']
-  apply_lora_to_mlp: False
   apply_lora_to_output: False
   lora_rank: 8
   lora_alpha: 16

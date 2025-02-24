@@ -2,10 +2,10 @@
 python -m arclib.eval \
     --data_file ./arc-prize-2024/arc-agi_evaluation_challenges.json \
     --solution_file ./arc-prize-2024/arc-agi_evaluation_solutions.json \
-    --submission_file "experiments_thesis/baseline_250_permute_1_8k_batch_2_ep_1_output/submission_default.json"
-    # --submission_file "experiments_thesis/baseline_250_permute_1_8k_batch_1_ep_1_output/submission_default.json"
+    --submission_file "experiments_thesis/baseline_ekin_output/submission_default.json"
     # --submission_file "experiments_thesis/baseline_250_permute_1_8k_batch_1_ep_2_output/submission_default.json"
-    # --submission_file "experiments_thesis/baseline_250_permute_1_8k_batch_2_ep_2_output/submission_default.json"
+    # --submission_file "experiments_thesis/baseline_250_permute_1_8k_batch_1_ep_1_output/submission_default.json"
+    # --submission_file "experiments_thesis/baseline_250_permute_1_8k_batch_2_ep_1_output/submission_default.json"
 
     # --submission_file "experiments_thesis/output_2k_test_run/adapters_json_20/submission_20.json"
     # --submission_file "experiments_thesis/output_2k_test_run/adapters_json_80/submission_80.json"
