@@ -6,7 +6,7 @@
 #SBATCH --gres=gpu:4
 #SBATCH --partition=booster
 #SBATCH --account=hai_hreplearn
-#SBATCH --cpus-per-task=4
+#SBATCH --cpus-per-task=8
 #SBATCH --output=logs_ttt/slurm_%j.log
 #SBATCH --error=logs_ttt/slurm_%j.log
 #SBATCH --mail-user=avocadoaling@gmail.com

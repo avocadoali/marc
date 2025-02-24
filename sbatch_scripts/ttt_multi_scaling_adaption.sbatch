@@ -2,11 +2,11 @@
 
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
-#SBATCH --time=0:10:00
+#SBATCH --time=24:00:00
 #SBATCH --gres=gpu:4
 #SBATCH --partition=booster
 #SBATCH --account=hai_hreplearn
-#SBATCH --cpus-per-task=4
+#SBATCH --cpus-per-task=8
 #SBATCH --output=logs_ttt/slurm_%j.log
 #SBATCH --error=logs_ttt/slurm_%j.log
 #SBATCH --mail-user=avocadoaling@gmail.com
