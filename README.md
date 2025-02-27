@@ -13,7 +13,7 @@ Ekin Akyürek, Mehul Damani, Linlu Qiu, Han Guo, Yoon Kim, Jacob Andreas
 To install requirements, you can start a fresh conda environment, and install followings with pip:
 
 ```shell
-git clone --recursive git://github.com/ekinakyurek/marc
+git clone --recursive git://github.com/avocadoaling/marc
 cd marc/
 # For TTT pipeline, we used a fork of torchtune library.
 # You need to install it first
