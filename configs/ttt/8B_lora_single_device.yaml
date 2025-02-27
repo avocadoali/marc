@@ -31,14 +31,16 @@ model:
 tokenizer:
   _component_: torchtune.models.llama3.llama3_tokenizer
   # path: checkpoints/base/Meta-Llama-3-8B-Instruct/original/tokenizer.model
-  path: /p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a/tokenizer.model  
+  # path: /p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a/tokenizer.model  
+  path: /hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a/tokenizer.model  
   max_seq_len: 20000
   # max_seq_len: null
 
 checkpointer:
   _component_: torchtune.training.FullModelHFCheckpointer
   # checkpoint_dir: /raid/lingo/akyurek/git/arc/weights/hf_model_last/
-  checkpoint_dir: /p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a/
+  checkpoint_dir: /hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a/
+  # checkpoint_dir: /p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a/
   checkpoint_files: [
      pytorch_model-0001-of-0004.bin,
      pytorch_model-0002-of-0004.bin,
@@ -47,7 +49,8 @@ checkpointer:
   ]
   recipe_checkpoint: # recipe_state.pt
   # output_dir: /raid/lingo/akyurek/git/arc/experiments/lora/model_weights/
-  output_dir: /p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ali--marc-lora-adapters-8B-finetuned-llama3
+  # output_dir: /p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ali--marc-lora-adapters-8B-finetuned-llama3
+  output_dir: /hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/huggingface/hub/models--ali--marc-lora-adapters-8B-finetuned-llama3
   model_type: LLAMA3
 
 resume_from_checkpoint: False

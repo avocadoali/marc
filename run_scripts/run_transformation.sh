@@ -39,7 +39,7 @@ nmax=1000
 # Automatically construct folder name from variables
 
 # scratch dir
-scratch_dir=/p/scratch/hai_hreplearn/nguyen31/adapters
+scratch_dir=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace
 ttt_experiment_folder="${scratch_dir}/experiments_thesis_dataset_scaling"
 experiment_name="1000_permute_3-4_20k_double"
 ttt_folder="${ttt_experiment_folder}/${experiment_name}/adapters_json"

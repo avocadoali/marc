@@ -1,24 +1,22 @@
 #!/usr/bin/env bash
 
+#SBATCH --job-name=ttt-baseline-ep-1
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
-#SBATCH --time=3:00:00
 #SBATCH --gres=gpu:4
-#SBATCH --partition=booster
-#SBATCH --account=hai_hreplearn
-#SBATCH --cpus-per-task=12
-#SBATCH --output=logs_ttt/slurm_%j.log
-#SBATCH --error=logs_ttt/slurm_%j.log
+#SBATCH --cpus-per-task=6
+#SBATCH --time=00:10:00
+#SBATCH --partition=dev_accelerated-h100
+#SBATCH --account=hk-project-pai00039
+#SBATCH --output=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
+#SBATCH --error=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
 #SBATCH --mail-user=avocadoaling@gmail.com
 #SBATCH --mail-type=ALL
-#SBATCH --job-name=ttt-baseline-ep-1
 
 # load the environment
+conda activate marc
 
-
-source sc_venv_arc/activate.sh
-
-export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+# export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 echo "starting ttt at time $(date +%Y-%m-%d_%H-%M-%S)"
 
 data_file=arc-prize-2024/arc-agi_evaluation_challenges.json
@@ -27,7 +25,7 @@ data_file=arc-prize-2024/arc-agi_evaluation_challenges.json
 # Specify finetuned path
 
 # base_checkpoint_dir=/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--deepseek-ai--DeepSeek-R1-Distill-Llama-8B/snapshots/24ae87a9c340aa4207dd46509414c019998e0161
-base_checkpoint_dir=/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a
+base_checkpoint_dir=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a
 # base_checkpoint_dir= /p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--barc0--Llama-3.1-ARC-Potpourri-Transduction-8B/snapshots/f4c4f24c9428d051748af8049099132171115009
 # Specify where TTT adapters should be saved
 

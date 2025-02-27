@@ -1,17 +1,19 @@
 #!/usr/bin/env bash
 
+
+#SBATCH --job-name=ttt-scaling-adaption
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
-#SBATCH --time=24:00:00
 #SBATCH --gres=gpu:4
-#SBATCH --partition=booster
-#SBATCH --account=hai_hreplearn
-#SBATCH --cpus-per-task=8
-#SBATCH --output=logs_ttt/slurm_%j.log
-#SBATCH --error=logs_ttt/slurm_%j.log
+#SBATCH --cpus-per-task=6
+#SBATCH --time=00:30:00
+#SBATCH --partition=dev_accelerated-h100
+#SBATCH --account=hk-project-pai00039
+#SBATCH --output=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
+#SBATCH --error=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
 #SBATCH --mail-user=avocadoaling@gmail.com
 #SBATCH --mail-type=ALL
-#SBATCH --job-name=ttt-scaling-adaption
+
 
 # load the environment
 
@@ -26,7 +28,8 @@ data_file=arc-prize-2024/arc-agi_evaluation_challenges.json
 # Specify finetuned path
 
 # base_checkpoint_dir=/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--deepseek-ai--DeepSeek-R1-Distill-Llama-8B/snapshots/24ae87a9c340aa4207dd46509414c019998e0161
-base_checkpoint_dir=/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a
+# base_checkpoint_dir=/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a
+base_checkpoint_dir=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a
 
 ## Llama3 8b instruct base 
 # base_checkpoint_dir=/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--meta-llama--Meta-Llama-3-8B-Instruct/blobs/4c763399690c7fec642231350756e4ee9184b5ce
@@ -57,7 +60,7 @@ nmax=1000
 
 
 # scratch dir
-scratch_dir=/p/scratch/hai_hreplearn/nguyen31/adapters
+scratch_dir=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace
 # location of generated adapaters
 ttt_experiment_folder="${scratch_dir}/experiments_thesis_dataset_scaling"
 experiment_name="1000_permute_3-4_20k_double"
