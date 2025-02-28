@@ -1,17 +1,20 @@
 #!/usr/bin/env bash
 
+
 #SBATCH --job-name=ttt-baseline-ep-1
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
 #SBATCH --gres=gpu:4
-#SBATCH --cpus-per-task=6
+#SBATCH --cpus-per-task=8
 #SBATCH --time=00:10:00
+#SBATCH --mem-per-gpu=193000
 #SBATCH --partition=dev_accelerated-h100
 #SBATCH --account=hk-project-pai00039
 #SBATCH --output=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
 #SBATCH --error=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
 #SBATCH --mail-user=avocadoaling@gmail.com
 #SBATCH --mail-type=ALL
+
 
 # load the environment
 conda activate marc
@@ -38,7 +41,7 @@ lora_config_file=configs/ttt/8B_lora_single_device.yaml
 # lora_config_file=configs/ttt/8B_lora_multi.yaml
 
 # But you can override some of the variables
-batch_size=1
+batch_size=2
 epochs=1
 learning_rate=5e-5
 lora_rank=128
@@ -51,10 +54,14 @@ nmax=250
 # ttt_folder="experiments/ttt_adapters_nmax_${nmax}_batch_${batch_size}_ep_${epochs}_lr_${learning_rate}_rank_${lora_rank}_alpha_${lora_alpha}"
 
 ## dont forget to copy the adapters_json folder to the new experiment folder
-ttt_experiment_name="baseline_250_permute_1_8k_batch_1_ep_1"
 
-ttt_log_folder="experiments_thesis/${ttt_experiment_name}/logs"
-ttt_folder="experiments_thesis/${ttt_experiment_name}/adapters_json"
+# scratch dir
+scratch_dir=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace
+# location of generated adapaters
+ttt_experiment_folder="${scratch_dir}/experiments_epoch_batch_scaling"
+ttt_experiment_name="baseline_250_permute_1_8k_batch_1_ep_1"
+ttt_folder="${ttt_experiment_folder}/${ttt_experiment_name}/adapters_json"
+ttt_log_folder="${ttt_experiment_folder}/${ttt_experiment_name}/logs"
 
 echo "running experiment ${ttt_experiment_name}"
 echo "log folder: ${ttt_log_folder}"

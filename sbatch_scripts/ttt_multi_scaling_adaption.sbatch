@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 
 
-#SBATCH --job-name=ttt-scaling-adaption
+#SBATCH --job-name=ttt-scaling-adaption-full-run
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
 #SBATCH --gres=gpu:4
 #SBATCH --cpus-per-task=6
-#SBATCH --time=00:30:00
-#SBATCH --partition=dev_accelerated-h100
+#SBATCH --time=8:00:00
+#SBATCH --mem-per-gpu=193000
+#SBATCH --partition=accelerated-h100
 #SBATCH --account=hk-project-pai00039
 #SBATCH --output=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
 #SBATCH --error=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
@@ -16,8 +17,8 @@
 
 
 # load the environment
+conda activate marc
 
-source sc_venv_arc/activate.sh
 
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 echo "starting ttt at time $(date +%Y-%m-%d_%H-%M-%S)"
