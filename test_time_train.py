@@ -261,8 +261,11 @@ else:
     print("Ignoring lora_to_output for llama3_2")
     # conf.model.lora_to_output = False
 
+# print config path
+logger.debug(f"Config path: {args.lora_config}")
+
 # print conf
-# logger.debug(f"Config: {conf}")
+logger.debug(f"Config: {conf}")
 
 # logger.debug(f"Tokenizer path: {conf.tokenizer.path}")
 tokenizer = llama3_tokenizer(conf.tokenizer.path)

@@ -45,6 +45,10 @@ plt.legend()
 
 
 
+# create file if not exists
+if not os.path.exists('plots'):
+    os.makedirs('plots')
+
 # save the plot
 plt.savefig('plots/debug_transformation_tmp.png')
 

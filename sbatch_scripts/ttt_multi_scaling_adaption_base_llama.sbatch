@@ -1,21 +1,23 @@
 #!/usr/bin/env bash
 
+
+#SBATCH --job-name=ttt-baseline-scaling
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
-#SBATCH --time=0:10:00
 #SBATCH --gres=gpu:4
-#SBATCH --partition=booster
-#SBATCH --account=hai_hreplearn
-#SBATCH --cpus-per-task=8
-#SBATCH --output=logs_ttt/slurm_%j.log
-#SBATCH --error=logs_ttt/slurm_%j.log
+#SBATCH --cpus-per-task=6
+#SBATCH --time=01:00:00
+#SBATCH --mem-per-gpu=193000
+#SBATCH --partition=dev_accelerated-h100
+#SBATCH --account=hk-project-pai00039
+#SBATCH --output=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
+#SBATCH --error=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
 #SBATCH --mail-user=avocadoaling@gmail.com
 #SBATCH --mail-type=ALL
-#SBATCH --job-name=ttt-scaling-adaption
+
 
 # load the environment
-
-source sc_venv_arc/activate.sh
+conda activate marc
 
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 echo "starting ttt at time $(date +%Y-%m-%d_%H-%M-%S)"
@@ -25,25 +27,26 @@ data_file=arc-prize-2024/arc-agi_evaluation_challenges.json
 # data_file=arc-prize-2024/arc-unsolved-easy-tasks.json
 # Specify finetuned path
 
+## DeepSeek R1 8B 
 # base_checkpoint_dir=/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--deepseek-ai--DeepSeek-R1-Distill-Llama-8B/snapshots/24ae87a9c340aa4207dd46509414c019998e0161
-base_checkpoint_dir=/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a
+
+## Llama3 8b finetuned base 
+# base_checkpoint_dir=/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a
+# base_checkpoint_dir=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a
 
 ## Llama3 8b instruct base 
 # base_checkpoint_dir=/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--meta-llama--Meta-Llama-3-8B-Instruct/blobs/4c763399690c7fec642231350756e4ee9184b5ce
-
-# base_checkpoint_dir= /p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--barc0--Llama-3.1-ARC-Potpourri-Transduction-8B/snapshots/f4c4f24c9428d051748af8049099132171115009
-# Specify where TTT adapters should be saved
-
-# You need show an initial config file that is compatible with torchtune configs
-# This is provided in this repo
-
+# base_checkpoint_dir=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/huggingface/hub/models--meta-llama--Meta-Llama-3-8B-Instruct/snapshots/5f0b02c75b57c5855da9ae460ce51323ea669d8a
+base_checkpoint_dir=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/huggingface/hub/models--meta-llama--Meta-Llama-3-8B-Instruct/snapshots/5f0b02c75b57c5855da9ae460ce51323ea669d8a/
 # lora_config_file=configs/ttt/8.1B_lora_single_device.yaml # for barc
-lora_config_file=configs/ttt/8B_lora_single_device.yaml
+lora_config_file=configs/ttt/8B_lora_single_device_base_llama.yaml
 # lora_config_file=configs/ttt/DeepSeek_r1_8B_lora_single_device.yaml
 # lora_config_file=configs/ttt/8B_lora_multi.yaml
 
+
+
 # But you can override some of the variables
-batch_size=1
+batch_size=2
 epochs=1
 learning_rate=5e-5
 lora_rank=128
@@ -57,15 +60,16 @@ nmax=1000
 
 
 # scratch dir
-scratch_dir=/p/scratch/hai_hreplearn/nguyen31/adapters
+scratch_dir=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace
 # location of generated adapaters
-ttt_experiment_folder="${scratch_dir}/experiments_thesis_dataset_scaling"
+ttt_experiment_folder="${scratch_dir}/experiments_thesis_base_llama_scaling"
 experiment_name="1000_permute_3-4_20k_double"
 ttt_folder="${ttt_experiment_folder}/${experiment_name}/adapters_json"
 ttt_log_folder="${ttt_experiment_folder}/${experiment_name}/logs"
 
 mkdir -p $ttt_folder
 mkdir -p $ttt_log_folder
+
 
 CUDA_VISIBLE_DEVICES=0 python test_time_train.py --lora_config=$lora_config_file \
 --base_checkpoint_dir=$base_checkpoint_dir \
