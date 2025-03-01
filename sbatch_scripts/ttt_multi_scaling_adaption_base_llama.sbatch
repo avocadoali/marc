@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
 
-#SBATCH --job-name=ttt-baseline-scaling
+#SBATCH --job-name=ttt-scaling-adaption-full-run-base-llama
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
 #SBATCH --gres=gpu:4
-#SBATCH --cpus-per-task=6
-#SBATCH --time=01:00:00
+#SBATCH --cpus-per-task=8
+#SBATCH --time=40:00:00
 #SBATCH --mem-per-gpu=193000
-#SBATCH --partition=dev_accelerated-h100
+#SBATCH --partition=accelerated-h100
 #SBATCH --account=hk-project-pai00039
 #SBATCH --output=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
 #SBATCH --error=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
@@ -46,7 +46,7 @@ lora_config_file=configs/ttt/8B_lora_single_device_base_llama.yaml
 
 
 # But you can override some of the variables
-batch_size=2
+batch_size=1
 epochs=1
 learning_rate=5e-5
 lora_rank=128
@@ -69,6 +69,10 @@ ttt_log_folder="${ttt_experiment_folder}/${experiment_name}/logs"
 
 mkdir -p $ttt_folder
 mkdir -p $ttt_log_folder
+
+# print the folder names
+echo "TTT folder: ${ttt_folder}"
+echo "TTT log folder: ${ttt_log_folder}"
 
 
 CUDA_VISIBLE_DEVICES=0 python test_time_train.py --lora_config=$lora_config_file \
