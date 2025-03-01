@@ -64,7 +64,7 @@ nmax=250
 scratch_dir=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace
 # location of generated adapaters
 ttt_experiment_folder="${scratch_dir}/experiments_thesis_epoch_scaling"
-experiment_name="baseline_epoch_scaling_batch_2"
+experiment_name="baseline_epoch_scaling_batch_1"
 ttt_folder="${ttt_experiment_folder}/${experiment_name}/adapters_json"
 ttt_log_folder="${ttt_experiment_folder}/${experiment_name}/logs"
 
