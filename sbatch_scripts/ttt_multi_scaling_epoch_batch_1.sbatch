@@ -5,10 +5,10 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
 #SBATCH --gres=gpu:4
-#SBATCH --cpus-per-task=6
-#SBATCH --time=0:04:00
+#SBATCH --cpus-per-task=12
+#SBATCH --time=24:00:00
 #SBATCH --mem-per-gpu=193000
-#SBATCH --partition=dev_accelerated-h100
+#SBATCH --partition=accelerated-h100
 #SBATCH --account=hk-project-pai00039
 #SBATCH --output=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
 #SBATCH --error=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
@@ -63,7 +63,7 @@ nmax=250
 # scratch dir
 scratch_dir=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace
 # location of generated adapaters
-ttt_experiment_folder="${scratch_dir}/experiments_thesis_epoch_scaling/"
+ttt_experiment_folder="${scratch_dir}/experiments_thesis_epoch_scaling"
 experiment_name="baseline_epoch_scaling_batch_1"
 ttt_folder="${ttt_experiment_folder}/${experiment_name}/adapters_json"
 ttt_log_folder="${ttt_experiment_folder}/${experiment_name}/logs"

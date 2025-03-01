@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
 
-#SBATCH --job-name=ttt-scaling-adaption-full-run
+#SBATCH --job-name=ttt-scaling-epoch-batch-2
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
 #SBATCH --gres=gpu:4
-#SBATCH --cpus-per-task=6
-#SBATCH --time=8:00:00
+#SBATCH --cpus-per-task=12
+#SBATCH --time=24:00:00
 #SBATCH --mem-per-gpu=193000
 #SBATCH --partition=accelerated-h100
 #SBATCH --account=hk-project-pai00039
@@ -47,15 +47,15 @@ lora_config_file=configs/ttt/8B_lora_single_device.yaml
 # lora_config_file=configs/ttt/8B_lora_multi.yaml
 
 # But you can override some of the variables
-batch_size=1
-epochs=1
+batch_size=2
+epochs=3
 learning_rate=5e-5
 lora_rank=128
 lora_alpha=16.0
 lora_to_output=False # doesn't apply for Llama3.2 models for now.
 # You can specify how many tasks you want train for.
 
-nmax=1000
+nmax=250
 # Automatically construct folder name from variables
 # ttt_folder="experiments/ttt_adapters_nmax_${nmax}_batch_${batch_size}_ep_${epochs}_lr_${learning_rate}_rank_${lora_rank}_alpha_${lora_alpha}"
 
@@ -63,8 +63,8 @@ nmax=1000
 # scratch dir
 scratch_dir=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace
 # location of generated adapaters
-ttt_experiment_folder="${scratch_dir}/experiments_thesis_dataset_scaling"
-experiment_name="1000_permute_3-4_20k_double"
+ttt_experiment_folder="${scratch_dir}/experiments_thesis_epoch_scaling"
+experiment_name="baseline_epoch_scaling_batch_2"
 ttt_folder="${ttt_experiment_folder}/${experiment_name}/adapters_json"
 ttt_log_folder="${ttt_experiment_folder}/${experiment_name}/logs"
 
