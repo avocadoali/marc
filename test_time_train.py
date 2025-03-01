@@ -40,7 +40,6 @@ logger = logging.getLogger(__name__)
 sys.path.append("third_party/torchtune/recipes/")
 import lora_finetune_single_device
 
-# print("Hello")
 # log the strart time 
 start_time = time.time()
 logger.debug(f"Starting test time training: {start_time}")
