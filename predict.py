@@ -251,6 +251,8 @@ else:
 
 
 
+# log the lora config
+print(f"Lora config: {lora_adapter_config}")
 
 # breakpoint()
 
@@ -261,7 +263,7 @@ engine = initialize_engine(
     enable_lora=args.lora_checkpoints_folder is not None,
     enforce_eager=False,
     lora_target_modules=lora_adapter_config.get("target_modules", None),
-    tensor_parallel_size=4,
+    tensor_parallel_size=1,
 )
 
 
