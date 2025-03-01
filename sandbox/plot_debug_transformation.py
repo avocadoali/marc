@@ -9,7 +9,8 @@ file_data = {}
 
 
 # filename_list = ['stats_baseline.json',  'stats_perm_2_redo_init_3.json', 'stats_perm_2_redo_init_3_init_4.json']
-filename_list = [  '1000_permute_4_20k_double.json', '1000_permute_3-4_20k_double.json', '1000_permute_4_20k_double.json']
+# filename_list = [ 'baseline_epoch_scaling.json' '1000_permute_4_20k_double.json', '1000_permute_3-4_20k_double.json', '1000_permute_4_20k_double.json']
+filename_list = [ 'baseline_epoch_scaling.json', '1000_permute_3-4_20k_double.json', '1000_permute_4_20k_double.json']
 # filename_list = ['1000_permute_1_20k.json', '1000_permute_2_20k.json', '1000_permute_2_20k_double.json']
 # filename_list = ['stats_baseline.json', 'stats_perm_2.json', 'stats_perm_2_redo_init_3.json']
 
