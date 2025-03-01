@@ -90,7 +90,7 @@ process_data_sizes() {
         --include_n=1 \
         --adapter_number=$data_size \
         --max_tokens=20000 \
-        --new_format | tee $output_folder/slurm_${data_size}.log
+        --new_format | tee $output_folder/slurm_device_${cuda_device}_data_size_${data_size}.log
 
         end_time=$(date +%s)
         echo "Time taken for data_size $data_size: $((end_time - start_time)) seconds"
