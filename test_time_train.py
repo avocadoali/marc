@@ -188,6 +188,21 @@ logger.debug(f"Training data length: {len(arc_test_tasks)}")
 # # reverse
 # arc_test_tasks = arc_test_tasks[::-1][:200]
 
+
+
+## Todo remove when done with missing tasks                 
+tasks_to_run = ["47996f11", "981571dc", "af22c60d", "f9d67f8b"]
+
+filtered_tasks = []
+for task in arc_test_tasks:
+  task_id = task.name.replace("-0", "")
+  if task_id in tasks_to_run:
+    filtered_tasks.append(task)
+
+
+arc_test_tasks = filtered_tasks
+
+
 arc_test_tasks = [task for task in arc_test_tasks if "-0" in task.name]
 if args.num_tasks is not None:
     arc_test_tasks = arc_test_tasks[args.offset:args.offset + args.num_tasks]
@@ -196,7 +211,7 @@ else:
 arc_test_ids = [task.name.replace("-0", "") for task in arc_test_tasks]
 
 # print("Number of train tasks: ", len(arc_test_tasks))
-# logger.debug(f"Number of train tasks: {len(arc_test_tasks)}")
+logger.debug(f"Number of train tasks: {len(arc_test_tasks)}")
 
 
 if args.new_format:

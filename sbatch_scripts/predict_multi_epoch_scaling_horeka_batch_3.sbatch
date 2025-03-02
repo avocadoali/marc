@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#SBATCH --job-name=predict_scaling_epoch_batch_1
+#SBATCH --job-name=predict_scaling_epoch_batch_3
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=3
 #SBATCH --gres=gpu:3
@@ -16,6 +16,7 @@
 
 source ~/.bashrc
 conda activate vllm_marc
+
 
 module load compiler/gnu/11
 
@@ -46,20 +47,19 @@ logs_predict_folder=logs_predict/multi_batch
 mkdir -p $logs_predict_folder
 
 
-adapters_folder=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling/baseline_epoch_scaling_batch_1
-output_folder=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling/baseline_epoch_scaling_batch_1_output
+adapters_folder=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling/baseline_epoch_scaling_batch_3
+output_folder=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling/baseline_epoch_scaling_batch_3_output
 output_log_folder=${output_folder}/logs
 mkdir -p $output_log_folder                                                                                     
-
 ###
-# Batch 1, Epoch 1
+# Batch 3, Epoch 1
 ###
 # experiments dirs (input/ouput)
 ttt_folder=${adapters_folder}/adapters_json_ep_0_iter_-1
 tti_folder=${output_folder}/adapters_json_ep_0_iter_-1
 mkdir -p $tti_folder
 
-echo "Batch 1, Epoch 1" | tee $output_log_folder/slurm_epoch_0.log
+echo "Batch 3, Epoch 1" | tee $output_log_folder/slurm_epoch_0.log
 echo "ttt_folder: ${ttt_folder}"
 echo "tti_folder: ${tti_folder}"
 
@@ -78,13 +78,13 @@ CUDA_VISIBLE_DEVICES=0 python predict.py \
 
 
 ###
-# Batch 1, Epoch 2
+# Batch 3, Epoch 2
 ###
 ttt_folder=${adapters_folder}/adapters_json_ep_1_iter_-1
 tti_folder=${output_folder}/adapters_json_ep_1_iter_-1
 mkdir -p $tti_folder
 
-echo "Batch 1, Epoch 2" | tee $output_log_folder/slurm_epoch_1.log
+echo "Batch 3, Epoch 2" | tee $output_log_folder/slurm_epoch_1.log
 
 CUDA_VISIBLE_DEVICES=1 python predict.py \
 --experiment_folder=$tti_folder \
@@ -100,13 +100,13 @@ CUDA_VISIBLE_DEVICES=1 python predict.py \
 
 
 ###
-# Batch 1, Epoch 3
+# Batch 3, Epoch 3
 ###
 ttt_folder=${adapters_folder}/adapters_json_ep_2_iter_-1
 tti_folder=${output_folder}/adapters_json_ep_2_iter_-1
 mkdir -p $tti_folder
 
-echo "Batch 1, Epoch 3" | tee $output_log_folder/slurm_epoch_2.log
+echo "Batch 3, Epoch 3" | tee $output_log_folder/slurm_epoch_2.log
 
 CUDA_VISIBLE_DEVICES=2 python predict.py \
 --experiment_folder=$tti_folder \

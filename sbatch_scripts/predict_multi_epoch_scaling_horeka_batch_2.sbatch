@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-#SBATCH --job-name=predict_scaling_epoch_batch_1
+#SBATCH --job-name=predict_scaling_epoch_batch_2
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=3
 #SBATCH --gres=gpu:3
-#SBATCH --cpus-per-task=10
-#SBATCH --time=00:10:00
+#SBATCH --cpus-per-task=12
+#SBATCH --time=00:05:00
 #SBATCH --partition=dev_accelerated
 #SBATCH --account=hk-project-pai00039
 #SBATCH --output=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
@@ -15,7 +15,10 @@
 
 
 source ~/.bashrc
-conda activate marc
+conda activate vllm_marc
+
+
+module load compiler/gnu/11
 
 echo "starting predict at time $(date +%Y-%m-%d_%H-%M-%S)"
 # train
@@ -44,9 +47,10 @@ logs_predict_folder=logs_predict/multi_batch
 mkdir -p $logs_predict_folder
 
 
-adapters_folder=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling/baseline_epoch_scaling_batch_2/
+adapters_folder=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling/baseline_epoch_scaling_batch_2
 output_folder=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling/baseline_epoch_scaling_batch_2_output
 output_log_folder=${output_folder}/logs
+mkdir -p $output_log_folder                                                                                     
 
 ###
 # Batch 2, Epoch 1
@@ -56,7 +60,7 @@ ttt_folder=${adapters_folder}/adapters_json_ep_0_iter_-1
 tti_folder=${output_folder}/adapters_json_ep_0_iter_-1
 mkdir -p $tti_folder
 
-echo "Batch 2, Epoch 1" | tee $output_log_folder/slurm_0.log
+echo "Batch 2, Epoch 1" | tee $output_log_folder/slurm_epoch_0.log
 echo "ttt_folder: ${ttt_folder}"
 echo "tti_folder: ${tti_folder}"
 

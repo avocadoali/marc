@@ -192,20 +192,37 @@ arc_test_tasks = read_tasks_from_single_file(args.data_file, test=True)
 logger.debug(f"Training data directory: {args.data_file}")
 logger.debug(f"Training data length: {len(arc_test_tasks)}")
 
+# breakpoint()
+
+
+tasks_to_run = ["47996f11", "981571dc", "af22c60d", "f9d67f8b"]
+
+filtered_tasks = []
+for task in arc_test_tasks:
+  task_id = task.name.replace("-0", "")
+  if task_id in tasks_to_run:
+    filtered_tasks.append(task)
+
+
+arc_test_tasks = filtered_tasks
+
+# breakpoint()
 
 # # reverse
 # arc_test_tasks = arc_test_tasks[::-1][:200]
 
 arc_test_tasks = [task for task in arc_test_tasks if "-0" in task.name]
-if args.num_tasks is not None:
-    arc_test_tasks = arc_test_tasks[args.offset:args.offset + args.num_tasks]
-else:
-    arc_test_tasks = arc_test_tasks[args.offset:]
+
+# if args.num_tasks is not None:
+#     arc_test_tasks = arc_test_tasks[args.offset:args.offset + args.num_tasks]
+# else:
+#     arc_test_tasks = arc_test_tasks[args.offset:]
+
 arc_test_ids = [task.name.replace("-0", "") for task in arc_test_tasks]
 
-# print("Number of train tasks: ", len(arc_test_tasks))
-# logger.debug(f"Number of train tasks: {len(arc_test_tasks)}")
+logger.debug(f"Number of train tasks: {len(arc_test_tasks)}")
 
+# breakpoint()
 
 if args.new_format:
     standard_formatter = TextTaskRepresenter(
@@ -312,8 +329,8 @@ print('cpus: ', args.cpus)
 # print(task_dict)
 
 
-with Pool(args.cpus) as p:
-    data = p.map(processor, enumerate(arc_test_tasks))
+# with Pool(args.cpus) as p:
+#     data = p.map(processor, enumerate(arc_test_tasks))
 
 # with Pool(args.cpus) as p:
 #     # Wrap the arc_test_tasks with tqdm to show a progress bar
@@ -321,13 +338,13 @@ with Pool(args.cpus) as p:
 
 # breakpoint()
 
-# data = []
-# # fill data with the tasks
-# for idx, task in enumerate(arc_test_tasks):
-# # for idx, task in enumerate(arc_test_tasks[:5]):
-#     print(f'idx: {idx}')
-#     t = processor(task)
-#     data.append(t)
+data = []
+# fill data with the tasks
+for idx, task in enumerate(arc_test_tasks):
+# for idx, task in enumerate(arc_test_tasks[:5]):
+    print(f'idx: {idx}')
+    t = processor(task)
+    data.append(t)
 
 # idx = 4
 # data.append(processor(arc_test_tasks[idx]))

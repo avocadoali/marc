@@ -2232,3 +2232,14 @@ Time taken: 1739720811 seconds
 
 
 ```
+tasks_to_run = [47996f11, 981571dc, af22c60d, f9d67f8b]
+
+filtered_tasks = []
+for task in arc_test_tasks:
+  task_id = task.name.replace("-0", "")
+  if task_id in :
+
+
+for x{47996f11, 981571dc}
+
+
