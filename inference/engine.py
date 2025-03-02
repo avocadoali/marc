@@ -44,7 +44,8 @@ def initialize_engine(
         lora_target_modules=lora_target_modules,
         tensor_parallel_size=tensor_parallel_size,
         load_format="bitsandbytes" if quantization else "auto",
-        max_model_len=8192,
+        # max_model_len=8192,
+        max_model_len=20000,
         gpu_memory_utilization=0.9
     )
 

@@ -712,5 +712,73 @@
       "lora_alpha": 16.0,
       "lora_to_output": true
     }
+  },
+  {
+    "output_directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_base_llama_scaling/1000_permute_3-4_20k_double/adapters_json",
+    "model_directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/huggingface/hub/models--meta-llama--Meta-Llama-3-8B-Instruct/snapshots/5f0b02c75b57c5855da9ae460ce51323ea669d8a/",
+    "Max Training Size": 1000,
+    "Actual Duration": "17:47:15",
+    "avg time per adapter": "17:47:15",
+    "#Created Adapters": 1,
+    "#To be created Adapters": 100,
+    "hyperparameters": {
+      "batch_size": 1,
+      "epochs": 1,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_base_llama_scaling/1000_permute_3-4_20k_double/adapters_json",
+    "model_directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/huggingface/hub/models--meta-llama--Meta-Llama-3-8B-Instruct/snapshots/5f0b02c75b57c5855da9ae460ce51323ea669d8a/",
+    "Max Training Size": 1000,
+    "Actual Duration": "20:30:24",
+    "avg time per adapter": "20:30:24",
+    "#Created Adapters": 1,
+    "#To be created Adapters": 100,
+    "hyperparameters": {
+      "batch_size": 1,
+      "epochs": 1,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_base_llama_scaling/1000_permute_3-4_20k_double/adapters_json",
+    "model_directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/huggingface/hub/models--meta-llama--Meta-Llama-3-8B-Instruct/snapshots/5f0b02c75b57c5855da9ae460ce51323ea669d8a/",
+    "Max Training Size": 1000,
+    "Actual Duration": "21:4:40",
+    "avg time per adapter": "21:4:40",
+    "#Created Adapters": 1,
+    "#To be created Adapters": 100,
+    "hyperparameters": {
+      "batch_size": 1,
+      "epochs": 1,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_base_llama_scaling/1000_permute_3-4_20k_double/adapters_json",
+    "model_directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/huggingface/hub/models--meta-llama--Meta-Llama-3-8B-Instruct/snapshots/5f0b02c75b57c5855da9ae460ce51323ea669d8a/",
+    "Max Training Size": 1000,
+    "Actual Duration": "22:14:29",
+    "avg time per adapter": "22:14:29",
+    "#Created Adapters": 1,
+    "#To be created Adapters": 100,
+    "hyperparameters": {
+      "batch_size": 1,
+      "epochs": 1,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
   }
 ]
