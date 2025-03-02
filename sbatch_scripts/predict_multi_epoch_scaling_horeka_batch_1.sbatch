@@ -5,8 +5,8 @@
 #SBATCH --ntasks-per-node=3
 #SBATCH --gres=gpu:3
 #SBATCH --cpus-per-task=12
-#SBATCH --time=00:10:00
-#SBATCH --partition=dev_accelerated
+#SBATCH --time=13:00:00
+#SBATCH --partition=accelerated
 #SBATCH --account=hk-project-pai00039
 #SBATCH --output=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
 #SBATCH --error=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
