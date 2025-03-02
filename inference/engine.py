@@ -35,6 +35,7 @@ def initialize_engine(
 ) -> LLMEngine:
     """Initialize the LLMEngine."""
 
+    tokenizer_path = "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a/"
     engine_args = EngineArgs(
         model=model,
         enable_lora=enable_lora,
@@ -46,7 +47,7 @@ def initialize_engine(
         load_format="bitsandbytes" if quantization else "auto",
         # max_model_len=8192,
         max_model_len=20000,
-        gpu_memory_utilization=0.9
+        gpu_memory_utilization=0.9,
     )
 
     return LLMEngine.from_engine_args(engine_args)

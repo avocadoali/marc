@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#SBATCH --job-name=predict_scaling_adaption
+#SBATCH --job-name=predict_scaling_adaption_base_llama
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
 #SBATCH --gres=gpu:4
@@ -52,7 +52,8 @@ max_lora_rank=128
 # experiment_name="output_1000_permute_3-4_20k_double"
 # ttt_folder="${ttt_experiment_folder}/${experiment_name}/adapters_json"
 
-ttt_adapters_folder="/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_dataset_scaling/1000_permute_3-4_20k_double"
+ttt_adapters_folder="/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_base_llama_scaling/1000_permute_3-4_20k_double"
+
 output_folder="${ttt_adapters_folder}_output"
 mkdir -p $output_folder
 
