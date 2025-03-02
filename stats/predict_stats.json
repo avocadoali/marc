@@ -277,5 +277,32 @@
     "avg time per adapter": "0:0:1",
     "correct prediction": 203,
     "total prediction": 419
+  },
+  {
+    "Max Training Size": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling/baseline_epoch_scaling_batch_1/adapters_json_ep_0_iter_-1",
+    "directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling/baseline_epoch_scaling_batch_1_output/adapters_json_ep_0_iter_-1",
+    "Adapter Number": "default",
+    "Actual Duration": "4:9:30",
+    "avg time per adapter": "0:0:2",
+    "correct prediction": 205,
+    "total prediction": 419
+  },
+  {
+    "Max Training Size": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling/baseline_epoch_scaling_batch_1/adapters_json_ep_2_iter_-1",
+    "directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling/baseline_epoch_scaling_batch_1_output/adapters_json_ep_2_iter_-1",
+    "Adapter Number": "default",
+    "Actual Duration": "4:11:8",
+    "avg time per adapter": "0:0:2",
+    "correct prediction": 203,
+    "total prediction": 419
+  },
+  {
+    "Max Training Size": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling/baseline_epoch_scaling_batch_1/adapters_json_ep_1_iter_-1",
+    "directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling/baseline_epoch_scaling_batch_1_output/adapters_json_ep_1_iter_-1",
+    "Adapter Number": "default",
+    "Actual Duration": "4:11:12",
+    "avg time per adapter": "0:0:2",
+    "correct prediction": 207,
+    "total prediction": 419
   }
 ]

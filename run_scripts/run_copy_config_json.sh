@@ -5,8 +5,8 @@
 # SOURCE_FILE="experiments_thesis/70_test_run/adapters_json/0a1d4ef5/config.json"
 
 # EXPERIMENT_FOLDER="/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling/baseline_epoch_scaling_batch_1"
-EXPERIMENT_FOLDER="/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling/baseline_epoch_scaling_batch_2"
-# EXPERIMENT_FOLDER="/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling/baseline_epoch_scaling_batch_3"
+# EXPERIMENT_FOLDER="/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling/baseline_epoch_scaling_batch_2"
+EXPERIMENT_FOLDER="/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling/baseline_epoch_scaling_batch_3"
 
 SOURCE_FILE="${EXPERIMENT_FOLDER}/adapters_json/0a1d4ef5/config.json"
 # SECOND_SOURCE_FILE="${EXPERIMENT_FOLDER}/adapters_json/00576224/config.json"
