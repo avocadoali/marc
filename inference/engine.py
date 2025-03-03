@@ -47,6 +47,7 @@ def initialize_engine(
         # max_model_len=8192,
         # TODO: this is the max seq len for llama3
         max_model_len=20000,
+        max_seq_len_to_capture=20000,
         gpu_memory_utilization=0.9,
         max_num_batched_tokens=50*2560,
         max_num_seqs=2560

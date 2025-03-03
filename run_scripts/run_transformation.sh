@@ -40,7 +40,7 @@ nmax=1000
 
 # scratch dir
 scratch_dir=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace
-ttt_experiment_folder="${scratch_dir}/experiments_thesis_dataset_scaling"
+ttt_experiment_folder="${scratch_dir}/experiments_thesis_dataset_scaling_batch_2"
 experiment_name="1000_permute_3-4_20k_double"
 ttt_folder="${ttt_experiment_folder}/${experiment_name}/adapters_json"
 mkdir -p $ttt_folder

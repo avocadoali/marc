@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-#SBATCH --job-name=predict_scaling_adaption_subset
+#SBATCH --job-name=predict_scaling_adaption_subset_test_contextlen
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
 #SBATCH --gres=gpu:4
 #SBATCH --cpus-per-task=12
-#SBATCH --time=24:00:00
-#SBATCH --partition=accelerated
+#SBATCH --time=00:20:00
+#SBATCH --partition=dev_accelerated
 #SBATCH --account=hk-project-pai00039
 #SBATCH --output=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
 #SBATCH --error=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
@@ -52,7 +52,7 @@ max_lora_rank=128
 # ttt_folder="${ttt_experiment_folder}/${experiment_name}/adapters_json"
 
 ttt_adapters_folder="/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_dataset_scaling/1000_permute_3-4_20k_double"
-output_folder="${ttt_adapters_folder}_output_subset"
+output_folder="${ttt_adapters_folder}_output_subset_debug_contextlen"
 logs_folder="${output_folder}/logs"
 mkdir -p $output_folder
 mkdir -p $logs_folder
@@ -120,10 +120,10 @@ process_data_sizes() {
 # process_data_sizes 2  400 60   &
 # process_data_sizes 3  800 40   &
 
-process_data_sizes 0 200 1000  2 10   &
-process_data_sizes 1 400 40    4 60  &
-process_data_sizes 2 80  100   6 20  $
-process_data_sizes 3 800 600   8      &
+process_data_sizes 0 1000  2 10   &
+process_data_sizes 1 40    4 60  &
+process_data_sizes 2 100   6 20  &
+process_data_sizes 3 600   8      &
 
 
 
