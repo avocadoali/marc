@@ -48,6 +48,8 @@ def initialize_engine(
         # max_model_len=8192,
         max_model_len=20000,
         gpu_memory_utilization=0.9,
+        max_num_batched_tokens=50*2560,
+        max_num_seqs=2560
     )
 
     return LLMEngine.from_engine_args(engine_args)
