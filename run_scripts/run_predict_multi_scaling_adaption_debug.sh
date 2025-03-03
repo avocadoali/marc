@@ -1,17 +1,3 @@
-#!/usr/bin/env bash
-
-#SBATCH --job-name=predict_scaling_adaption
-#SBATCH --nodes=1
-#SBATCH --ntasks-per-node=4
-#SBATCH --gres=gpu:4
-#SBATCH --cpus-per-task=10
-#SBATCH --time=00:10:00
-#SBATCH --partition=dev_accelerated
-#SBATCH --account=hk-project-pai00039
-#SBATCH --output=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
-#SBATCH --error=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
-#SBATCH --mail-user=avocadoaling@gmail.com
-#SBATCH --mail-type=ALL
 
 source ~/.bashrc
 conda activate vllm_marc
@@ -19,9 +5,6 @@ conda activate vllm_marc
 module load compiler/gnu/11
 export VLLM_ALLOW_LONG_MAX_MODEL_LEN=1
 echo "VLLM_ALLOW_LONG_MAX_MODEL_LEN: $VLLM_ALLOW_LONG_MAX_MODEL_LEN"
-
-
-
 
 echo "starting ttt at time $(date +%Y-%m-%d_%H-%M-%S)"
 # train
@@ -55,7 +38,7 @@ max_lora_rank=128
 # ttt_folder="${ttt_experiment_folder}/${experiment_name}/adapters_json"
 
 ttt_adapters_folder="/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_dataset_scaling/1000_permute_3-4_20k_double"
-output_folder="${ttt_adapters_folder}_output"
+output_folder="${ttt_adapters_folder}_output_subset"
 mkdir -p $output_folder
 
 echo "ttt_adapters_folder: ${ttt_adapters_folder}"
@@ -64,7 +47,7 @@ echo "output_folder: ${output_folder}"
 # Function to process data sizes
 process_data_sizes() {
     local data_sizes=("$@")
-    local cuda_device=$1
+    local first_cuda_device=$1
     shift
 
     echo "cuda_device: $cuda_device"
@@ -84,8 +67,8 @@ process_data_sizes() {
         # measure the time
         start_time=$(date +%s)
 
-        # With lora adapters
-        CUDA_VISIBLE_DEVICES=$cuda_device python predict.py \
+        # # # With lora adapters
+        CUDA_VISIBLE_DEVICES=$first_cuda_device python predict.py \
         --experiment_folder=$tti_folder \
         --pretrained_checkpoint=$base_checkpoint_dir \
         --lora_checkpoints_folder=$ttt_folder \
@@ -117,10 +100,10 @@ process_data_sizes() {
 
 
 
-process_data_sizes 0  2 20 200 10   &
-process_data_sizes 1  4 40 400 100  &
-process_data_sizes 2  6 60 600 1000 &
-process_data_sizes 3  8 80 800 &
+process_data_sizes 0  4   6&
+process_data_sizes 1  40  60&
+process_data_sizes 2  400 600&
+process_data_sizes 3  800 1000&
 
 
 

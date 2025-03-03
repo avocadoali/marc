@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-#SBATCH --job-name=predict_scaling_adaption
+#SBATCH --job-name=predict_scaling_adaption_subset
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
 #SBATCH --gres=gpu:4
-#SBATCH --cpus-per-task=10
-#SBATCH --time=00:10:00
-#SBATCH --partition=dev_accelerated
+#SBATCH --cpus-per-task=12
+#SBATCH --time=24:00:00
+#SBATCH --partition=accelerated
 #SBATCH --account=hk-project-pai00039
 #SBATCH --output=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
 #SBATCH --error=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
@@ -19,9 +19,6 @@ conda activate vllm_marc
 module load compiler/gnu/11
 export VLLM_ALLOW_LONG_MAX_MODEL_LEN=1
 echo "VLLM_ALLOW_LONG_MAX_MODEL_LEN: $VLLM_ALLOW_LONG_MAX_MODEL_LEN"
-
-
-
 
 echo "starting ttt at time $(date +%Y-%m-%d_%H-%M-%S)"
 # train
@@ -55,16 +52,17 @@ max_lora_rank=128
 # ttt_folder="${ttt_experiment_folder}/${experiment_name}/adapters_json"
 
 ttt_adapters_folder="/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_dataset_scaling/1000_permute_3-4_20k_double"
-output_folder="${ttt_adapters_folder}_output"
+output_folder="${ttt_adapters_folder}_output_subset"
+logs_folder="${output_folder}/logs"
 mkdir -p $output_folder
-
+mkdir -p $logs_folder
 echo "ttt_adapters_folder: ${ttt_adapters_folder}"
 echo "output_folder: ${output_folder}"
 
 # Function to process data sizes
 process_data_sizes() {
     local data_sizes=("$@")
-    local cuda_device=$1
+    local first_cuda_device=$1
     shift
 
     echo "cuda_device: $cuda_device"
@@ -84,8 +82,8 @@ process_data_sizes() {
         # measure the time
         start_time=$(date +%s)
 
-        # With lora adapters
-        CUDA_VISIBLE_DEVICES=$cuda_device python predict.py \
+        # # # With lora adapters
+        CUDA_VISIBLE_DEVICES=$first_cuda_device python predict.py \
         --experiment_folder=$tti_folder \
         --pretrained_checkpoint=$base_checkpoint_dir \
         --lora_checkpoints_folder=$ttt_folder \
@@ -97,7 +95,7 @@ process_data_sizes() {
         --include_n=1 \
         --adapter_number=$data_size \
         --max_tokens=20000 \
-        --new_format | tee $output_folder/slurm_device_${cuda_device}_data_size_${data_size}.log
+        --new_format | tee $logs_folder/slurm_device_${cuda_device}_data_size_${data_size}.log
 
         end_time=$(date +%s)
         echo "Time taken for data_size $data_size: $((end_time - start_time)) seconds"
@@ -117,10 +115,17 @@ process_data_sizes() {
 
 
 
-process_data_sizes 0  2 20 200 10   &
-process_data_sizes 1  4 40 400 100  &
-process_data_sizes 2  6 60 600 1000 &
-process_data_sizes 3  8 80 800 &
+# process_data_sizes 0  80  1000 &
+# process_data_sizes 1  200 100  &
+# process_data_sizes 2  400 60   &
+# process_data_sizes 3  800 40   &
+
+process_data_sizes 0 200 1000  2 10   &
+process_data_sizes 1 400 40    4 60  &
+process_data_sizes 2 80  100   6 20  $
+process_data_sizes 3 800 600   8      &
+
+
 
 
 

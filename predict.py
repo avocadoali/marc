@@ -32,6 +32,21 @@ from arclib.voting import vote
 from inference.engine import get_sampling_params, initialize_engine, process_requests
 from inference.preprocess import get_preprocessed_tasks
 
+# import logging
+# import sys
+
+# logging.basicConfig(
+#     level=logging.DEBUG,
+#     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+#     handlers=[
+#         logging.StreamHandler(sys.stdout)  # This will output to console
+#     ],
+#     force=True,
+# )
+
+# logger = logging.getLogger(__name__)
+
+
 
 parser = argparse.ArgumentParser(description="Process some integers.")
 parser.add_argument("--seed", type=int, default=0, help="Random seed")
@@ -216,8 +231,8 @@ task_name_to_processed_data = get_preprocessed_tasks(
 valid_tasks = [info for key, info in task_name_to_processed_data.items() if info["valid"]]
 invalid_tasks = [info for key, info in task_name_to_processed_data.items() if not info["valid"]]
 
-print("Len of valid tasks:", len(valid_tasks))
-print("Len of invalid tasks:", len(invalid_tasks))
+print("Len of valid tasks: {}", len(valid_tasks))
+print("Len of invalid tasks: {}", len(invalid_tasks))
 # for each valid task print the length of queries
 for info in valid_tasks:
     print(f"{info['task'].name}: Number of Queries: {len(info['queries'])}")
@@ -254,8 +269,8 @@ else:
 # log the lora config
 print(f"Lora config: {lora_adapter_config}")
 
-# breakpoint()
 
+print("Initializing engine...")
 engine = initialize_engine(
     model=args.pretrained_checkpoint,
     quantization=args.quantization,
@@ -266,8 +281,13 @@ engine = initialize_engine(
     tensor_parallel_size=1,
 )
 
+print("Engine initialized")
 
+print("Processing tasks...")
 for i, info in enumerate(valid_tasks):
+    
+    print(f"Processing task {i} out of {len(valid_tasks)}")
+
     name = info["task"].name
     idx, no = name.split("-")
     
@@ -300,9 +320,11 @@ for i, info in enumerate(valid_tasks):
         )
         inputs_to_remember[name + "-" + str(j)] = test_input
 
+print("Done processing tasks")
 
 print(f"Number of input queries to the engine: {len(inputs_to_the_engine)}")
 
+print("Processing requests...")
 outputs_by_key = process_requests(engine, inputs_to_the_engine)
 
 ## log the current interation
@@ -311,12 +333,8 @@ iteration_two = 0
 
 for key in list(outputs_by_key.keys()):
     
-
-
     iteration += 1
     print(f"Iteration: {iteration} out of {len(outputs_by_key)}")
-    
-
 
     inverter = inputs_to_remember[key]["inverter"]
     if inverter is not None:
@@ -374,6 +392,7 @@ for key in list(outputs_by_key.keys()):
 outputs_by_key = {key: outputs for key, outputs in outputs_by_key.items() if len(outputs) > 0}
 
 # save
+print(f"Saving predictions to experiment folder: {args.experiment_folder}/all_predictions.json")
 all_predictions_file = os.path.join(args.experiment_folder, f"all_predictions.json")
 
 with open(all_predictions_file, "w") as f:
