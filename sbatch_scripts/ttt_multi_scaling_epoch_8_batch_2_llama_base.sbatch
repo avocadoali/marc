@@ -5,9 +5,9 @@
 #SBATCH --ntasks-per-node=4
 #SBATCH --gres=gpu:4
 #SBATCH --cpus-per-task=12
-#SBATCH --time=00:10:00
+#SBATCH --time=40:00:00
 #SBATCH --mem-per-gpu=193000
-#SBATCH --partition=dev_accelerated-h100
+#SBATCH --partition=accelerated-h100
 #SBATCH --account=hk-project-pai00039
 #SBATCH --output=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
 #SBATCH --error=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
@@ -42,7 +42,7 @@ base_checkpoint_dir=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/huggi
 # This is provided in this repo
 
 # lora_config_file=configs/ttt/8.1B_lora_single_device.yaml # for barc
-lora_config_file=configs/ttt/8B_lora_single_device.yaml
+lora_config_file=configs/ttt/8B_lora_single_device_llama_base.yaml
 # lora_config_file=configs/ttt/DeepSeek_r1_8B_lora_single_device.yaml
 # lora_config_file=configs/ttt/8B_lora_multi.yaml
 
