@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#SBATCH --job-name=ttt-scaling-epoch-8-batch-2-llama-base
+#SBATCH --job-name=ttt-scaling-epoch-8-batch-2-llama-base-complete
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
 #SBATCH --gres=gpu:4
