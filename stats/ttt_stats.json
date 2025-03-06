@@ -916,5 +916,192 @@
       "lora_alpha": 16.0,
       "lora_to_output": true
     }
+  },
+  {
+    "output_directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_100_scaling/baseline_epoch_scaling_batch_3/adapters_json",
+    "model_directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 250,
+    "Actual Duration": "0:0:52",
+    "avg time per adapter": "0:0:52",
+    "#Created Adapters": 1,
+    "#To be created Adapters": 0,
+    "hyperparameters": {
+      "batch_size": 3,
+      "epochs": 100,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_100_scaling/baseline_epoch_scaling_batch_3/adapters_json",
+    "model_directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 250,
+    "Actual Duration": "0:0:54",
+    "avg time per adapter": "0:0:54",
+    "#Created Adapters": 1,
+    "#To be created Adapters": 0,
+    "hyperparameters": {
+      "batch_size": 3,
+      "epochs": 100,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_100_scaling/baseline_epoch_scaling_batch_3/adapters_json",
+    "model_directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 250,
+    "Actual Duration": "0:0:27",
+    "avg time per adapter": "0:0:27",
+    "#Created Adapters": 1,
+    "#To be created Adapters": 0,
+    "hyperparameters": {
+      "batch_size": 3,
+      "epochs": 100,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_100_scaling/baseline_epoch_scaling_batch_3/adapters_json",
+    "model_directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 250,
+    "Actual Duration": "0:0:24",
+    "avg time per adapter": "0:0:24",
+    "#Created Adapters": 1,
+    "#To be created Adapters": 0,
+    "hyperparameters": {
+      "batch_size": 3,
+      "epochs": 100,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_100_scaling/baseline_epoch_scaling_batch_3/adapters_json",
+    "model_directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 250,
+    "Actual Duration": "0:0:26",
+    "avg time per adapter": "0:0:26",
+    "#Created Adapters": 1,
+    "#To be created Adapters": 0,
+    "hyperparameters": {
+      "batch_size": 3,
+      "epochs": 100,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling_ep_20/baseline_epoch_scaling_batch_1/adapters_json",
+    "model_directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 250,
+    "Actual Duration": "0:0:27",
+    "avg time per adapter": "0:0:27",
+    "#Created Adapters": 1,
+    "#To be created Adapters": 0,
+    "hyperparameters": {
+      "batch_size": 1,
+      "epochs": 20,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling_ep_20/baseline_epoch_scaling_batch_1/adapters_json",
+    "model_directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 250,
+    "Actual Duration": "0:0:25",
+    "avg time per adapter": "0:0:25",
+    "#Created Adapters": 1,
+    "#To be created Adapters": 0,
+    "hyperparameters": {
+      "batch_size": 1,
+      "epochs": 20,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling_ep_20/baseline_epoch_scaling_batch_1/adapters_json",
+    "model_directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 250,
+    "Actual Duration": "0:0:29",
+    "avg time per adapter": "0:0:29",
+    "#Created Adapters": 1,
+    "#To be created Adapters": 0,
+    "hyperparameters": {
+      "batch_size": 1,
+      "epochs": 20,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_100_scaling/baseline_epoch_scaling_batch_2/adapters_json",
+    "model_directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 250,
+    "Actual Duration": "0:0:14",
+    "avg time per adapter": "0:0:14",
+    "#Created Adapters": 1,
+    "#To be created Adapters": 0,
+    "hyperparameters": {
+      "batch_size": 2,
+      "epochs": 100,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_100_scaling/baseline_epoch_scaling_batch_2/adapters_json",
+    "model_directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 250,
+    "Actual Duration": "0:0:11",
+    "avg time per adapter": "0:0:11",
+    "#Created Adapters": 1,
+    "#To be created Adapters": 0,
+    "hyperparameters": {
+      "batch_size": 2,
+      "epochs": 100,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
+  },
+  {
+    "output_directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_100_scaling/baseline_epoch_scaling_batch_2/adapters_json",
+    "model_directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a",
+    "Max Training Size": 250,
+    "Actual Duration": "0:0:12",
+    "avg time per adapter": "0:0:12",
+    "#Created Adapters": 1,
+    "#To be created Adapters": 0,
+    "hyperparameters": {
+      "batch_size": 2,
+      "epochs": 100,
+      "learning_rate": 0.0001,
+      "lora_rank": 128,
+      "lora_alpha": 16.0,
+      "lora_to_output": true
+    }
   }
 ]

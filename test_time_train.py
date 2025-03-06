@@ -191,16 +191,16 @@ logger.debug(f"Training data length: {len(arc_test_tasks)}")
 
 
 ## Todo remove when done with missing tasks                 
-tasks_to_run = ["47996f11", "981571dc", "af22c60d", "f9d67f8b"]
+# tasks_to_run = ["47996f11", "981571dc", "af22c60d", "f9d67f8b"]
 
-filtered_tasks = []
-for task in arc_test_tasks:
-  task_id = task.name.replace("-0", "")
-  if task_id in tasks_to_run:
-    filtered_tasks.append(task)
+# filtered_tasks = []
+# for task in arc_test_tasks:
+#   task_id = task.name.replace("-0", "")
+#   if task_id in tasks_to_run:
+#     filtered_tasks.append(task)
 
 
-arc_test_tasks = filtered_tasks
+# arc_test_tasks = filtered_tasks
 
 
 arc_test_tasks = [task for task in arc_test_tasks if "-0" in task.name]
