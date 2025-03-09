@@ -178,7 +178,6 @@ args = parser.parse_args()
 
 os.makedirs(args.experiment_folder, exist_ok=True)
 
-
 arc_test_tasks = read_tasks_from_single_file(args.data_file, test=True)
 # log training data directory
 logger.debug(f"Training data directory: {args.data_file}")
@@ -269,7 +268,6 @@ conf.model.lora_dropout = args.lora_dropout
 conf.checkpointer.checkpoint_dir = args.base_checkpoint_dir
 conf.seed = args.seed
 
-
 if "llama3_2" not in conf.model._component_:
     conf.model.apply_lora_to_output = args.lora_to_output
 else:
@@ -332,7 +330,6 @@ def train_with_a_test_data(
     recipe.epochs_run = 0
 
     recipe.seed = lora_finetune_single_device.training.set_seed(lconf.seed)
-    # recipe.seed = lora_finetune_distributed.training.set_seed(lconf.seed)
     recipe.setup(cfg=lconf, model=model, adapter=adapter)
 
     for layer in recipe._model.layers:
@@ -364,7 +361,7 @@ def train_with_a_test_data(
 
 # # data = [processor(task) for task in arc_test_tasks]
 
-# assert len(data) == len(arc_test_tasks)
+assert len(data) == len(arc_test_tasks)
 
 # for task, task_train_data in zip(arc_test_tasks, data):
 #     task_id = task.name.replace("-0", "")
@@ -395,7 +392,6 @@ logger.debug(f"Initializing model")
 
 # initialize model
 recipe = lora_finetune_single_device.LoRAFinetuneRecipeSingleDevice(conf)
-# recipe = lora_finetune_distributed.LoRAFinetuneRecipeDistributed(conf)
 recipe.setup(cfg=conf)
 model = recipe._model
 device = recipe._device
@@ -450,10 +446,8 @@ for task in arc_test_tasks:
             adapter=adapter,
             args_dict=args_dict,
         )
-
         # save the adapter
         final_adapter = lora_finetune_single_device.get_adapter_params(model)
-        # final_adapter = lora_finetune_distributed.get_adapter_params(model)
         # save
         replacements = {
             "_orig_mod.": "",
@@ -488,7 +482,6 @@ for task in arc_test_tasks:
             lora_to_mlp=args.lora_to_mlp,
             lora_to_output=args.lora_to_output,
         )
-
     except Exception as e:
         print(e)
         print("Error training for ", task_id)

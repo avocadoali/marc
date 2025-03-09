@@ -268,11 +268,3 @@ if __name__ == "__main__":
 
     if args.compare_submission_file is not None:
         compare(args.data_file, args.solution_file, submission_file, args.compare_submission_file, plot_differents=args.plot_mistakes, diff_folder=args.diff_folder)
-
-
-
-
-
-
-
-

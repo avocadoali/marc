@@ -8,7 +8,6 @@ import torch
 from transformers import (
     AutoTokenizer,
 )
-
 from vllm.lora.request import LoRARequest
 
 import arclib.messagers
@@ -74,7 +73,7 @@ parser.add_argument(
     "--n_sample", type=int, default=1, help="Number of samples to generate per input"
 )
 parser.add_argument(
-    "--experiment_folder", type=str, default="experiments/tti/new/", help="s/ubmission folder"
+    "--experiment_folder", type=str, default="experiments/tti/new/", help="submission folder"
 )
 parser.add_argument(
     "--formatter",
@@ -137,7 +136,6 @@ print("Arguments:")
 for arg in vars(args):
     print(f"{arg}: {getattr(args, arg)}")
 
-
 os.makedirs(args.experiment_folder, exist_ok=True)
 
 tasks = read_tasks_from_single_file(args.data_file, solution_file=args.solution_file, test=True)
@@ -150,8 +148,6 @@ if args.lora_checkpoints_folder is not None:
         lora_id = lora_path.split("/")[-2]
         id_to_lora_path[lora_id] = lora_path
         lora_dir = os.path.dirname(lora_path)
-
-# breakpoint()
 
 if args.num_examples is not None:
     # shuffle
@@ -239,7 +235,7 @@ lora_path_idxs = list(id_to_lora_path.keys())
 if len(lora_path_idxs) > 0:
     # load one adapter_config.json
     with open(
-        id_to_lora_path[lora_path_idxs[0]].replace(f"adapter_model.bin", f"adapter_config.json")
+        id_to_lora_path[lora_path_idxs[0]].replace("adapter_model.bin", "adapter_config.json")
     ) as f:
         
         print(f"Loading adapter_config.json from {id_to_lora_path[lora_path_idxs[0]].replace(f'adapter_model.bin', f'adapter_config.json')}")
@@ -249,10 +245,6 @@ if len(lora_path_idxs) > 0:
 else:
     lora_adapter_config = {}
 
-
-
-
-# breakpoint()
 
 engine = initialize_engine(
     model=args.pretrained_checkpoint,
@@ -268,14 +260,9 @@ engine = initialize_engine(
 for i, info in enumerate(valid_tasks):
     name = info["task"].name
     idx, no = name.split("-")
-    
-    # breakpoint()
-
     if args.lora_checkpoints_folder is not None:
         lora_path = id_to_lora_path[idx]
         lora_path = os.path.dirname(lora_path)
-        # breakpoint()
-
         # get the parent folder
         if args.use_all_lora:
             lora_path = os.path.join(os.path.dirname(lora_path), "all/")
@@ -372,7 +359,7 @@ for key in list(outputs_by_key.keys()):
 outputs_by_key = {key: outputs for key, outputs in outputs_by_key.items() if len(outputs) > 0}
 
 # save
-all_predictions_file = os.path.join(args.experiment_folder, f"all_predictions.json")
+all_predictions_file = os.path.join(args.experiment_folder, "all_predictions.json")
 
 with open(all_predictions_file, "w") as f:
     json.dump(outputs_by_key, f)
