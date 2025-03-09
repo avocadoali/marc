@@ -359,9 +359,9 @@ def train_with_a_test_data(
 # with Pool(args.cpus) as p:
 #     data = p.map(processor, arc_test_tasks)
 
-# # data = [processor(task) for task in arc_test_tasks]
+# data = [processor(task) for task in arc_test_tasks]
 
-assert len(data) == len(arc_test_tasks)
+# assert len(data) == len(arc_test_tasks)
 
 # for task, task_train_data in zip(arc_test_tasks, data):
 #     task_id = task.name.replace("-0", "")

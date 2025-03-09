@@ -212,8 +212,15 @@ task_name_to_processed_data = get_preprocessed_tasks(
 valid_tasks = [info for key, info in task_name_to_processed_data.items() if info["valid"]]
 invalid_tasks = [info for key, info in task_name_to_processed_data.items() if not info["valid"]]
 
+print('')
+print('')
+print('')
+print('')
 print("Len of valid tasks:", len(valid_tasks))
 print("Len of invalid tasks:", len(invalid_tasks))
+print('')
+print('')
+print('')
 # for each valid task print the length of queries
 for info in valid_tasks:
     print(f"{info['task'].name}: Number of Queries: {len(info['queries'])}")

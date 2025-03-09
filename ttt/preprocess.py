@@ -196,14 +196,22 @@ def process_task(
     Nmax: int = 250,
     seed: int = 0,
 ):
+    
+    idx, task = task
+
+
+    print(f"Processing task: {task.name} at idx: {idx}")
     rng = np.random.RandomState(seed)
 
+    print('leave_1...')
     leave_1_train_data = get_formatted_data(
         task, augmenters, formatter, tokenizer, leave_n=1, permute_n=permute_n, seed=seed
     )
+    print('leave_2...')
     leave_2_train_data = get_formatted_data(
         task, augmenters, formatter, tokenizer, leave_n=2, permute_n=permute_n, seed=seed
     )
+
 
     train = leave_1_train_data
 

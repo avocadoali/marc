@@ -41,15 +41,13 @@ logger = logging.getLogger(__name__)
 
 sys.path.append("third_party/torchtune/recipes/")
 
-# print("Hello")
 # log the strart time 
 start_time = time.time()
 logger.debug(f"Starting test time training: {start_time}")
 
 # log available gpus
-# logger.debug(f"Available GPUs: {torch.cuda.device_count()}")
+logger.debug(f"Available GPUs: {torch.cuda.device_count()}")
 
-logger.debug(f"Test")
 
 def save_adapter_config(
     path: str,
@@ -182,10 +180,7 @@ parser.add_argument(
 
 args = parser.parse_args()
 
-logger.debug(f"Os makedirs")
-
 os.makedirs(args.experiment_folder, exist_ok=True)
-
 
 arc_test_tasks = read_tasks_from_single_file(args.data_file, test=True)
 # log training data directory
@@ -194,22 +189,23 @@ logger.debug(f"Training data length: {len(arc_test_tasks)}")
 
 # breakpoint()
 
-
-tasks_to_run = ["47996f11", "981571dc", "af22c60d", "f9d67f8b"]
-
-filtered_tasks = []
-for task in arc_test_tasks:
-  task_id = task.name.replace("-0", "")
-  if task_id in tasks_to_run:
-    filtered_tasks.append(task)
-
-
-arc_test_tasks = filtered_tasks
-
-# breakpoint()
-
 # # reverse
 # arc_test_tasks = arc_test_tasks[::-1][:200]
+
+
+
+## Todo remove when done with missing tasks                 
+# tasks_to_run = ["47996f11", "981571dc", "af22c60d", "f9d67f8b"]
+
+# filtered_tasks = []
+# for task in arc_test_tasks:
+#   task_id = task.name.replace("-0", "")
+#   if task_id in tasks_to_run:
+#     filtered_tasks.append(task)
+
+
+# arc_test_tasks = filtered_tasks
+
 
 arc_test_tasks = [task for task in arc_test_tasks if "-0" in task.name]
 
@@ -220,9 +216,9 @@ arc_test_tasks = [task for task in arc_test_tasks if "-0" in task.name]
 
 arc_test_ids = [task.name.replace("-0", "") for task in arc_test_tasks]
 
+# print("Number of train tasks: ", len(arc_test_tasks))
 logger.debug(f"Number of train tasks: {len(arc_test_tasks)}")
 
-# breakpoint()
 
 if args.new_format:
     standard_formatter = TextTaskRepresenter(
@@ -279,7 +275,6 @@ conf.model.lora_dropout = args.lora_dropout
 conf.checkpointer.checkpoint_dir = args.base_checkpoint_dir
 conf.seed = args.seed
 
-
 if "llama3_2" not in conf.model._component_:
     conf.model.apply_lora_to_output = args.lora_to_output
 else:
@@ -291,7 +286,7 @@ logger.debug(f"Lora config path: {args.lora_config}")
 # print conf
 logger.debug(f"Config: {conf}")
 
-# logger.debug(f"Tokenizer path: {conf.tokenizer.path}")
+logger.debug('Loading tokenizer...')
 tokenizer = llama3_tokenizer(conf.tokenizer.path)
 
 if args.no_transform:
@@ -306,9 +301,10 @@ else:
 
 # breakpoint()
 
-print(f'args.permute_n: {args.permute_n}')
-print(f'args.Nmax: {args.Nmax}')
+logger.debug(f'args.permute_n: {args.permute_n}')
+logger.debug(f'args.Nmax: {args.Nmax}')
 
+logger.debug('initializing processor...')
 processor = functools.partial(
     process_task,
     augmenters=augmenters_to_apply,
@@ -319,7 +315,8 @@ processor = functools.partial(
     seed=args.seed,
 )
 
-print('cpus: ', args.cpus)
+
+logger.debug(f'cpus: {args.cpus}')
 
 # enumerate arc_test_tasks and save to dict
 # task_dict = {}
@@ -329,22 +326,21 @@ print('cpus: ', args.cpus)
 # print(task_dict)
 
 
-# with Pool(args.cpus) as p:
-#     data = p.map(processor, enumerate(arc_test_tasks))
+with Pool(args.cpus) as p:
+    data = p.map(processor, enumerate(arc_test_tasks))
 
 # with Pool(args.cpus) as p:
-#     # Wrap the arc_test_tasks with tqdm to show a progress bar
-#     data = list(tqdm(p.imap(processor, arc_test_tasks), total=len(arc_test_tasks)))
+#     data = p.map(processor, arc_test_tasks)
 
 # breakpoint()
 
-data = []
-# fill data with the tasks
-for idx, task in enumerate(arc_test_tasks):
-# for idx, task in enumerate(arc_test_tasks[:5]):
-    print(f'idx: {idx}')
-    t = processor(task)
-    data.append(t)
+# data = []
+# # fill data with the tasks
+# for idx, task in enumerate(arc_test_tasks):
+# # for idx, task in enumerate(arc_test_tasks[:5]):
+#     logger.debug(f'idx: {idx}')
+#     t = processor(task)
+#     data.append(t)
 
 # idx = 4
 # data.append(processor(arc_test_tasks[idx]))
