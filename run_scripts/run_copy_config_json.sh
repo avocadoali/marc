@@ -6,18 +6,20 @@
 
 # EXPERIMENT_FOLDER="/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling/baseline_epoch_scaling_batch_1"
 # EXPERIMENT_FOLDER="/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling/baseline_epoch_scaling_batch_2"
-EXPERIMENT_FOLDER="/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling/baseline_epoch_scaling_batch_3"
-
+# EXPERIMENT_FOLDER="/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling/baseline_epoch_scaling_batch_3"
+EXPERIMENT_FOLDER="/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling_8/epoch_scaling_ekin"
+# EXPERIMENT_FOLDER="/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling_8/epoch_scaling_llama"
 SOURCE_FILE="${EXPERIMENT_FOLDER}/adapters_json/0a1d4ef5/config.json"
 # SECOND_SOURCE_FILE="${EXPERIMENT_FOLDER}/adapters_json/00576224/config.json"
 
 
 # iterate over all directories in 2k_test_run/ with a loop
 # for dir in experiments_thesis/70_test_run/*; do
+# only copy it to the ones that end with _iter_-1
 
 for dir in ${EXPERIMENT_FOLDER}/*; do
     # Skip the adapters_json directory
-    if [ -d "$dir" ] && [ "$dir" != "${EXPERIMENT_FOLDER}/adapters_json" ]; then
+    if [ -d "$dir" ] && [ "$dir" != "${EXPERIMENT_FOLDER}/adapters_json" ] && [[ "$dir" == *"_iter_-1" ]]; then
         TARGET_DIR="$dir"
 
         # Iterate over each directory in the target directory
@@ -30,7 +32,6 @@ for dir in ${EXPERIMENT_FOLDER}/*; do
         done
 
         echo "Copied config.json to $dir"
-
     fi
 done
 
