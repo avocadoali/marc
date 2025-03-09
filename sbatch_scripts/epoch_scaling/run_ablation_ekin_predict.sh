@@ -1,24 +1,5 @@
-#!/usr/bin/env bash
-
-#SBATCH --job-name=predict-epoch-scaling-llama-1-4-redo
-#SBATCH --nodes=1
-#SBATCH --ntasks-per-node=4
-#SBATCH --gres=gpu:4
-#SBATCH --cpus-per-task=12
-#SBATCH --time=4:00:00
-#SBATCH --partition=accelerated-h100
-#SBATCH --account=hk-project-pai00039
-#SBATCH --output=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
-#SBATCH --error=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
-#SBATCH --mail-user=avocadoaling@gmail.com
-#SBATCH --mail-type=ALL
-
-
-source ~/.bashrc
-conda activate vllm_marc
-
-
-module load compiler/gnu/11
+# conda activate vllm_marc
+# module load compiler/gnu/11
 
 echo "starting predict at time $(date +%Y-%m-%d_%H-%M-%S)"
 # train
@@ -30,8 +11,7 @@ data_file=arc-prize-2024/arc-agi_evaluation_challenges.json
 # base_checkpoint_dir=/path/to/finetuned/model/folder/
 # ttt_folder=/path/to/ttt/folder
 # base_checkpoint_dir=/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a
-# base_checkpoint_dir=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a
-base_checkpoint_dir=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/huggingface/hub/models--meta-llama--Meta-Llama-3-8B-Instruct/snapshots/5f0b02c75b57c5855da9ae460ce51323ea669d8a/
+base_checkpoint_dir=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a
 # ttt_folder=/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-lora-adapters-8B-finetuned-llama3/snapshots/0bfc91056465763e61d86bb047955364a82eaee2
 
 # if solution file is given predict will evaluate the model
@@ -48,8 +28,8 @@ logs_predict_folder=logs_predict/multi_batch
 mkdir -p $logs_predict_folder
 
 
-adapters_folder=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling_8/epoch_scaling_llama
-output_folder=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling_8/epoch_scaling_llama_output
+adapters_folder=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling_8/epoch_scaling_ekin
+output_folder=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling_8/epoch_scaling_ekin_output
 output_log_folder=${output_folder}/logs
 mkdir -p $output_log_folder                                                                                     
 
@@ -77,16 +57,16 @@ run_prediction() {
         --solution_file=$solution_file \
         --max_lora_rank=$max_lora_rank \
         --include_n=1 \
-        --new_format | tee $output_log_folder/slurm_epoch_${prev_epoch}.log &
+        --new_format &
+        # --new_format | tee $output_log_folder/slurm_epoch_${prev_epoch}.log &
 }
 
 run_prediction 1 0
-run_prediction 2 1
-run_prediction 3 2
-run_prediction 4 3
+run_prediction 2 0
+run_prediction 3 0
+run_prediction 4 0
 
 # Wait for all background processes to complete
 wait
 
 echo "Done at $(date +%Y-%m-%d_%H-%M-%S)"
-

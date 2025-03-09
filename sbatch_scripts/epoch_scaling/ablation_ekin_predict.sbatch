@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-#SBATCH --job-name=predict-epoch-scaling-ekin-1-4
+#SBATCH --job-name=predict-epoch-scaling-ekin-1-4-redo
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
 #SBATCH --gres=gpu:4
 #SBATCH --cpus-per-task=12
-#SBATCH --time=6:00:00
-#SBATCH --partition=accelerated
+#SBATCH --time=4:00:00
+#SBATCH --partition=accelerated-h100
 #SBATCH --account=hk-project-pai00039
 #SBATCH --output=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
 #SBATCH --error=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
