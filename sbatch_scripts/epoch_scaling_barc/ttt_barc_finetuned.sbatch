@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-#SBATCH --job-name=ttt-epoch-scaling-barc-finetuned
+#SBATCH --job-name=ttt-epoch-scaling-barc-finetuned-redo
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
 #SBATCH --gres=gpu:4
 #SBATCH --cpus-per-task=12
-#SBATCH --time=40:00:00
+#SBATCH --time=0:10:00
 #SBATCH --mem-per-gpu=193000
 #SBATCH --partition=accelerated-h100
 #SBATCH --account=hk-project-pai00039
@@ -68,7 +68,7 @@ scratch_dir=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace
 
 # /hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling_8/epoch_scaling_ekin
 ttt_experiment_folder="${scratch_dir}/experiments_thesis_epoch_scaling_8_barc"
-experiment_name="epoch_scaling_barc_finetuned"
+experiment_name="epoch_scaling_barc_finetuned_redo"
 ttt_folder="${ttt_experiment_folder}/${experiment_name}/adapters_json"
 ttt_log_folder="${ttt_experiment_folder}/${experiment_name}/logs"
 

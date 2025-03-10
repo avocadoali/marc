@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-#SBATCH --job-name=predict-epoch-scaling-barc-finetuned-1-4
+#SBATCH --job-name=predict-epoch-scaling-barc-non-finetuned-1-4
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
 #SBATCH --gres=gpu:4
 #SBATCH --cpus-per-task=12
-#SBATCH --time=7:00:00
+#SBATCH --time=8:00:00
 #SBATCH --partition=accelerated-h100
 #SBATCH --account=hk-project-pai00039
 #SBATCH --output=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
@@ -30,7 +30,7 @@ data_file=arc-prize-2024/arc-agi_evaluation_challenges.json
 # base_checkpoint_dir=/path/to/finetuned/model/folder/
 # ttt_folder=/path/to/ttt/folder
 # base_checkpoint_dir=/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a
-base_checkpoint_dir=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/huggingface/hub/models--ekinakyurek--Llama-3.1-ARC-Potpourri-Transduction-8B/snapshots/1421b20207ad9af480aff4dccde964af8d64203e
+base_checkpoint_dir=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/huggingface/hub/models--meta-llama--Meta-Llama-3-8B-Instruct/snapshots/5f0b02c75b57c5855da9ae460ce51323ea669d8a/
 # ttt_folder=/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-lora-adapters-8B-finetuned-llama3/snapshots/0bfc91056465763e61d86bb047955364a82eaee2
 
 # if solution file is given predict will evaluate the model
