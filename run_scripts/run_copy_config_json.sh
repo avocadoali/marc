@@ -17,8 +17,16 @@
 # SOURCE_FILE="${EXPERIMENT_FOLDER}/adapters_json/0a1d4ef5/config.json"
 
 # non finetuned model epoch scaling 
-EXPERIMENT_FOLDER="/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling_8/epoch_scaling_llama"
-SOURCE_FILE="${EXPERIMENT_FOLDER}/adapters_json/00576224/config.json"
+# EXPERIMENT_FOLDER="/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling_8/epoch_scaling_llama"
+# SOURCE_FILE="${EXPERIMENT_FOLDER}/adapters_json/00576224/config.json"
+
+# barc ds non finetuned model
+EXPERIMENT_FOLDER="/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_ds_barc/ds_barc_non_finetuned"
+SOURCE_FILE="${EXPERIMENT_FOLDER}/adapters_json/0a1d4ef5/config.json"
+
+# barc ds finetuned model
+# EXPERIMENT_FOLDER="/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_ds_barc/ds_barc_finetuned"
+# SOURCE_FILE="${EXPERIMENT_FOLDER}/adapters_json/0a1d4ef5/config.json"
 
 # iterate over all directories in 2k_test_run/ with a loop
 # for dir in experiments_thesis/70_test_run/*; do
@@ -26,7 +34,8 @@ SOURCE_FILE="${EXPERIMENT_FOLDER}/adapters_json/00576224/config.json"
 
 for dir in ${EXPERIMENT_FOLDER}/*; do
     # Skip the adapters_json directory
-    if [ -d "$dir" ] && [ "$dir" != "${EXPERIMENT_FOLDER}/adapters_json" ] && [[ "$dir" == *"_iter_-1" ]]; then
+    # if [ -d "$dir" ] && [ "$dir" != "${EXPERIMENT_FOLDER}/adapters_json" ] && [[ "$dir" == *"_iter_-1" ]]; then
+    if [ -d "$dir" ] && [ "$dir" != "${EXPERIMENT_FOLDER}/adapters_json" ]; then
         TARGET_DIR="$dir"
 
         # Iterate over each directory in the target directory
@@ -41,5 +50,3 @@ for dir in ${EXPERIMENT_FOLDER}/*; do
         echo "Copied config.json to $dir"
     fi
 done
-
-
