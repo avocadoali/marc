@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-#SBATCH --job-name=ttt-ds-barc-non-finetuned-test
+#SBATCH --job-name=ttt-ds-barc-non-finetuned
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
 #SBATCH --gres=gpu:4
 #SBATCH --cpus-per-task=12
-#SBATCH --time=00:10:00
+#SBATCH --time=30:00:00
 #SBATCH --mem-per-gpu=193000
 #SBATCH --partition=accelerated-h100
 #SBATCH --account=hk-project-pai00039

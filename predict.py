@@ -121,6 +121,11 @@ parser.add_argument(
     "--adapter_number", type=str, default='default', help="Number of adapters to use"
 )
 
+# number of gpus
+parser.add_argument(
+    "--num_gpus", type=int, default=1, help="Number of gpus to use"
+)
+
 args = parser.parse_args()
 
 # set seed
@@ -261,7 +266,7 @@ engine = initialize_engine(
     enable_lora=args.lora_checkpoints_folder is not None,
     enforce_eager=False,
     lora_target_modules=lora_adapter_config.get("target_modules", None),
-    tensor_parallel_size=1,
+    tensor_parallel_size=args.num_gpus,
 )
 
 
