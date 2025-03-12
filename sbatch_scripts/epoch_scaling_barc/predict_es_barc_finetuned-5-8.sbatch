@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-#SBATCH --job-name=predict-epoch-scaling-barc-finetuned-1-4
+#SBATCH --job-name=predict-epoch-scaling-barc-finetuned-5-8-ft-model
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
 #SBATCH --gres=gpu:4
 #SBATCH --cpus-per-task=12
-#SBATCH --time=7:00:00
-#SBATCH --partition=accelerated-h100
+#SBATCH --time=5:00:00
+#SBATCH --partition=accelerated-h100    
 #SBATCH --account=hk-project-pai00039
 #SBATCH --output=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
 #SBATCH --error=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
@@ -41,8 +41,8 @@ n_sample=1
 
 # this should be same as your ttt
 max_lora_rank=128
-adapters_folder=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling_8_barc/epoch_scaling_barc_non_finetuned
-output_folder=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling_8_barc/epoch_scaling_barc_non_finetuned_output
+adapters_folder=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling_8_barc/epoch_scaling_barc_finetuned
+output_folder=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling_8_barc/epoch_scaling_barc_finetuned_output
 output_log_folder=${output_folder}/logs
 mkdir -p $output_log_folder                                                                                     
 
@@ -70,18 +70,18 @@ run_prediction() {
         --solution_file=$solution_file \
         --max_lora_rank=$max_lora_rank \
         --include_n=1 \
-        --new_format | tee $output_log_folder/slurm_epoch_${prev_epoch}.log
+        --barc_format | tee $output_log_folder/slurm_epoch_${prev_epoch}.log
 }
 
-run_prediction 0 1 &
-run_prediction 1 2 &
-run_prediction 2 3 &
-run_prediction 3 4 &
+# run_prediction 0 1 &
+# run_prediction 1 2 &
+# run_prediction 2 3 &
+# run_prediction 3 4 &
 
-# run_prediction 0 5 &
-# run_prediction 1 6 &
-# run_prediction 2 7 &
-# run_prediction 3 8 &
+run_prediction 0 5 &
+run_prediction 1 6 &
+run_prediction 2 7 &
+run_prediction 3 8 &
 
 
 

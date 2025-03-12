@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#SBATCH --job-name=predict-epoch-scaling-barc-non-finetuned-5-8
+#SBATCH --job-name=predict-epoch-scaling-barc-non-finetuned-5-8-redo
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
 #SBATCH --gres=gpu:4
@@ -70,7 +70,7 @@ run_prediction() {
         --solution_file=$solution_file \
         --max_lora_rank=$max_lora_rank \
         --include_n=1 \
-        --new_format | tee $output_log_folder/slurm_epoch_${prev_epoch}.log
+        --barc_format | tee $output_log_folder/slurm_epoch_${prev_epoch}.log
 }
 
 # run_prediction 0 1 &

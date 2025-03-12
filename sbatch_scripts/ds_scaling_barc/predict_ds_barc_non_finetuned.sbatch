@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-#SBATCH --job-name=predict-ds-barc-non-finetuned-redo
+#SBATCH --job-name=predict-ds-barc-non-finetuned-rere
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
 #SBATCH --gres=gpu:4
 #SBATCH --cpus-per-task=12
-#SBATCH --time=8:00:00
+#SBATCH --time=10:00:00
 #SBATCH --partition=accelerated-h100
 #SBATCH --account=hk-project-pai00039
 #SBATCH --output=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
@@ -71,7 +71,7 @@ run_prediction() {
         --solution_file=$solution_file \
         --max_lora_rank=$max_lora_rank \
         --include_n=1 \
-        --new_format | tee $output_log_folder/slurm_iter_${iter}.log
+        --barc_format | tee $output_log_folder/slurm_iter_${iter}.log
 }
 
 run_prediction 0 20  &
