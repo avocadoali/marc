@@ -2,9 +2,8 @@
 
 
 
-# base_path="experiments_submission_files/experiments_thesis_ds_barc/ds_barc_non_finetuned_output"
-base_path="experiments_submission_files/experiments_thesis_ds_barc/ds_barc_finetuned_output"
-
+base_path="experiments_submission_files/experiments_thesis_epoch_scaling_8_barc/epoch_scaling_barc_non_finetuned_output"
+        #    experiments_submission_files/experiments_thesis_epoch_scaling_8_barc/epoch_scaling_barc_non_finetuned_output/adapters_json_ep_0_iter_-1
 # Create CSV header
 rm -f ${base_path}/level_results.csv
 echo "epoch,total_accuracy,easy,medium,hard,expert" >> ${base_path}/level_results.csv
@@ -12,7 +11,7 @@ echo "epoch,total_accuracy,easy,medium,hard,expert" >> ${base_path}/level_result
 evaluate_submission() {
     local x=$1
     local base_path=$2
-    local submission_path="${base_path}/adapters_json_ep_0_iter_${x}/submission_default.json"
+    local submission_path="${base_path}/adapters_json_ep_${x}_iter_-1/submission_default.json"
 
     echo "Evaluating epoch ${x}..."
     echo "Submission path: ${submission_path}"
@@ -38,9 +37,8 @@ evaluate_submission() {
     echo
 }
 
-for x in 20 125 300 500; do
+for x in {0..7}; do
     evaluate_submission $x $base_path
 done
-
 
 python evaluation/create_plots.py --base_path $base_path

@@ -3,7 +3,6 @@
 # EXPERIMENT_NAME="experiments_thesis_epoch_scaling_8_barc"
 EXPERIMENT_NAME="experiments_thesis_ds_barc"
 
-
 DST_DIR="experiments_submission_files/${EXPERIMENT_NAME}"
 
 mkdir -p ${DST_DIR}
