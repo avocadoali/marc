@@ -165,9 +165,9 @@ def get_test_time_train_data(
     # print(f'augmenters: {len(augmenters)}')
     # print(f"iterations: {iterations}")
     # print(f"permute_n: {permute_n}")
-    print(f"Duplicates first: {len(augmented_tasks) - len(set(augmented_tasks))}")
+    # print(f"Duplicates first: {len(augmented_tasks) - len(set(augmented_tasks))}")
     augmented_tasks = list(set(augmented_tasks + initial_tasks))
-    print(f"augmented_tasks: {len(augmented_tasks)}")
+    # print(f"augmented_tasks: {len(augmented_tasks)}")
 
     color_and_permute_augmented_tasks = []
 
@@ -187,10 +187,10 @@ def get_test_time_train_data(
 
     # breakpoint()
     augmented_tasks = color_and_permute_augmented_tasks + augmented_tasks
-    print(f"augmented_tasjks + permute_augmented_tasks: {len(augmented_tasks)}")
-    print(f"Duplicates second: {len(augmented_tasks) - len(set(augmented_tasks))}")
+    # print(f"augmented_tasjks + permute_augmented_tasks: {len(augmented_tasks)}")
+    # print(f"Duplicates second: {len(augmented_tasks) - len(set(augmented_tasks))}")
     augmented_tasks = list(set(augmented_tasks))
-    print(f'len(augmented_tasks) after set: {len(augmented_tasks)}')
+    # print(f'len(augmented_tasks) after set: {len(augmented_tasks)}')
 
     return augmented_tasks
 
@@ -240,10 +240,10 @@ def get_formatted_data(
             n_filtered += 1
             token_sizes.append(formatted["total_tokens"])
 
-    print(f"Filtered bc too many tokens needed: {n_filtered}")
+    # print(f"Filtered bc too many tokens needed: {n_filtered}")
     # print highest 5 token sizes
-    print(f"Highest 5 token sizes: {sorted(token_sizes, reverse=True)[:5]}")
-    print(f"Max token size: {max_token_size}")
+    # print(f"Highest 5 token sizes: {sorted(token_sizes, reverse=True)[:5]}")
+    # print(f"Max token size: {max_token_size}")
     return formatted_data
 
 

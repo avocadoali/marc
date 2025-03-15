@@ -43,4 +43,4 @@ for x in 20 125 300 500; do
 done
 
 
-python evaluation/create_plots.py --base_path $base_path
+python evaluation/create_plots_ds.py --base_path=$base_path

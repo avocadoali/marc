@@ -1,15 +1,18 @@
-
-
+## Experiments
+# Barc
 # EXPERIMENT_NAME="experiments_thesis_epoch_scaling_8_barc"
-EXPERIMENT_NAME="experiments_thesis_ds_barc"
+# EXPERIMENT_NAME="experiments_thesis_ds_barc"
+
+# Ekin
+EXPERIMENT_NAME="experiments_thesis_epoch_scaling_8"
+
 
 DST_DIR="experiments_submission_files/${EXPERIMENT_NAME}"
-
 mkdir -p ${DST_DIR}
-
-
 # barc epoch scaling non finetuned model
 EXPERIMENT_FOLDER="/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/${EXPERIMENT_NAME}"
+
+# /hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling_8_barc/epoch_scaling_barc_finetuned_redo_output
 
 # Iterate only through directories that end with _output
 for dir in ${EXPERIMENT_FOLDER}/*_output*; do

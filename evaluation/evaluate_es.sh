@@ -1,9 +1,14 @@
 #!/bin/bash
 
 
+# BARC
+# base_path="experiments_submission_files/experiments_thesis_epoch_scaling_8_barc/epoch_scaling_barc_non_finetuned_output"
+# base_path="experiments_submission_files/experiments_thesis_epoch_scaling_8_barc/epoch_scaling_barc_finetuned_redo_output"
 
-base_path="experiments_submission_files/experiments_thesis_epoch_scaling_8_barc/epoch_scaling_barc_non_finetuned_output"
-        #    experiments_submission_files/experiments_thesis_epoch_scaling_8_barc/epoch_scaling_barc_non_finetuned_output/adapters_json_ep_0_iter_-1
+# Ekin
+# base_path="experiments_submission_files/experiments_thesis_epoch_scaling_8/epoch_scaling_ekin_output"
+base_path="experiments_submission_files/experiments_thesis_epoch_scaling_8/epoch_scaling_llama_output"
+
 # Create CSV header
 rm -f ${base_path}/level_results.csv
 echo "epoch,total_accuracy,easy,medium,hard,expert" >> ${base_path}/level_results.csv
@@ -41,4 +46,4 @@ for x in {0..7}; do
     evaluate_submission $x $base_path
 done
 
-python evaluation/create_plots.py --base_path $base_path
+python evaluation/create_plots_es.py --base_path=$base_path

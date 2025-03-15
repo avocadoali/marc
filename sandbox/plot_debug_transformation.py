@@ -12,7 +12,7 @@ file_data = {}
 # filename_list = [ 'baseline_epoch_scaling.json' '1000_permute_4_20k_double.json', '1000_permute_3-4_20k_double.json', '1000_permute_4_20k_double.json']
 # filename_list = [ 'baseline_epoch_scaling.json', '1000_permute_3-4_20k_double.json', '1000_permute_4_20k_double.json']
 # filename_list = ['epoch_scaling_barc_finetuned.json']
-filename_list = ['ds_debug.json']
+filename_list = ['baseline_ekin.json', 'baseline_barc.json']
 # filename_list = ['1000_permute_1_20k.json', '1000_permute_2_20k.json', '1000_permute_2_20k_double.json']
 # filename_list = ['stats_baseline.json', 'stats_perm_2.json', 'stats_perm_2_redo_init_3.json']
 
@@ -53,7 +53,7 @@ if not os.path.exists('plots'):
     os.makedirs('plots')
 
 # save the plot
-plt.savefig('plots/debug_transformation_tmp.png')
+plt.savefig('plots/baseline.png')
 
 # # get the data for stats_5.json and print all the idx that are 0
 # data = file_data['stats_5.json']
