@@ -2,12 +2,12 @@
 
 
 # BARC
-# base_path="experiments_submission_files/experiments_thesis_epoch_scaling_8_barc/epoch_scaling_barc_non_finetuned_output"
+base_path="experiments_submission_files/experiments_thesis_epoch_scaling_8_barc/epoch_scaling_barc_non_finetuned_output"
 # base_path="experiments_submission_files/experiments_thesis_epoch_scaling_8_barc/epoch_scaling_barc_finetuned_redo_output"
 
 # Ekin
 # base_path="experiments_submission_files/experiments_thesis_epoch_scaling_8/epoch_scaling_ekin_output"
-base_path="experiments_submission_files/experiments_thesis_epoch_scaling_8/epoch_scaling_llama_output"
+# base_path="experiments_submission_files/experiments_thesis_epoch_scaling_8/epoch_scaling_llama_output"
 
 # Create CSV header
 rm -f ${base_path}/level_results.csv

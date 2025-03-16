@@ -8,8 +8,10 @@ import argparse
 def create_plots(base_path, output_name):
     dict_metrics = {}
 
-    for x in [20, 125, 300, 500]:
-        df = pd.read_csv(f'{base_path}/adapters_json_ep_0_iter_{x}/task_info.csv')
+    # for x in [20, 125, 300, 500]:
+    for x in [80, 200, 400, 800]:
+        # df = pd.read_csv(f'{base_path}/adapters_json_ep_0_iter_{x}/task_info.csv')
+        df = pd.read_csv(f'{base_path}/adapters_json_{x}/task_info.csv')
         # Calculate metrics
         metrics = {
         'total_solved': len(df[df['correct'] == True]),

@@ -1,11 +1,15 @@
 ## Experiments
 # Barc
-# EXPERIMENT_NAME="experiments_thesis_epoch_scaling_8_barc"
+EXPERIMENT_NAME="experiments_thesis_epoch_scaling_8_barc"
 # EXPERIMENT_NAME="experiments_thesis_ds_barc"
 
 # Ekin
-EXPERIMENT_NAME="experiments_thesis_epoch_scaling_8"
+# EXPERIMENT_NAME="experiments_thesis_epoch_scaling_8"
 
+
+
+# Dataset scaling 20k
+# EXPERIMENT_NAME="experiments_thesis_dataset_scaling"
 
 DST_DIR="experiments_submission_files/${EXPERIMENT_NAME}"
 mkdir -p ${DST_DIR}
@@ -18,6 +22,7 @@ EXPERIMENT_FOLDER="/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/${EXPE
 for dir in ${EXPERIMENT_FOLDER}/*_output*; do
     # and ends with _output
     if [ -d "$dir" ] && [[ "$dir" == *"_output" ]]; then
+    # if [ -d "$dir" ] && [[ "$dir" == *"_output_subset" ]]; then
         TARGET_DIR="$dir"
 
         echo "Copying ${TARGET_DIR} to ${DST_DIR}/"

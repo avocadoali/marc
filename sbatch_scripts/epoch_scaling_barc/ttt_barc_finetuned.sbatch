@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
 
-#SBATCH --job-name=ttt-epoch-scaling-barc-finetuned-redo
+#SBATCH --job-name=ttt-barc-es-ft
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
 #SBATCH --gres=gpu:4
 #SBATCH --cpus-per-task=12
-#SBATCH --time=40:00:00
-#SBATCH --mem-per-gpu=193000
-#SBATCH --partition=accelerated-h100
+#SBATCH --time=48:00:00
+#SBATCH --partition=accelerated
 #SBATCH --account=hk-project-pai00039
 #SBATCH --output=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
 #SBATCH --error=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
@@ -50,7 +49,7 @@ lora_config_file=configs/ttt/8.1B_lora_single_device.yaml
 
 # But you can override some of the variables
 batch_size=2
-epochs=8
+epochs=16
 learning_rate=5e-5
 lora_rank=128
 lora_alpha=16.0
@@ -63,12 +62,19 @@ nmax=250
 
 
 # scratch dir
-scratch_dir=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace
+# scratch_dir=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace
 # location of generated adapaters
 
 # /hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling_8/epoch_scaling_ekin
-ttt_experiment_folder="${scratch_dir}/experiments_thesis_epoch_scaling_8_barc"
-experiment_name="epoch_scaling_barc_finetuned_redo"
+# ttt_experiment_folder="${scratch_dir}/experiments_thesis_epoch_scaling_8_barc"
+# experiment_name="epoch_scaling_barc_finetuned_redo"
+# ttt_folder="${ttt_experiment_folder}/${experiment_name}/adapters_json"
+# ttt_log_folder="${ttt_experiment_folder}/${experiment_name}/logs"
+
+# /hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/epoch_scaling_complete_rerun/epoch_scaling_barc/epoch_scaling_barc_finetuned/adapters_json
+scratch_dir=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/epoch_scaling_complete_rerun
+ttt_experiment_folder="${scratch_dir}/epoch_scaling_barc"
+experiment_name="epoch_scaling_barc_finetuned"
 ttt_folder="${ttt_experiment_folder}/${experiment_name}/adapters_json"
 ttt_log_folder="${ttt_experiment_folder}/${experiment_name}/logs"
 
