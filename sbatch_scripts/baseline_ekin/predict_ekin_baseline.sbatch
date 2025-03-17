@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#SBATCH --job-name=predict-baseline-barc
+#SBATCH --job-name=predict-baseline-ekin
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
 #SBATCH --gres=gpu:4
@@ -30,7 +30,8 @@ data_file=arc-prize-2024/arc-agi_evaluation_challenges.json
 # base_checkpoint_dir=/path/to/finetuned/model/folder/
 # ttt_folder=/path/to/ttt/folder
 # base_checkpoint_dir=/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a
-base_checkpoint_dir=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/huggingface/hub/models--ekinakyurek--Llama-3.1-ARC-Potpourri-Transduction-8B/snapshots/1421b20207ad9af480aff4dccde964af8d64203e
+# base_checkpoint_dir=/fs/work/workspace/scratch/tum_ind3695-arc-workspace/huggingface/hub/models--ekinakyurek--Llama-3.1-ARC-Potpourri-Transduction-8B/snapshots/1421b20207ad9af480aff4dccde964af8d64203e
+base_checkpoint_dir=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a
 # ttt_folder=/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-lora-adapters-8B-finetuned-llama3/snapshots/0bfc91056465763e61d86bb047955364a82eaee2
 
 # if solution file is given predict will evaluate the model
@@ -48,9 +49,15 @@ max_lora_rank=128
 # mkdir -p $tti_folder
 
 # /hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/baseline_barc/baseline_barc/adapters_json
-ttt_folder=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/baseline_barc/baseline_barc/adapters_json
-tti_folder=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/baseline_barc/baseline_barc_output
+# ttt_folder=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/baseline_barc/baseline_barc/adapters_json
+# tti_folder=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/baseline_barc/baseline_barc_output
+# mkdir -p $tti_folder
+
+# /hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/baseline_ekin/baseline_ekin/adapters_json
+ttt_folder=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/baseline_ekin/baseline_ekin/adapters_json
+tti_folder=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/baseline_ekin/baseline_ekin_output
 mkdir -p $tti_folder
+
 
 # With lora adapters
 python predict.py \

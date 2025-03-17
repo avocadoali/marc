@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#SBATCH --job-name=ttt-barc-es-ft
+#SBATCH --job-name=ttt-ekin-es-non-ft
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
 #SBATCH --gres=gpu:4
@@ -29,8 +29,8 @@ data_file=arc-prize-2024/arc-agi_evaluation_challenges.json
 
 # base_checkpoint_dir=/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--deepseek-ai--DeepSeek-R1-Distill-Llama-8B/snapshots/24ae87a9c340aa4207dd46509414c019998e0161
 # base_checkpoint_dir=/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a
+base_checkpoint_dir=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/huggingface/hub/models--meta-llama--Meta-Llama-3-8B-Instruct/snapshots/5f0b02c75b57c5855da9ae460ce51323ea669d8a/
 # base_checkpoint_dir=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/huggingface/hub/models--ekinakyurek--marc-8B-finetuned-llama3/snapshots/c2b6b30b45e87628ef6e0a75fef50264c91b142a
-base_checkpoint_dir=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/huggingface/hub/models--ekinakyurek--Llama-3.1-ARC-Potpourri-Transduction-8B/snapshots/1421b20207ad9af480aff4dccde964af8d64203e
 
 ## Llama3 8b instruct base 
 # base_checkpoint_dir=/p/home/jusers/nguyen31/juwels/arc-challenge/nguyen31/huggingface/hub/models--meta-llama--Meta-Llama-3-8B-Instruct/blobs/4c763399690c7fec642231350756e4ee9184b5ce
@@ -42,8 +42,7 @@ base_checkpoint_dir=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/huggi
 # This is provided in this repo
 
 # lora_config_file=configs/ttt/8.1B_lora_single_device.yaml # for barc
-# lora_config_file=configs/ttt/8B_lora_single_device.yaml
-lora_config_file=configs/ttt/8.1B_lora_single_device.yaml
+lora_config_file=configs/ttt/8B_lora_single_device_llama_base.yaml
 # lora_config_file=configs/ttt/DeepSeek_r1_8B_lora_single_device.yaml
 # lora_config_file=configs/ttt/8B_lora_multi.yaml
 
@@ -63,21 +62,18 @@ nmax=250
 
 # scratch dir
 # scratch_dir=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace
-# location of generated adapaters
-
-# /hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling_8/epoch_scaling_ekin
-# ttt_experiment_folder="${scratch_dir}/experiments_thesis_epoch_scaling_8_barc"
-# experiment_name="epoch_scaling_barc_finetuned_redo"
+# ttt_experiment_folder="${scratch_dir}/experiments_thesis_epoch_scaling_8"
+# experiment_name="epoch_scaling_llama"
 # ttt_folder="${ttt_experiment_folder}/${experiment_name}/adapters_json"
 # ttt_log_folder="${ttt_experiment_folder}/${experiment_name}/logs"
 
-# /hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/epoch_scaling_complete_rerun/epoch_scaling_barc/epoch_scaling_barc_finetuned/adapters_json
+# complete rerun
+# /hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/epoch_scaling_complete_rerun/epoch_scaling_ekin/epoch_scaling_ekin_non_finetuned
 scratch_dir=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/epoch_scaling_complete_rerun
-ttt_experiment_folder="${scratch_dir}/epoch_scaling_barc"
-experiment_name="epoch_scaling_barc_finetuned"
+ttt_experiment_folder="${scratch_dir}/epoch_scaling_ekin"
+experiment_name="epoch_scaling_ekin_non_finetuned"
 ttt_folder="${ttt_experiment_folder}/${experiment_name}/adapters_json"
 ttt_log_folder="${ttt_experiment_folder}/${experiment_name}/logs"
-
 mkdir -p $ttt_folder
 mkdir -p $ttt_log_folder
 
@@ -93,7 +89,7 @@ CUDA_VISIBLE_DEVICES=0 python test_time_train.py --lora_config=$lora_config_file
 --lora_rank=$lora_rank \
 --lora_alpha=$lora_alpha \
 --lora_to_output=$lora_to_output \
---barc_format | tee $ttt_log_folder/log_0.log &
+--new_format | tee $ttt_log_folder/log_0.log &
 
 CUDA_VISIBLE_DEVICES=1 python test_time_train.py --lora_config=$lora_config_file \
 --base_checkpoint_dir=$base_checkpoint_dir \
@@ -107,7 +103,7 @@ CUDA_VISIBLE_DEVICES=1 python test_time_train.py --lora_config=$lora_config_file
 --lora_rank=$lora_rank \
 --lora_alpha=$lora_alpha \
 --lora_to_output=$lora_to_output \
---barc_format | tee $ttt_log_folder/log_1.log &
+--new_format | tee $ttt_log_folder/log_1.log &
 
 CUDA_VISIBLE_DEVICES=2 python test_time_train.py --lora_config=$lora_config_file \
 --base_checkpoint_dir=$base_checkpoint_dir \
@@ -121,7 +117,7 @@ CUDA_VISIBLE_DEVICES=2 python test_time_train.py --lora_config=$lora_config_file
 --lora_rank=$lora_rank \
 --lora_alpha=$lora_alpha \
 --lora_to_output=$lora_to_output \
---barc_format | tee $ttt_log_folder/log_2.log &
+--new_format | tee $ttt_log_folder/log_2.log &
 
 CUDA_VISIBLE_DEVICES=3 python test_time_train.py --lora_config=$lora_config_file \
 --base_checkpoint_dir=$base_checkpoint_dir \
@@ -135,7 +131,7 @@ CUDA_VISIBLE_DEVICES=3 python test_time_train.py --lora_config=$lora_config_file
 --lora_rank=$lora_rank \
 --lora_alpha=$lora_alpha \
 --lora_to_output=$lora_to_output \
---barc_format | tee $ttt_log_folder/log_3.log &
+--new_format | tee $ttt_log_folder/log_3.log &
 
 # Wait for all background processes to complete
 wait
