@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#SBATCH --job-name=ttt-ekin-es-ft
+#SBATCH --job-name=ttt-ekin-es-ft-8k
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
 #SBATCH --gres=gpu:4
@@ -70,13 +70,17 @@ nmax=250
 # mkdir -p $ttt_log_folder
 
 # complete rerun
-scratch_dir=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/epoch_scaling_complete_rerun
+
+
+scratch_dir=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/epoch_scaling_complete_rerun_8k
 ttt_experiment_folder="${scratch_dir}/epoch_scaling_ekin"
 experiment_name="epoch_scaling_ekin_finetuned"
 ttt_folder="${ttt_experiment_folder}/${experiment_name}/adapters_json"
 ttt_log_folder="${ttt_experiment_folder}/${experiment_name}/logs"
 mkdir -p $ttt_folder
 mkdir -p $ttt_log_folder
+
+
 
 CUDA_VISIBLE_DEVICES=0 python test_time_train.py --lora_config=$lora_config_file \
 --base_checkpoint_dir=$base_checkpoint_dir \

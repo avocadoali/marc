@@ -77,7 +77,6 @@ ttt_experiment_folder="${scratch_dir}/epoch_scaling_barc"
 experiment_name="epoch_scaling_barc_finetuned"
 ttt_folder="${ttt_experiment_folder}/${experiment_name}/adapters_json"
 ttt_log_folder="${ttt_experiment_folder}/${experiment_name}/logs"
-
 mkdir -p $ttt_folder
 mkdir -p $ttt_log_folder
 

@@ -71,7 +71,7 @@ python predict.py \
 --max_lora_rank=$max_lora_rank \
 --include_n=1 \
 --num_gpus=4 \
---barc_format | tee $tti_folder/logs.log &
+--new_format | tee $tti_folder/logs.log &
 
 
 # Wait for all background processes to complete

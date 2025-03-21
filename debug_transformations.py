@@ -196,14 +196,13 @@ logger.debug(f"Training data length: {len(arc_test_tasks)}")
 
 
 # tasks_to_run = ["47996f11", "981571dc", "af22c60d", "f9d67f8b"]
+# tasks_to_run = ["fd096ab6", "d304284e"]
 
 # filtered_tasks = []
 # for task in arc_test_tasks:
 #   task_id = task.name.replace("-0", "")
 #   if task_id in tasks_to_run:
 #     filtered_tasks.append(task)
-
-
 # arc_test_tasks = filtered_tasks
 
 # breakpoint()

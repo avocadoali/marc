@@ -46,8 +46,8 @@ nmax=250
 # mkdir -p $ttt_folder
 
 # complete rerun
-scratch_dir=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/epoch_scaling_complete_rerun
-ttt_experiment_folder="${scratch_dir}/epoch_scaling_barc"
+scratch_dir=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/epoch_scaling_complete_rerun_8k
+ttt_experiment_folder="${scratch_dir}/epoch_scaling_barc_permute_2"
 # experiment_name="epoch_scaling_barc_finetuned"
 experiment_name="epoch_scaling_barc_non_finetuned"
 ttt_folder="${ttt_experiment_folder}/${experiment_name}/adapters_json"
@@ -63,7 +63,7 @@ python debug_transformations.py --lora_config=$lora_config_file \
 --offset=0 \
 --num_tasks=400 \
 --Nmax=$nmax \
---permute_n=1 \
+--permute_n=2 \
 --epochs=$epochs \
 --lora_rank=$lora_rank \
 --lora_alpha=$lora_alpha \

@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-#SBATCH --job-name=ttt-ekin-es-non-ft
+#SBATCH --job-name=ttt-ekin-es-non-ft-8k
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
 #SBATCH --gres=gpu:4
 #SBATCH --cpus-per-task=12
 #SBATCH --time=48:00:00
-#SBATCH --partition=accelerated-h100
+#SBATCH --partition=accelerated-h100    
 #SBATCH --account=hk-project-pai00039
 #SBATCH --output=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
 #SBATCH --error=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
@@ -69,7 +69,8 @@ nmax=250
 
 # complete rerun
 # /hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/epoch_scaling_complete_rerun/epoch_scaling_ekin/epoch_scaling_ekin_non_finetuned
-scratch_dir=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/epoch_scaling_complete_rerun
+
+scratch_dir=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/epoch_scaling_complete_rerun_8k
 ttt_experiment_folder="${scratch_dir}/epoch_scaling_ekin"
 experiment_name="epoch_scaling_ekin_non_finetuned"
 ttt_folder="${ttt_experiment_folder}/${experiment_name}/adapters_json"

@@ -35,9 +35,20 @@
 # SOURCE_FILE="${EXPERIMENT_FOLDER}/adapters_json/0a1d4ef5/config.json"
 
 # barc epoch scaling finetuned model
-EXPERIMENT_FOLDER="/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling_8_barc/epoch_scaling_barc_finetuned_redo"
-SOURCE_FILE="${EXPERIMENT_FOLDER}/adapters_json/0a1d4ef5/config.json"
+# EXPERIMENT_FOLDER="/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling_8_barc/epoch_scaling_barc_finetuned_redo"
+# SOURCE_FILE="${EXPERIMENT_FOLDER}/adapters_json/0a1d4ef5/config.json"
 
+
+### RERUN ES Experiments
+
+#BARC
+## FT model 
+# EXPERIMENT_FOLDER="/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/epoch_scaling_complete_rerun/epoch_scaling_barc/epoch_scaling_barc_finetuned"
+# SOURCE_FILE="${EXPERIMENT_FOLDER}/adapters_json/0a1d4ef5/config.json"
+
+## NON FT model 
+EXPERIMENT_FOLDER="/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/epoch_scaling_complete_rerun/epoch_scaling_barc/epoch_scaling_barc_non_finetuned"
+SOURCE_FILE="${EXPERIMENT_FOLDER}/adapters_json/0a1d4ef5/config.json"
 
 
 # iterate over all directories in 2k_test_run/ with a loop
@@ -46,7 +57,9 @@ SOURCE_FILE="${EXPERIMENT_FOLDER}/adapters_json/0a1d4ef5/config.json"
 
 for dir in ${EXPERIMENT_FOLDER}/*; do
     # Skip the adapters_json directory
+    # For epoch scaling 
     if [ -d "$dir" ] && [ "$dir" != "${EXPERIMENT_FOLDER}/adapters_json" ] && [[ "$dir" == *"_iter_-1" ]]; then
+    # for ds scaling 
     # if [ -d "$dir" ] && [ "$dir" != "${EXPERIMENT_FOLDER}/adapters_json" ]; then
         TARGET_DIR="$dir"
 

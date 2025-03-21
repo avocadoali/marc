@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-#SBATCH --job-name=predict-epoch-scaling-barc-finetuned-1-4-ft-model
+#SBATCH --job-name=pred-barc-es-ft-5-7-10-12
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
 #SBATCH --gres=gpu:4
 #SBATCH --cpus-per-task=12
-#SBATCH --time=9:00:00
-#SBATCH --partition=accelerated-h100
+#SBATCH --time=8:00:00
+#SBATCH --partition=accelerated
 #SBATCH --account=hk-project-pai00039
 #SBATCH --output=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
 #SBATCH --error=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
@@ -40,11 +40,18 @@ temperature=0
 n_sample=1
 
 # this should be same as your ttt
+# max_lora_rank=128
+# adapters_folder=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling_8_barc/epoch_scaling_barc_finetuned_redo
+# output_folder=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling_8_barc/epoch_scaling_barc_finetuned_redo_output
+# output_log_folder=${output_folder}/logs
+# mkdir -p $output_log_folder                                                                                     
+
 max_lora_rank=128
-adapters_folder=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling_8_barc/epoch_scaling_barc_finetuned_redo
-output_folder=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling_8_barc/epoch_scaling_barc_finetuned_redo_output
+adapters_folder=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/epoch_scaling_complete_rerun/epoch_scaling_barc/epoch_scaling_barc_finetuned
+output_folder=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/epoch_scaling_complete_rerun/epoch_scaling_barc/epoch_scaling_barc_finetuned_output
 output_log_folder=${output_folder}/logs
 mkdir -p $output_log_folder                                                                                     
+
 
 run_prediction() {
     local gpu_id=$1
@@ -73,15 +80,39 @@ run_prediction() {
         --barc_format | tee $output_log_folder/slurm_epoch_${prev_epoch}.log
 }
 
-run_prediction 0 1 &
-run_prediction 1 2 &
-run_prediction 2 3 &
-run_prediction 3 4 &
+# run_prediction 0 1 &
+# run_prediction 1 2 &
+# run_prediction 2 3 &
+# run_prediction 3 4 &
+
 
 # run_prediction 0 5 &
 # run_prediction 1 6 &
 # run_prediction 2 7 &
 # run_prediction 3 8 &
+
+# run_prediction 0 9 &
+# run_prediction 1 10 &
+# run_prediction 2 11 &
+# run_prediction 3 12 &
+
+# run_prediction 0 13 &
+# run_prediction 1 14 &
+# run_prediction 2 15 &
+# run_prediction 3 16 &
+
+
+
+
+# run_prediction 0 6 &
+# run_prediction 1 8 &
+# run_prediction 2 14 &
+# run_prediction 3 16 &
+
+run_prediction 0 5 &
+run_prediction 1 7 &
+run_prediction 2 10 &
+run_prediction 3 12 &
 
 
 

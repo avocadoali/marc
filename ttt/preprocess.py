@@ -203,9 +203,9 @@ def get_formatted_data(
     leave_n: int = 1,
     permute_n: int = 1,
     seed: int = 0,
-    # max_tokens: int = 8192,
+    max_tokens: int = 8192,
     # max_tokens: int = 15000,
-    max_tokens: int = 20000,
+    # max_tokens: int = 20000,
 ):
 
     train_data = get_test_time_train_data(
@@ -243,6 +243,8 @@ def get_formatted_data(
     # print(f"Filtered bc too many tokens needed: {n_filtered}")
     # print highest 5 token sizes
     # print(f"Highest 5 token sizes: {sorted(token_sizes, reverse=True)[:5]}")
+    # print(f"Ma    data = p.map(processor, arc_test_tasks)
+
     # print(f"Max token size: {max_token_size}")
     return formatted_data
 

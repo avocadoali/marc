@@ -46,13 +46,18 @@ nmax=250
 # mkdir -p $ttt_folder
 
 # complete rerun
-scratch_dir=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/epoch_scaling_complete_rerun
-ttt_experiment_folder="${scratch_dir}/epoch_scaling_ekin"
-# experiment_name="epoch_scaling_ekin_finetuned"
-experiment_name="epoch_scaling_ekin_non_finetuned"
+# scratch_dir=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/epoch_scaling_complete_rerun_8k
+# ttt_experiment_folder="${scratch_dir}/epoch_scaling_ekin"
+# # experiment_name="epoch_scaling_ekin_finetuned"
+# experiment_name="epoch_scaling_ekin_non_finetuned"
+# ttt_folder="${ttt_experiment_folder}/${experiment_name}/adapters_json"
+# mkdir -p $ttt_folder
+
+scratch_dir=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/epoch_scaling_complete_rerun_8k
+ttt_experiment_folder="${scratch_dir}/epoch_scaling_barc"
+experiment_name="epoch_scaling_barc_non_finetuned"
 ttt_folder="${ttt_experiment_folder}/${experiment_name}/adapters_json"
 mkdir -p $ttt_folder
-
 
 
 python debug_transformations.py --lora_config=$lora_config_file \
@@ -70,7 +75,7 @@ python debug_transformations.py --lora_config=$lora_config_file \
 --lora_to_output=$lora_to_output \
 --experiment_name=$experiment_name \
 --cpus=264 \
---new_format
+--barc_format
 
 echo "Done at $(date +%Y-%m-%d_%H-%M-%S)"
 # time taken
