@@ -2,8 +2,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Set up the figure with two subplots side by side
-fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(20, 8))
+# Set up the figure with 2x2 subplots
+fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(16, 16))
 sns.set_style("whitegrid")
 
 # Function to create plot for each dataset
@@ -48,16 +48,28 @@ def create_plot(data_path, ax, title):
     ax.grid(True, linestyle='--', alpha=0.7)
 
 # Create plots for both datasets
-create_plot('evaluation/data_es/epoch_scaling_barc_non_finetuned_output_combined_results.csv', 
-           ax1, 'Non-Finetuned Model Performance')
+
 create_plot('evaluation/data_es/epoch_scaling_barc_finetuned_output_combined_results.csv', 
-           ax2, 'Finetuned Model Performance')
+           ax1, 'Finetuned Model Performance')
+
+create_plot('evaluation/data_es/epoch_scaling_barc_finetuned_output_combined_results_oracle.csv', 
+           ax2, 'Finetuned Oracle Model Performance')
+
+
+
+create_plot('evaluation/data_es/epoch_scaling_barc_non_finetuned_output_combined_results.csv', 
+           ax3, 'Non-Finetuned Model Performance')
+
+create_plot('evaluation/data_es/epoch_scaling_barc_non_finetuned_output_combined_results_oracle.csv', 
+           ax4, 'Non-Finetuned Oracle Model Performance')
+
+
 
 # Add a super title
 fig.suptitle('Model Performance Comparison Across Training Epochs', fontsize=16, y=1.05)
 
 # Adjust layout and save
 plt.tight_layout()
-plt.savefig('evaluation/plots_es/training_progression_comparison_es_marc_barc.png', 
+plt.savefig('evaluation/plots_es/training_progression_comparison_es_barc.png', 
             dpi=300, bbox_inches='tight')
 plt.close()
