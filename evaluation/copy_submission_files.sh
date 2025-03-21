@@ -18,17 +18,18 @@
 # Rerun experiments
 
 # epoch_scaling_complete_rerun/epoch_scaling_barc/epoch_scaling_barc_finetuned
-# EXPERIMENT_NAME="epoch_scaling_complete_rerun/epoch_scaling_barc/epoch_scaling_barc_finetuned"
-# DST_DIR="experiments_submission_files/${EXPERIMENT_NAME}"
-# mkdir -p ${DST_DIR}
-# # barc epoch scaling non finetuned model
-# EXPERIMENT_FOLDER="/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/${EXPERIMENT_NAME}"
+EXPERIMENT_NAME="epoch_scaling_complete_rerun/epoch_scaling_barc/"
+DST_DIR="experiments_submission_files/${EXPERIMENT_NAME}"
+mkdir -p ${DST_DIR}
+# barc epoch scaling non finetuned model
+EXPERIMENT_FOLDER="/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/${EXPERIMENT_NAME}"
 
 
 
 
 # Iterate only through directories that end with _output
 for dir in ${EXPERIMENT_FOLDER}/*_output*; do
+    echo "Processing $dir"
     # and ends with _output
     if [ -d "$dir" ] && [[ "$dir" == *"_output" ]]; then
     # if [ -d "$dir" ] && [[ "$dir" == *"_output_subset" ]]; then

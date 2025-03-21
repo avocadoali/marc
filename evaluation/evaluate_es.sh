@@ -2,12 +2,20 @@
 
 
 # BARC
-base_path="experiments_submission_files/experiments_thesis_epoch_scaling_8_barc/epoch_scaling_barc_non_finetuned_output"
+# base_path="experiments_submission_files/experiments_thesis_epoch_scaling_8_barc/epoch_scaling_barc_non_finetuned_output"
 # base_path="experiments_submission_files/experiments_thesis_epoch_scaling_8_barc/epoch_scaling_barc_finetuned_redo_output"
 
 # Ekin
 # base_path="experiments_submission_files/experiments_thesis_epoch_scaling_8/epoch_scaling_ekin_output"
 # base_path="experiments_submission_files/experiments_thesis_epoch_scaling_8/epoch_scaling_llama_output"
+
+
+# Rerun experiments
+# BARC 
+# base_path="experiments_submission_files/epoch_scaling_complete_rerun/epoch_scaling_barc/epoch_scaling_barc_finetuned_output"
+base_path="experiments_submission_files/epoch_scaling_complete_rerun/epoch_scaling_barc/epoch_scaling_barc_non_finetuned_output"
+
+
 
 # Create CSV header
 rm -f ${base_path}/level_results.csv
@@ -17,6 +25,15 @@ evaluate_submission() {
     local x=$1
     local base_path=$2
     local submission_path="${base_path}/adapters_json_ep_${x}_iter_-1/submission_default.json"
+
+    # skip if file not exists
+    if [ ! -f "${submission_path}" ]; then
+        echo "File ${submission_path} does not exist"
+        echo ""
+        echo ""
+        echo ""
+        return
+    fi
 
     echo "Evaluating epoch ${x}..."
     echo "Submission path: ${submission_path}"
@@ -42,7 +59,7 @@ evaluate_submission() {
     echo
 }
 
-for x in {0..7}; do
+for x in {0..15}; do
     evaluate_submission $x $base_path
 done
 

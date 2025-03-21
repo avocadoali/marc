@@ -2,13 +2,20 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 import argparse
+import os
 # Read the CSV data
 
 
 def create_plots(base_path, output_name):
     dict_metrics = {}
+    
 
-    for x in [0, 1, 2, 3, 4, 5, 6, 7]:
+    for x in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]:
+               
+        if not os.path.exists(f'{base_path}/adapters_json_ep_{x}_iter_-1/task_info.csv'):
+            print(f'File {base_path}/adapters_json_ep_{x}_iter_-1/task_info.csv does not exist')
+            continue
+
         df = pd.read_csv(f'{base_path}/adapters_json_ep_{x}_iter_-1/task_info.csv')
         # Calculate metrics
         metrics = {
