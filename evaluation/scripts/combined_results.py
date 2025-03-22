@@ -7,8 +7,16 @@ def combine_results(base_path, output_path):
     dfs = []
 
     # Read the first file to get task_id and level columns
-    df_base = pd.read_csv(os.path.join(base_path, "adapters_json_ep_1_iter_-1/task_info.csv"))
+    df_base = pd.read_csv(os.path.join(base_path, "adapters_json_ep_0_iter_-1/task_info.csv"))
     result_df = df_base[['task_id', 'level']]
+
+    # add special epoch 9998 first    
+    file_path = os.path.join(base_path, f"adapters_json_ep_9998_iter_-1/task_info.csv")
+    print(file_path)
+    if os.path.exists(file_path):
+        df = pd.read_csv(file_path)
+        # Add the 'correct' column with the epoch number
+        result_df[f'correct_ep_0'] = df['correct']
 
     # Loop through each epoch (0 to 15)
     for epoch in range(16):
@@ -17,7 +25,7 @@ def combine_results(base_path, output_path):
         if os.path.exists(file_path):
             df = pd.read_csv(file_path)
             # Add the 'correct' column with the epoch number
-            result_df[f'correct_ep_{epoch}'] = df['correct']
+            result_df[f'correct_ep_{epoch+1}'] = df['correct']
 
     # Save the combined dataframe
     print(f"Saving combined results to {output_path}")
@@ -43,6 +51,7 @@ if __name__ == "__main__":
 
     output_path = args.output_path
     out_filename = base_path.split("/")[-1] + "_combined_results.csv"
+    print(f'out_filename: {out_filename}')
 
 
     combine_results(base_path, os.path.join(output_path, out_filename))

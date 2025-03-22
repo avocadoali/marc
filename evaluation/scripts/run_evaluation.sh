@@ -7,12 +7,6 @@ python -m arclib.eval \
     # --submission_file "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling/baseline_epoch_scaling_batch_2_output/adapters_json_ep_1_iter_-1/submission_default.json"
 
 
-
-
-
-
-
-
 # # Loop through all directories in ttt_output_complete that match the pattern ttt_output_*
 # for dir in ttt_output_complete/ttt_output_*; do
 #     # Skip if it's not a directory

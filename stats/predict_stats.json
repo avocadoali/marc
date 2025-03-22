@@ -1267,5 +1267,158 @@
     "avg time per adapter": "0:0:5",
     "correct prediction": 94,
     "total prediction": 419
+  },
+  {
+    "Max Training Size": null,
+    "directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/epoch_scaling_complete_rerun/epoch_scaling_barc/epoch_scaling_barc_finetuned_output/adapters_json_ep_9998_iter_-1",
+    "Adapter Number": "default",
+    "Actual Duration": "0:13:48",
+    "avg time per adapter": "0:0:0",
+    "correct prediction": 135,
+    "total prediction": 419
+  },
+  {
+    "Max Training Size": null,
+    "directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_ds_barc/ds_barc_finetuned_output/adapters_json_ep_0_iter_9999",
+    "Adapter Number": "default",
+    "Actual Duration": "0:35:30",
+    "avg time per adapter": "0:0:0",
+    "correct prediction": 136,
+    "total prediction": 419
+  },
+  {
+    "Max Training Size": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_ds_barc/ds_barc_finetuned/adapters_json_ep_0_iter_420",
+    "directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_ds_barc/ds_barc_finetuned_output/adapters_json_ep_0_iter_420",
+    "Adapter Number": "default",
+    "Actual Duration": "2:4:24",
+    "avg time per adapter": "0:0:1",
+    "correct prediction": 235,
+    "total prediction": 419
+  },
+  {
+    "Max Training Size": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_ds_barc/ds_barc_finetuned/adapters_json_ep_0_iter_265",
+    "directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_ds_barc/ds_barc_finetuned_output/adapters_json_ep_0_iter_265",
+    "Adapter Number": "default",
+    "Actual Duration": "2:10:33",
+    "avg time per adapter": "0:0:1",
+    "correct prediction": 232,
+    "total prediction": 419
+  },
+  {
+    "Max Training Size": null,
+    "directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_ds_barc/ds_barc_non_finetuned_output/adapters_json_ep_0_iter_9999",
+    "Adapter Number": "default",
+    "Actual Duration": "2:32:46",
+    "avg time per adapter": "1:16:23",
+    "correct prediction": 0,
+    "total prediction": 419
+  },
+  {
+    "Max Training Size": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_ds_barc/ds_barc_finetuned/adapters_json_ep_0_iter_75",
+    "directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_ds_barc/ds_barc_finetuned_output/adapters_json_ep_0_iter_75",
+    "Adapter Number": "default",
+    "Actual Duration": "3:12:3",
+    "avg time per adapter": "0:0:2",
+    "correct prediction": 196,
+    "total prediction": 419
+  },
+  {
+    "Max Training Size": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_ds_barc/ds_barc_finetuned/adapters_json_ep_0_iter_100",
+    "directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_ds_barc/ds_barc_finetuned_output/adapters_json_ep_0_iter_100",
+    "Adapter Number": "default",
+    "Actual Duration": "3:21:3",
+    "avg time per adapter": "0:0:2",
+    "correct prediction": 218,
+    "total prediction": 419
+  },
+  {
+    "Max Training Size": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_ds_barc/ds_barc_finetuned/adapters_json_ep_0_iter_50",
+    "directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_ds_barc/ds_barc_finetuned_output/adapters_json_ep_0_iter_50",
+    "Adapter Number": "default",
+    "Actual Duration": "3:38:26",
+    "avg time per adapter": "0:0:2",
+    "correct prediction": 171,
+    "total prediction": 419
+  },
+  {
+    "Max Training Size": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_ds_barc/ds_barc_finetuned/adapters_json_ep_0_iter_25",
+    "directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_ds_barc/ds_barc_finetuned_output/adapters_json_ep_0_iter_25",
+    "Adapter Number": "default",
+    "Actual Duration": "3:47:20",
+    "avg time per adapter": "0:0:2",
+    "correct prediction": 132,
+    "total prediction": 419
+  },
+  {
+    "Max Training Size": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/epoch_scaling_complete_rerun/epoch_scaling_barc/epoch_scaling_barc_non_finetuned/adapters_json_ep_2_iter_-1",
+    "directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/epoch_scaling_complete_rerun/epoch_scaling_barc/epoch_scaling_barc_non_finetuned_output/adapters_json_ep_2_iter_-1",
+    "Adapter Number": "default",
+    "Actual Duration": "3:51:23",
+    "avg time per adapter": "0:0:3",
+    "correct prediction": 97,
+    "total prediction": 419
+  },
+  {
+    "Max Training Size": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_ds_barc/ds_barc_non_finetuned/adapters_json_ep_0_iter_420",
+    "directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_ds_barc/ds_barc_non_finetuned_output/adapters_json_ep_0_iter_420",
+    "Adapter Number": "default",
+    "Actual Duration": "4:7:24",
+    "avg time per adapter": "0:0:3",
+    "correct prediction": 117,
+    "total prediction": 419
+  },
+  {
+    "Max Training Size": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_ds_barc/ds_barc_non_finetuned/adapters_json_ep_0_iter_265",
+    "directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_ds_barc/ds_barc_non_finetuned_output/adapters_json_ep_0_iter_265",
+    "Adapter Number": "default",
+    "Actual Duration": "5:8:8",
+    "avg time per adapter": "0:0:3",
+    "correct prediction": 110,
+    "total prediction": 419
+  },
+  {
+    "Max Training Size": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/epoch_scaling_complete_rerun/epoch_scaling_barc/epoch_scaling_barc_non_finetuned/adapters_json_ep_0_iter_-1",
+    "directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/epoch_scaling_complete_rerun/epoch_scaling_barc/epoch_scaling_barc_non_finetuned_output/adapters_json_ep_0_iter_-1",
+    "Adapter Number": "default",
+    "Actual Duration": "7:9:37",
+    "avg time per adapter": "0:0:6",
+    "correct prediction": 67,
+    "total prediction": 419
+  },
+  {
+    "Max Training Size": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_ds_barc/ds_barc_non_finetuned/adapters_json_ep_0_iter_100",
+    "directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_ds_barc/ds_barc_non_finetuned_output/adapters_json_ep_0_iter_100",
+    "Adapter Number": "default",
+    "Actual Duration": "7:48:24",
+    "avg time per adapter": "0:0:6",
+    "correct prediction": 78,
+    "total prediction": 419
+  },
+  {
+    "Max Training Size": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_ds_barc/ds_barc_non_finetuned/adapters_json_ep_0_iter_75",
+    "directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_ds_barc/ds_barc_non_finetuned_output/adapters_json_ep_0_iter_75",
+    "Adapter Number": "default",
+    "Actual Duration": "8:54:33",
+    "avg time per adapter": "0:0:7",
+    "correct prediction": 69,
+    "total prediction": 419
+  },
+  {
+    "Max Training Size": null,
+    "directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/epoch_scaling_complete_rerun/epoch_scaling_barc/epoch_scaling_barc_non_finetuned_output/adapters_json_ep_9998_iter_-1",
+    "Adapter Number": "default",
+    "Actual Duration": "0:52:48",
+    "avg time per adapter": "0:17:36",
+    "correct prediction": 0,
+    "total prediction": 419
+  },
+  {
+    "Max Training Size": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_ds_barc/ds_barc_finetuned/adapters_json_ep_0_iter_340",
+    "directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_ds_barc/ds_barc_finetuned_output/adapters_json_ep_0_iter_340",
+    "Adapter Number": "default",
+    "Actual Duration": "1:36:4",
+    "avg time per adapter": "0:0:1",
+    "correct prediction": 230,
+    "total prediction": 419
   }
 ]

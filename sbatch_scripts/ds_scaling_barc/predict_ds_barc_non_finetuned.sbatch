@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-#SBATCH --job-name=predict-ds-barc-non-finetuned-rere
+#SBATCH --job-name=predict-ds-barc-non-finetuned-25-50-340
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=4
-#SBATCH --gres=gpu:4
+#SBATCH --ntasks-per-node=3
+#SBATCH --gres=gpu:3
 #SBATCH --cpus-per-task=12
-#SBATCH --time=10:00:00
-#SBATCH --partition=accelerated-h100
+#SBATCH --time=20:00:00
+#SBATCH --partition=accelerated
 #SBATCH --account=hk-project-pai00039
 #SBATCH --output=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
 #SBATCH --error=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
@@ -74,10 +74,52 @@ run_prediction() {
         --barc_format | tee $output_log_folder/slurm_iter_${iter}.log
 }
 
-run_prediction 0 20  &
-run_prediction 1 125 &
-run_prediction 2 300 &
-run_prediction 3 500 &
+
+
+run_prediction_null() {
+    local gpu_id=$1
+    local iter=$2
+
+    # Set up folders
+    ttt_folder=${adapters_folder}/adapters_json_ep_0_iter_${iter}
+    tti_folder=${output_folder}/adapters_json_ep_0_iter_${iter}
+    mkdir -p $tti_folder
+
+    echo "iter ${iter}" | tee $output_log_folder/slurm_iter_${iter}.log
+    echo "ttt_folder: ${ttt_folder}" | tee $output_log_folder/slurm_iter_${iter}.log
+    echo "tti_folder: ${tti_folder}" | tee $output_log_folder/slurm_iter_${iter}.log
+
+    CUDA_VISIBLE_DEVICES=$gpu_id python predict.py \
+        --experiment_folder=$tti_folder \
+        --pretrained_checkpoint=$base_checkpoint_dir \
+        --temperature=$temperature \
+        --n_sample=$n_sample \
+        --data_file=$data_file \
+        --solution_file=$solution_file \
+        --max_lora_rank=$max_lora_rank \
+        --include_n=1 \
+        --barc_format | tee $output_log_folder/slurm_iter_${iter}.log
+}
+
+
+
+
+# run_prediction 0 20  &
+# run_prediction 1 125 &
+# run_prediction 2 300 &
+# run_prediction 3 500 &
+
+run_prediction 0 25  &
+run_prediction 1 50 &
+run_prediction 2 340 &
+# run_prediction 3 100 &
+
+
+# run_prediction 0 265  &
+# run_prediction 1 240 &
+# run_prediction 2 420 &
+# run_prediction_null 3 9999 &
+
 
 # Wait for all background processes to complete
 wait

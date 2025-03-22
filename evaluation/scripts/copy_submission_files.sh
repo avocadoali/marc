@@ -15,15 +15,22 @@
 # EXPERIMENT_FOLDER="/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/${EXPERIMENT_NAME}"
 
 
-# Rerun experiments
+# Epoch Scalig Rerun experiments
 
 # epoch_scaling_complete_rerun/epoch_scaling_barc/epoch_scaling_barc_finetuned
-EXPERIMENT_NAME="epoch_scaling_complete_rerun/epoch_scaling_barc/"
+# EXPERIMENT_NAME="epoch_scaling_complete_rerun/epoch_scaling_barc/"
+# DST_DIR="experiments_submission_files/${EXPERIMENT_NAME}"
+# mkdir -p ${DST_DIR}
+# # barc epoch scaling non finetuned model
+# EXPERIMENT_FOLDER="/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/${EXPERIMENT_NAME}"
+
+
+# Dataset Scaling Rerun experiments
+
+EXPERIMENT_NAME="experiments_thesis_ds_barc/"
 DST_DIR="experiments_submission_files/${EXPERIMENT_NAME}"
 mkdir -p ${DST_DIR}
-# barc epoch scaling non finetuned model
 EXPERIMENT_FOLDER="/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/${EXPERIMENT_NAME}"
-
 
 
 

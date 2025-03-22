@@ -12,8 +12,8 @@
 
 # Rerun experiments
 # BARC 
-# base_path="experiments_submission_files/epoch_scaling_complete_rerun/epoch_scaling_barc/epoch_scaling_barc_finetuned_output"
-base_path="experiments_submission_files/epoch_scaling_complete_rerun/epoch_scaling_barc/epoch_scaling_barc_non_finetuned_output"
+base_path="experiments_submission_files/epoch_scaling_complete_rerun/epoch_scaling_barc/epoch_scaling_barc_finetuned_output"
+# base_path="experiments_sukbmission_files/epoch_scaling_complete_rerun/epoch_scaling_barc/epoch_scaling_barc_non_finetuned_output"
 
 
 
@@ -59,8 +59,16 @@ evaluate_submission() {
     echo
 }
 
+# Special epoch 9998
+x=9998
+evaluate_submission $x $base_path
+
+
+# Other epochs
 for x in {0..15}; do
     evaluate_submission $x $base_path
 done
 
-python evaluation/create_plots_es.py --base_path=$base_path
+
+
+# python evaluation/create_plots_es.py --base_path=$base_path

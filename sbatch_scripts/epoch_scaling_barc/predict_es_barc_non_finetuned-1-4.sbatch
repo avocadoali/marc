@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-#SBATCH --job-name=pred-barc-es-non-ft-5-7-10-12
+#SBATCH --job-name=pred-barc-es-non-ft-null
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=4
+#SBATCH --ntasks-per-node=1
 #SBATCH --gres=gpu:4
 #SBATCH --cpus-per-task=12
 #SBATCH --time=8:00:00
@@ -84,6 +84,33 @@ run_prediction() {
         --barc_format | tee $output_log_folder/slurm_epoch_${prev_epoch}.log
 }
 
+run_prediction_null() {
+    local gpu_id=$1
+    local epoch=$2
+    local prev_epoch=$((epoch - 1))
+
+    # Set up folders
+    ttt_folder=${adapters_folder}/adapters_json_ep_${prev_epoch}_iter_-1
+    tti_folder=${output_folder}/adapters_json_ep_${prev_epoch}_iter_-1
+    mkdir -p $tti_folder
+
+    echo "Epoch ${epoch}" | tee $output_log_folder/slurm_epoch_${prev_epoch}.log
+    echo "ttt_folder: ${ttt_folder}"
+    echo "tti_folder: ${tti_folder}"
+
+    python predict.py \
+        --experiment_folder=$tti_folder \
+        --pretrained_checkpoint=$base_checkpoint_dir \
+        --temperature=$temperature \
+        --n_sample=$n_sample \
+        --data_file=$data_file \
+        --solution_file=$solution_file \
+        --max_lora_rank=$max_lora_rank \
+        --include_n=1 \
+        --num_gpus=4 \
+        --barc_format | tee $output_log_folder/slurm_epoch_${prev_epoch}.log
+}
+
 # run_prediction 0 1 &
 # run_prediction 1 2 &
 # run_prediction 2 3 &
@@ -117,11 +144,15 @@ run_prediction() {
 # run_prediction 2 10 &
 # run_prediction 3 14 &
 
-# 5 7 10 12
-run_prediction 0 5 &
-run_prediction 1 7 &
-run_prediction 2 10 &
-run_prediction 3 12 &
+# # 5 7 10 12
+# run_prediction 0 5 &
+# run_prediction 1 7 &
+# run_prediction 2 10 &
+# run_prediction 3 12 &
+
+# run_prediction 0 1 &
+# run_prediction 1 3 &
+run_prediction_null 3 9999 &
 
 
 
