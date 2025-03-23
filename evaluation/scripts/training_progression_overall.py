@@ -41,7 +41,7 @@ sns.lineplot(
     markersize=5,
     label='Finetuned Oracle Model',
     color='green',  # Green with transparency for finetuned oracle
-    alpha=0.3,
+    alpha=0.5,
     ax=ax
 )
 
@@ -66,7 +66,7 @@ sns.lineplot(
     markersize=5,
     label='Non-Finetuned Oracle Model',
     color='blue',  # Blue with transparency for non-finetuned oracle
-    alpha=0.3,
+    alpha=0.5,
     ax=ax
 )
 

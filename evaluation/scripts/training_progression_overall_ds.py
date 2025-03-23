@@ -38,7 +38,7 @@ sns.lineplot(
     x='Iteration',
     y='Success Rate (%)',
     marker='o',
-    markersize=8,
+    markersize=5,
     label='Finetuned Oracle Model',
     color='green',  # Green with transparency for finetuned oracle
     alpha=0.5,
@@ -61,7 +61,7 @@ sns.lineplot(
     x='Iteration',
     y='Success Rate (%)',
     marker='o',
-    markersize=8,
+    markersize=5,
     label='Non-Finetuned Oracle Model',
     color='blue',  # Blue with transparency for non-finetuned oracle
     alpha=0.5,
