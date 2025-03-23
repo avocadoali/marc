@@ -81,11 +81,11 @@ sns.lineplot(
 
 
 # Set title and labels
-ax.set_title('Model Success Rate Comparison Across Training Iterations', fontsize=14, pad=20)
+ax.set_title('BARC: Dataset Scaling Performance', fontsize=14, pad=20)
 ax.set_xlabel('Iteration', fontsize=12)
 ax.set_ylabel('Success Rate (%)', fontsize=12)
 ax.grid(True, linestyle='--', alpha=0.7)
-ax.legend(fontsize=10)
+ax.legend(fontsize=10, loc='lower right')
 
 # Adjust layout and save
 plt.tight_layout()
