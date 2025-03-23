@@ -40,26 +40,7 @@ sns.lineplot(
     marker='o',
     markersize=8,
     label='Non-Finetuned Model',
-    ax=ax
-)
-
-sns.lineplot(
-    data=finetuned_data,
-    x='Iteration',
-    y='Success Rate (%)',
-    marker='o',
-    markersize=8,
-    label='Finetuned Model',
-    ax=ax
-)
-
-sns.lineplot(
-    data=finetuned_oracle_data,
-    x='Iteration',
-    y='Success Rate (%)',
-    marker='o',
-    markersize=8,
-    label='Finetuned Oracle Model',
+    color='darkblue',  # Dark blue for non-finetuned
     ax=ax
 )
 
@@ -70,6 +51,31 @@ sns.lineplot(
     marker='o',
     markersize=8,
     label='Non-Finetuned Oracle Model',
+    color='blue',  # Blue with transparency for non-finetuned oracle
+    alpha=0.5,
+    ax=ax
+)
+
+sns.lineplot(
+    data=finetuned_data,
+    x='Iteration',
+    y='Success Rate (%)',
+    marker='o',
+    markersize=8,
+    label='Finetuned Model',
+    color='darkgreen',  # Dark green for finetuned
+    ax=ax
+)
+
+sns.lineplot(
+    data=finetuned_oracle_data,
+    x='Iteration',
+    y='Success Rate (%)',
+    marker='o',
+    markersize=8,
+    label='Finetuned Oracle Model',
+    color='green',  # Green with transparency for finetuned oracle
+    alpha=0.5,
     ax=ax
 )
 
@@ -83,6 +89,20 @@ ax.legend(fontsize=10)
 
 # Adjust layout and save
 plt.tight_layout()
-plt.savefig('evaluation/plots_ds/training_progression_comparison_overall_ds_barc.png', 
+plt.savefig('evaluation/plots_ds/barc_ds_performance.png', 
             dpi=300, bbox_inches='tight')
 plt.close()
+
+
+
+# Save all datapoints to CSV
+combined_data = pd.DataFrame({
+    'Iteration': non_finetuned_data['Iteration'],
+    'Non-Finetuned': non_finetuned_data['Success Rate (%)'],
+    'Non-Finetuned Oracle': non_finetuned_oracle_data['Success Rate (%)'],
+    'Finetuned': finetuned_data['Success Rate (%)'],
+    'Finetuned Oracle': finetuned_oracle_data['Success Rate (%)']
+})
+combined_data.to_csv('evaluation/plots_ds/barc_ds_performance_data.csv', index=False)
+
+

@@ -34,14 +34,18 @@ non_finetuned_oracle_data = create_plot_data('evaluation/data_es/epoch_scaling_b
 
 # Plot all lines on the same axes
 sns.lineplot(
-    data=non_finetuned_data,
+    data=finetuned_oracle_data,
     x='Epoch',
     y='Success Rate (%)',
     marker='o',
-    markersize=8,
-    label='Non-Finetuned Model',
+    markersize=5,
+    label='Finetuned Oracle Model',
+    color='green',  # Green with transparency for finetuned oracle
+    alpha=0.3,
     ax=ax
 )
+
+
 
 sns.lineplot(
     data=finetuned_data,
@@ -50,16 +54,7 @@ sns.lineplot(
     marker='o',
     markersize=8,
     label='Finetuned Model',
-    ax=ax
-)
-
-sns.lineplot(
-    data=finetuned_oracle_data,
-    x='Epoch',
-    y='Success Rate (%)',
-    marker='o',
-    markersize=8,
-    label='Finetuned Oracle Model',
+    color='darkgreen',  # Dark green for finetuned
     ax=ax
 )
 
@@ -68,14 +63,30 @@ sns.lineplot(
     x='Epoch',
     y='Success Rate (%)',
     marker='o',
-    markersize=8,
+    markersize=5,
     label='Non-Finetuned Oracle Model',
+    color='blue',  # Blue with transparency for non-finetuned oracle
+    alpha=0.3,
     ax=ax
 )
 
 
+
+sns.lineplot(
+    data=non_finetuned_data,
+    x='Epoch',
+    y='Success Rate (%)',
+    marker='o',
+    markersize=8,
+    label='Non-Finetuned Model',
+    color='darkblue',  # Dark blue for non-finetuned
+    ax=ax
+)
+
+
+
 # Set title and labels
-ax.set_title('Model Success Rate Comparison Across Training Epochs', fontsize=14, pad=20)
+ax.set_title('BARC: Epoch Scaling Performance', fontsize=14, pad=20)
 ax.set_xlabel('Epoch', fontsize=12)
 ax.set_ylabel('Success Rate (%)', fontsize=12)
 ax.grid(True, linestyle='--', alpha=0.7)
@@ -83,6 +94,19 @@ ax.legend(fontsize=10)
 
 # Adjust layout and save
 plt.tight_layout()
-plt.savefig('evaluation/plots_es/training_progression_comparison_overall_es_barc.png', 
+plt.savefig('evaluation/plots_es/barc_es_performance.png', 
             dpi=300, bbox_inches='tight')
 plt.close()
+
+
+
+# Save all datapoints to CSV
+combined_data = pd.DataFrame({
+    'Epoch': non_finetuned_data['Epoch'],
+    'Non-Finetuned': non_finetuned_data['Success Rate (%)'],
+    'Non-Finetuned Oracle': non_finetuned_oracle_data['Success Rate (%)'],
+    'Finetuned': finetuned_data['Success Rate (%)'],
+    'Finetuned Oracle': finetuned_oracle_data['Success Rate (%)']
+})
+combined_data.to_csv('evaluation/plots_es/barc_es_performance_data.csv', index=False)
+
