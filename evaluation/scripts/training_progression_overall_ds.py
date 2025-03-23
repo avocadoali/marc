@@ -34,24 +34,13 @@ non_finetuned_oracle_data = create_plot_data('evaluation/data_ds/ds_barc_non_fin
 
 # Plot all lines on the same axes
 sns.lineplot(
-    data=non_finetuned_data,
+    data=finetuned_oracle_data,
     x='Iteration',
     y='Success Rate (%)',
     marker='o',
     markersize=8,
-    label='Non-Finetuned Model',
-    color='darkblue',  # Dark blue for non-finetuned
-    ax=ax
-)
-
-sns.lineplot(
-    data=non_finetuned_oracle_data,
-    x='Iteration',
-    y='Success Rate (%)',
-    marker='o',
-    markersize=8,
-    label='Non-Finetuned Oracle Model',
-    color='blue',  # Blue with transparency for non-finetuned oracle
+    label='Finetuned Oracle Model',
+    color='green',  # Green with transparency for finetuned oracle
     alpha=0.5,
     ax=ax
 )
@@ -68,16 +57,29 @@ sns.lineplot(
 )
 
 sns.lineplot(
-    data=finetuned_oracle_data,
+    data=non_finetuned_oracle_data,
     x='Iteration',
     y='Success Rate (%)',
     marker='o',
     markersize=8,
-    label='Finetuned Oracle Model',
-    color='green',  # Green with transparency for finetuned oracle
+    label='Non-Finetuned Oracle Model',
+    color='blue',  # Blue with transparency for non-finetuned oracle
     alpha=0.5,
     ax=ax
 )
+
+sns.lineplot(
+    data=non_finetuned_data,
+    x='Iteration',
+    y='Success Rate (%)',
+    marker='o',
+    markersize=8,
+    label='Non-Finetuned Model',
+    color='darkblue',  # Dark blue for non-finetuned
+    ax=ax
+)
+
+
 
 
 # Set title and labels
