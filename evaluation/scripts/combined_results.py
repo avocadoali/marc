@@ -7,7 +7,7 @@ def combine_results(base_path, output_path):
     dfs = []
 
     # Read the first file to get task_id and level columns
-    df_base = pd.read_csv(os.path.join(base_path, "adapters_json_ep_0_iter_-1/task_info.csv"))
+    df_base = pd.read_csv(os.path.join(base_path, "adapters_json_ep_9998_iter_-1/task_info.csv"))
     result_df = df_base[['task_id', 'level']]
 
     # add special epoch 9998 first    

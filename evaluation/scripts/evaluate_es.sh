@@ -12,9 +12,8 @@
 
 # Rerun experiments
 # BARC 
-base_path="experiments_submission_files/epoch_scaling_complete_rerun/epoch_scaling_barc/epoch_scaling_barc_finetuned_output"
-# base_path="experiments_sukbmission_files/epoch_scaling_complete_rerun/epoch_scaling_barc/epoch_scaling_barc_non_finetuned_output"
-
+# base_path="experiments_submission_files/epoch_scaling_complete_rerun/epoch_scaling_barc/epoch_scaling_barc_finetuned_output"
+base_path="experiments_submission_files/epoch_scaling_complete_rerun/epoch_scaling_barc/epoch_scaling_barc_non_finetuned_output"
 
 
 # Create CSV header

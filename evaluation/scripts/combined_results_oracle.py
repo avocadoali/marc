@@ -25,16 +25,18 @@ def __main__():
     parser = argparse.ArgumentParser()
     parser.add_argument("--input_path", 
                         type=str, 
-                        default='evaluation/data_es/epoch_scaling_barc_finetuned_output_combined_results.csv',
-                        required=True)
+                        default='evaluation/data_es/epoch_scaling_barc_finetuned_output_combined_results.csv')
     parser.add_argument("--output_path", 
                         type=str, 
-                        default='evaluation/data_es/epoch_scaling_barc_finetuned_output_combined_results_oracle.csv',
-                        required=True)
+                        default='evaluation/data_es/epoch_scaling_barc_finetuned_output_combined_results_oracle.csv')
     args = parser.parse_args()
 
     input_path = args.input_path
     output_path = args.output_path
+
+
+    # input_path = "evaluation/data_es/epoch_scaling_barc_finetuned_output_combined_results.csv"
+    # output_path = "evaluation/data_es/epoch_scaling_barc_finetuned_output_combined_results_oracle.csv"
 
     create_oracle_version(input_path, output_path)
 

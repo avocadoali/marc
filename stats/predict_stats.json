@@ -1420,5 +1420,23 @@
     "avg time per adapter": "0:0:1",
     "correct prediction": 230,
     "total prediction": 419
+  },
+  {
+    "Max Training Size": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_ds_barc/ds_barc_non_finetuned/adapters_json_ep_0_iter_340",
+    "directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_ds_barc/ds_barc_non_finetuned_output/adapters_json_ep_0_iter_340",
+    "Adapter Number": "default",
+    "Actual Duration": "5:7:5",
+    "avg time per adapter": "0:0:3",
+    "correct prediction": 120,
+    "total prediction": 419
+  },
+  {
+    "Max Training Size": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_ds_barc/ds_barc_non_finetuned/adapters_json_ep_0_iter_50",
+    "directory": "/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_ds_barc/ds_barc_non_finetuned_output/adapters_json_ep_0_iter_50",
+    "Adapter Number": "default",
+    "Actual Duration": "11:11:55",
+    "avg time per adapter": "0:0:10",
+    "correct prediction": 53,
+    "total prediction": 419
   }
 ]

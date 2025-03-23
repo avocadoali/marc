@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-#SBATCH --job-name=predict-epoch-scaling-ekin-1-4-redo
+#SBATCH --job-name=predict-epoch-scaling-ekin-1-5-9-13
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
 #SBATCH --gres=gpu:4
 #SBATCH --cpus-per-task=12
-#SBATCH --time=4:00:00
+#SBATCH --time=12:00:00
 #SBATCH --partition=accelerated-h100
 #SBATCH --account=hk-project-pai00039
 #SBATCH --output=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/logs_default/slurm_%j.log
@@ -47,22 +47,33 @@ logs_predict_folder=logs_predict/multi_batch
 mkdir -p $logs_predict_folder
 
 
-adapters_folder=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling_8/epoch_scaling_ekin
-output_folder=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling_8/epoch_scaling_ekin_output
+
+
+# adapters_folder=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling_8/epoch_scaling_ekin
+# output_folder=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/experiments_thesis_epoch_scaling_8/epoch_scaling_ekin_output
+# output_log_folder=${output_folder}/logs
+# mkdir -p $output_log_folder                                                                                     
+
+
+# epochs complete rerun
+adapters_folder=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/epoch_scaling_complete_rerun/epoch_scaling_ekin/epoch_scaling_ekin_finetuned
+output_folder=/hkfs/work/workspace/scratch/tum_ind3695-arc-workspace/epoch_scaling_complete_rerun/epoch_scaling_ekin/epoch_scaling_ekin_finetuned_output
 output_log_folder=${output_folder}/logs
 mkdir -p $output_log_folder                                                                                     
 
+
+
+
 run_prediction() {
-    local epoch=$1
-    local gpu_id=$2
-    local prev_epoch=$((epoch - 1))
+    local gpu_id=$1
+    local epoch=$2
 
     # Set up folders
-    ttt_folder=${adapters_folder}/adapters_json_ep_${prev_epoch}_iter_-1
-    tti_folder=${output_folder}/adapters_json_ep_${prev_epoch}_iter_-1
+    ttt_folder=${adapters_folder}/adapters_json_ep_${epoch}_iter_-1
+    tti_folder=${output_folder}/adapters_json_ep_${epoch}_iter_-1
     mkdir -p $tti_folder
 
-    echo "Epoch ${epoch}" | tee $output_log_folder/slurm_epoch_${prev_epoch}.log
+    echo "Epoch ${epoch}" | tee $output_log_folder/slurm_epoch_${epoch}.log
     echo "ttt_folder: ${ttt_folder}"
     echo "tti_folder: ${tti_folder}"
 
@@ -76,13 +87,20 @@ run_prediction() {
         --solution_file=$solution_file \
         --max_lora_rank=$max_lora_rank \
         --include_n=1 \
-        --new_format | tee $output_log_folder/slurm_epoch_${prev_epoch}.log &
+        --new_format | tee $output_log_folder/slurm_epoch_${epoch}.log &
 }
 
-run_prediction 1 0
-run_prediction 2 1
-run_prediction 3 2
-run_prediction 4 3
+# run_prediction 0 3
+# run_prediction 1 7 
+# run_prediction 2 11 
+# run_prediction 3 15
+
+
+run_prediction 0 1
+run_prediction 1 5 
+run_prediction 2 9 
+run_prediction 3 13
+
 
 # Wait for all background processes to complete
 wait
